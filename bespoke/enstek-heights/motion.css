@@ -1,0 +1,66 @@
+/* Sonny sketch kit — page primitives for motion wireframes (sonny/tools/sketch-kit/README.md).
+   A sketch sets its own tokens (--ground, --ink, --muted, --action, fonts) and uses these primitives. */
+
+:root {
+  --wf-speed: 1;
+  --wf-settle: cubic-bezier(0.16, 1, 0.3, 1);
+  --wf-standard: cubic-bezier(0.2, 0, 0, 1);
+  --wf-hatch: color-mix(in srgb, var(--ink, #111) 14%, transparent);
+  --wf-pin: #ff5f1f;
+}
+
+/* Grey, labelled placeholders: images, film, product screens. Never real assets. */
+.wf-img {
+  position: relative; display: block; width: 100%; aspect-ratio: var(--ar, 4 / 3);
+  background: repeating-linear-gradient(135deg, var(--wf-hatch) 0 1px, transparent 1px 11px),
+    color-mix(in srgb, var(--ink, #111) 5%, var(--ground, #fff));
+  outline: 1px solid color-mix(in srgb, var(--ink, #111) 18%, transparent); outline-offset: -1px;
+}
+.wf-img::after {
+  content: attr(data-label); position: absolute; left: 10px; bottom: 8px; right: 10px;
+  font: 500 11px/1.35 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: 0.02em;
+  color: color-mix(in srgb, var(--ink, #111) 62%, transparent);
+}
+.wf-standin { font: 500 10px/1.3 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: 0.04em; opacity: 0.6; }
+
+/* Motion primitives. Only armed when the kit's script runs: without it every element is simply there. */
+.wf-armed [data-in] {
+  transition-property: opacity, transform, clip-path, color, background-color;
+  transition-duration: calc(var(--d, 600ms) / var(--wf-speed));
+  transition-timing-function: var(--ease, var(--wf-settle));
+  transition-delay: 0s;
+}
+.wf-armed [data-in="fade"]:not(.in) { opacity: 0; }
+.wf-armed [data-in="rise"]:not(.in) { opacity: 0; transform: translateY(0.35em); }
+/* Clip reveals need an explicit end shape: CSS can't animate from inset(...) to no clip at all. */
+.wf-armed [data-in="mask"], .wf-armed [data-in="wipe"], .wf-armed [data-in="aperture"] { clip-path: inset(0 0 0 0 round var(--r, 0px)); }
+.wf-armed [data-in="mask"]:not(.in) { clip-path: inset(0 0 100% 0 round var(--r, 0px)); }
+.wf-armed [data-in="wipe"]:not(.in) { clip-path: inset(0 100% 0 0 round var(--r, 0px)); }
+.wf-armed [data-in="draw"] { transform-origin: left center; }
+.wf-armed [data-in="draw"]:not(.in) { transform: scaleX(0); }
+.wf-armed [data-in="aperture"]:not(.in) { clip-path: inset(var(--ap, 38% 12% 38% 12%) round var(--r, 0px)); }
+.wf-armed [data-in="settle"]:not(.in) { transform: translate(var(--dx, 0), var(--dy, 6px)) rotate(var(--rot, 0deg)); }
+/* Words get their own transition (not `inherit`), so words inside <em> or <b> animate too. */
+.wf-armed [data-in="words"] .wf-w {
+  display: inline-block; transition-property: opacity, transform;
+  transition-duration: calc(var(--d, 600ms) / var(--wf-speed)); transition-timing-function: var(--ease, var(--wf-settle));
+  transition-delay: calc(var(--i) * var(--stagger, 60ms) / var(--wf-speed));
+}
+.wf-armed [data-in="words"]:not(.in) .wf-w { opacity: 0; transform: translateY(0.3em); }
+.wf-armed [data-in="none"] { transition: none; }
+
+/* Reduce Motion: every behaviour becomes an instant change. */
+.wf-reduce [data-in], .wf-reduce [data-in] * { transition: none !important; animation: none !important; }
+
+/* Notes: pins on the decisions a reviewer should check (toggle "Notes" in the viewer). */
+.wf-notes [data-note] { position: relative; outline: 1.5px dashed var(--wf-pin); outline-offset: 3px; }
+.wf-notes [data-note]::before {
+  content: attr(data-note); position: absolute; left: -2px; top: -1.9em; z-index: 60; max-width: 34ch;
+  font: 600 11px/1.3 system-ui, sans-serif; letter-spacing: 0; text-transform: none; color: #fff;
+  background: var(--wf-pin); padding: 3px 7px; border-radius: 3px; white-space: normal; pointer-events: none;
+}
+
+/* Pin a note: hovering shows what a click will pin; a pinned element flashes. */
+.wf-pinning, .wf-pinning * { cursor: crosshair !important; }
+.wf-pin-hover { outline: 1.5px solid var(--wf-pin) !important; outline-offset: 2px; }
+.wf-pinned { outline: 3px solid var(--wf-pin) !important; outline-offset: 3px; }

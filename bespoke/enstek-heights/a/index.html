@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="description" content="Enstek Heights Iris website design concept preview.">
+<title>Enstek Heights · Iris</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap">
+<link rel="stylesheet" href="../motion.css">
+<script src="../motion.js"></script>
+<style>
+  :root {
+    color-scheme: dark;
+    --ground: #141516; --ground-2: #1c1d1f; --ink: #f2efe8; --muted: #a8a49b; --line: rgba(242, 239, 232, 0.13);
+    --gold: #b8883f; --gold-hi: #d6ab62; --sand: #dccdb2; --sand-ink: #1d1b17;
+    --glass: rgba(20, 21, 22, 0.34); --glass-line: rgba(255, 255, 255, 0.26);
+    --sans: "Inter Tight", "Helvetica Neue", Arial, sans-serif; --serif: "Instrument Serif", Georgia, serif;
+    --r: 26px; --gut: 20px;
+  }
+  * { box-sizing: border-box; }
+  html, body { background: var(--ground); }
+  body { margin: 0; color: var(--ink); font: 16px/1.5 var(--sans); -webkit-font-smoothing: antialiased; }
+  img { display: block; max-width: 100%; }
+  a { color: inherit; text-decoration: none; }
+  .wrap { max-width: 1328px; margin: 0 auto; padding: 0 var(--gut); }
+  em { font: italic 400 1.1em/1 var(--serif); letter-spacing: -0.005em; }
+
+  /* glass and pills */
+  .glass { background: var(--glass); -webkit-backdrop-filter: blur(14px) saturate(1.2); backdrop-filter: blur(14px) saturate(1.2); border: 1px solid var(--glass-line); color: #fff; }
+  .pill { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 40px; padding: 0 16px; border-radius: 999px; font: 500 14px/1 var(--sans); white-space: nowrap; }
+  .gold { background: var(--gold); border: 1px solid var(--gold); color: #17130c; font-weight: 600; min-height: 48px; padding: 0 22px; font-size: 15px; }
+  .line { border: 1px solid rgba(242, 239, 232, 0.3); min-height: 44px; }
+  .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--gold-hi); }
+  .tag { position: absolute; z-index: 2; font: 500 11px/1 var(--sans); letter-spacing: 0.02em; padding: 6px 10px; border-radius: 999px; }
+
+  /* first screen: the rounded frame */
+  .hero { padding: 10px; }
+  .frame { position: relative; height: calc(100svh - 20px); min-height: 620px; max-height: 1000px; border-radius: var(--r); overflow: hidden;
+    clip-path: inset(0 round var(--r)); --ap: 16px 12px round var(--r); } /* in-state inset so the kit's aperture interpolates */
+  .frame > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 55% 60%; }
+  .frame::after { content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+    background: linear-gradient(180deg, rgba(12,13,14,.5) 0, rgba(12,13,14,0) 20%, rgba(12,13,14,0) 36%, rgba(12,13,14,.62) 62%, rgba(12,13,14,.9) 100%); }
+  .wf-notes .frame[data-note]::before { top: 118px; left: 16px; }
+  .nav { position: absolute; z-index: 3; top: 0; left: 0; right: 0; display: flex; align-items: center; gap: 8px; padding: 14px 14px 0 18px; }
+  .mark { margin-right: auto; display: flex; flex-direction: column; color: #fff; }
+  .mark b { font: 700 14px/1 var(--sans); letter-spacing: 0.16em; text-transform: uppercase; }
+  .mark span { font: italic 400 16px/1.1 var(--serif); opacity: 0.88; margin-top: 3px; }
+  .links, .nav .rule, .nav .book { display: none; }
+  .frame .illus { top: 74px; right: 14px; }
+  .hero-copy { position: absolute; z-index: 2; left: 0; right: 0; bottom: 0; padding: 0 18px 20px; }
+  .hero-chip { display: inline-flex; align-items: center; gap: 8px; padding: 9px 14px; border-radius: 999px; font: 500 13px/1 var(--sans); }
+  h1 { font: 700 clamp(38px, 10.4vw, 44px)/1 var(--sans); letter-spacing: -0.035em; margin: 16px 0 14px; color: #fff; }
+  h1 em { font-size: 1.12em; line-height: 0.95; letter-spacing: -0.01em; }
+  .wf-armed h1 em { transition: inherit; } /* so the italic words inherit the rise, not a pop */
+  .hero-sub { font-size: 16px; line-height: 1.45; color: rgba(255,255,255,.88); max-width: 34ch; margin: 0 0 18px; }
+  .hero-sub b { color: #fff; font-weight: 600; white-space: nowrap; }
+  .acts { display: flex; flex-wrap: wrap; gap: 10px; }
+  .acts .glass { min-height: 48px; padding: 0 20px; font-size: 15px; }
+
+  /* numbered sections */
+  .sec { padding: 76px 0 0; }
+  .head { display: grid; gap: 14px; margin-bottom: 30px; }
+  .label { margin: 0; font-size: 15px; font-weight: 600; }
+  .label i { display: block; font-style: normal; font-weight: 500; font-size: 13px; color: var(--gold-hi); margin-bottom: 3px; }
+  .statement { margin: 0; font: 400 27px/1.2 var(--sans); letter-spacing: -0.022em; max-width: 24ch; }
+  .small { font-size: 13px; color: var(--muted); margin: 12px 0 0; }
+
+  /* (01) unit cards with glass spec panels */
+  .units { display: grid; gap: 14px; }
+  .card { position: relative; aspect-ratio: 4 / 5; border-radius: 22px; overflow: hidden; background: var(--ground-2); isolation: isolate; }
+  .card > img, .tile > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .card > img { top: auto; height: 125%; } /* lose some sky: the houses sit above the spec panel */
+  .card .illus, .tile .illus { top: 12px; left: 12px; }
+  .spec { position: absolute; z-index: 2; left: 10px; right: 10px; bottom: 10px; padding: 13px 14px 12px; border-radius: 18px; }
+  .spec-top { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; margin-bottom: 9px; }
+  .spec h3 { margin: 0; font: 600 20px/1.1 var(--sans); letter-spacing: -0.015em; }
+  .spec-top a { font-size: 13px; font-weight: 500; border-bottom: 1px solid rgba(255,255,255,.45); padding-bottom: 1px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; }
+  .chip { font: 500 13px/1 var(--sans); padding: 7px 11px; border-radius: 999px; background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.24); }
+  .chip.price { background: #fff; color: #141516; font-weight: 650; border-color: #fff; }
+  .meta { margin: 0; font-size: 13px; color: rgba(255,255,255,.86); }
+  .wf-armed .card[data-in="settle"]:not(.in), .wf-armed .tile[data-in="settle"]:not(.in) { opacity: 0; }
+  .inside { display: grid; gap: 22px; margin-top: 22px; }
+  .inside .wf-img { border-radius: 22px; --ar: 16 / 9; }
+  .specs { list-style: none; margin: 14px 0 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 0 20px; }
+  .specs li { padding: 12px 0; border-top: 1px solid var(--line); font-size: 15px; }
+  .specs li b { display: block; font: 600 20px/1.2 var(--sans); }
+
+  /* (02) township row: swipes on the phone, a row of four on desktop */
+  .row { display: grid; grid-auto-flow: column; grid-auto-columns: 78%; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory;
+    margin: 0 calc(var(--gut) * -1); padding: 0 var(--gut) 4px; scroll-padding: 0 var(--gut); scrollbar-width: none; }
+  .row::-webkit-scrollbar { display: none; }
+  .tile { position: relative; margin: 0; aspect-ratio: 3 / 4; border-radius: 22px; overflow: hidden; scroll-snap-align: start; isolation: isolate; }
+  .tile figcaption { position: absolute; z-index: 2; left: 10px; right: 10px; bottom: 10px; padding: 12px 14px; border-radius: 16px; font: 500 15px/1.25 var(--sans); }
+  .facil { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; padding: 0; margin: 26px 0 0; }
+  .facil li { border: 1px solid var(--line); border-radius: 999px; padding: 9px 14px; font-size: 14px; }
+
+  /* (03) location */
+  .loc { display: grid; gap: 26px; }
+  .map { margin: 0; }
+  .map img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; object-position: 20% 50%; border-radius: 22px; }
+  .map figcaption { font-size: 12px; color: var(--muted); margin-top: 10px; }
+  .times { list-style: none; margin: 0; padding: 0; }
+  .times li { display: flex; justify-content: space-between; gap: 12px; padding: 15px 0; border-top: 1px solid var(--line); font-size: 18px; }
+  .times b { font-weight: 500; color: var(--muted); font-variant-numeric: tabular-nums; }
+
+  /* (04) price & ownership: the sand card */
+  .pricecard { background: var(--sand); color: var(--sand-ink); border-radius: var(--r); padding: 30px 20px 26px; display: grid; gap: 30px; }
+  .pricecard .label i { color: #6b4e1c; }
+  .from { margin: 14px 0 4px; font: 700 48px/1 var(--sans); letter-spacing: -0.035em; white-space: nowrap; }
+  .from span { display: block; font: 500 17px/1.3 var(--sans); letter-spacing: 0; margin-bottom: 4px; }
+  .from sup { font-size: 0.45em; font-weight: 500; }
+  .from-sub { margin: 0 0 20px; font-size: 22px; }
+  .own { list-style: none; margin: 0; padding: 0; }
+  .own li { padding: 11px 0; border-top: 1px solid rgba(29,27,23,.16); font-size: 16px; }
+  table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums lining-nums; }
+  caption { text-align: left; font-size: 13px; color: rgba(29,27,23,.66); padding-bottom: 10px; }
+  th, td { text-align: left; padding: 14px 0; border-top: 1px solid rgba(29,27,23,.18); }
+  th { font-size: 11px; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; color: rgba(29,27,23,.62); }
+  td { font-size: 16px; } td:first-child { font-weight: 600; }
+  th:last-child, td:last-child { text-align: right; }
+  .fine { font-size: 12px; line-height: 1.5; color: rgba(29,27,23,.7); margin: 0; grid-column: 1 / -1; }
+
+  /* enquiry close */
+  .enq { padding-bottom: 88px; }
+  .enq-grid { display: grid; gap: 30px; }
+  .big { margin: 14px 0 14px; font: 700 40px/1.02 var(--sans); letter-spacing: -0.035em; }
+  .enq p { color: var(--muted); max-width: 40ch; }
+  .alt { display: flex; gap: 10px; margin-top: 20px; }
+  form { background: var(--ground-2); border: 1px solid var(--line); border-radius: var(--r); padding: 20px; display: grid; gap: 14px; }
+  form label { display: grid; gap: 7px; font-size: 13px; color: var(--muted); }
+  input, select { font: 16px var(--sans); color: var(--ink); background: transparent; border: 1px solid rgba(242,239,232,.22); border-radius: 14px; height: 52px; padding: 0 16px; width: 100%; }
+  input:focus-visible, select:focus-visible, .pill:focus-visible { outline: 2px solid var(--gold-hi); outline-offset: 2px; }
+  form .gold { width: 100%; margin-top: 4px; font: 600 16px/1 var(--sans); cursor: pointer; }
+  form .small { margin: 0; }
+
+  footer { border-top: 1px solid var(--line); padding: 40px 0 56px; font-size: 14px; color: var(--muted); }
+  footer .mark { margin: 0 0 18px; }
+  footer p { margin: 0 0 10px; max-width: 90ch; }
+  footer .legal { font-size: 12px; }
+
+  /* desktop: the reference's composition */
+  @media (min-width: 960px) {
+    :root { --gut: 56px; --r: 30px; }
+    .hero { padding: 16px; }
+    .frame { height: calc(100svh - 32px); --ap: 26px 36px round var(--r); }
+    .frame > img { object-position: 50% 62%; }
+    .frame::after { background: linear-gradient(180deg, rgba(12,13,14,.45) 0, rgba(12,13,14,0) 18%, rgba(12,13,14,0) 38%, rgba(12,13,14,.55) 60%, rgba(12,13,14,.88) 100%),
+      linear-gradient(90deg, rgba(12,13,14,.5) 0, rgba(12,13,14,0) 55%); }
+    .nav { padding: 24px 28px 0 40px; gap: 10px; }
+    .mark { margin-right: 28px; }
+    .links { display: flex; gap: 6px; }
+    .nav .rule { display: block; flex: 1; height: 1px; background: rgba(255,255,255,.4); margin: 0 14px; }
+    .nav .book { display: inline-flex; }
+    .nav .menu { display: none; }
+    .frame .illus { top: 88px; right: 28px; }
+    .hero-copy { padding: 0 40px 44px; }
+    h1 { font-size: 88px; margin: 0 0 18px; line-height: 0.96; }
+    .hero-sub { font-size: 18px; max-width: 46ch; margin-bottom: 24px; }
+    .hero-chip { position: absolute; right: 40px; bottom: 52px; padding: 12px 18px; font-size: 14px; }
+    .sec { padding-top: 128px; }
+    .head { grid-template-columns: 4fr 8fr; gap: 32px; margin-bottom: 48px; }
+    .statement { font-size: 42px; line-height: 1.12; max-width: 22ch; }
+    .units { grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .inside { grid-template-columns: 1fr 1fr; gap: 48px; align-items: end; margin-top: 20px; }
+    .inside .wf-img { --ar: 2 / 1; }
+    .row { grid-auto-flow: row; grid-template-columns: repeat(4, 1fr); gap: 20px; overflow: visible; margin: 0; padding: 0; }
+    .loc { grid-template-columns: 8fr 4fr; gap: 48px; align-items: end; }
+    .map img { aspect-ratio: 2 / 1; object-position: 50% 0; }
+    .pricecard { grid-template-columns: 5fr 7fr; gap: 64px; padding: 56px; }
+    .from { font-size: 72px; }
+    .enq { padding-bottom: 140px; }
+    .enq-grid { grid-template-columns: 5fr 6fr; gap: 80px; align-items: start; }
+    .big { font-size: 64px; }
+    form { padding: 32px; grid-template-columns: 1fr 1fr; gap: 16px; }
+    form .wide { grid-column: 1 / -1; }
+  }
+</style>
+
+<style>
+  html, body {overflow-x:clip}
+  .preview-banner {position:relative;z-index:1000;padding:9px 18px;background:#fff8e8;color:#30291c;text-align:center;font:600 12px/1.4 system-ui,sans-serif;letter-spacing:.01em}
+  form :disabled {cursor:not-allowed}
+  @media (max-width: 767px) {
+    .units {grid-template-columns:minmax(0,1fr)}
+    .units > .card {min-width:0}
+    .spec {min-width:0}
+    .from {font-size:clamp(32px,10vw,48px);white-space:normal}
+  }
+</style>
+</head>
+<body>
+<div class="preview-banner" role="note">Design concept preview · Enstek Heights Iris. Viewing requests are not active; project details await developer confirmation.</div>
+
+<header class="hero" aria-label="Enstek Heights · Iris">
+  <div class="frame" data-in="aperture" data-trigger="load" style="--d:1100ms">
+    <img src="../assets/img-13-2666x1499.jpg" alt="The guard house at the entrance to Enstek Heights" fetchpriority="high">
+    <nav class="nav" aria-label="Main">
+      <a class="mark" href="#"><b>Enstek Heights</b><span>Iris · Type D1</span></a>
+      <div class="links"><a class="pill glass" href="#">Home</a><a class="pill glass" href="#homes">The homes</a><a class="pill glass" href="#township">Township</a><a class="pill glass" href="#location">Location</a><a class="pill glass" href="#price">Price</a></div>
+      <span class="rule" aria-hidden="true"></span>
+      <a class="pill glass book" href="#book">Book a viewing</a>
+      <button class="pill glass menu" type="button" style="font:inherit;font-size:14px">Menu</button>
+    </nav>
+    <span class="tag glass illus">Artist's illustration</span>
+    <div class="hero-copy">
+      <span class="hero-chip glass" data-in="rise" data-trigger="load" data-at="1000" style="--d:500ms"><span class="dot"></span><span>Gated &amp; guarded · Freehold</span></span>
+      <h1 data-in="words" data-trigger="load" data-at="250" style="--d:700ms;--stagger:60ms">A home that grows<br><em>with your family.</em></h1>
+      <p class="hero-sub" data-in="rise" data-trigger="load" data-at="720" style="--d:600ms">Single-storey superlink homes in Enstek Heights, KLIA–Seremban. <b>From RM 459,900*</b></p>
+      <div class="acts" data-in="rise" data-trigger="load" data-at="840" style="--d:600ms">
+        <a class="pill gold" href="#book">Book a viewing</a>
+        <a class="pill glass" href="#homes">See the homes</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- (01) The homes -->
+  <section class="sec" id="homes" aria-label="The homes"><div class="wrap">
+    <div class="head">
+      <p class="label" data-in="fade"><i>(01)</i>The homes</p>
+      <h2 class="statement" data-in="rise" data-at="120" style="--d:700ms">123 single-storey superlink homes on 22' × 70' lots. <em>Four bedrooms, all on one floor.</em></h2>
+    </div>
+    <div class="units" data-group>
+      <article class="card" data-in="settle" style="--d:800ms;--dx:40px;--dy:0px">
+        <img src="../assets/img-12-1687x945.jpg" alt="A row of Iris intermediate homes" loading="lazy" style="object-position:50% 50%">
+        <span class="tag glass illus">Artist's illustration</span>
+        <div class="spec glass" data-in="rise" data-at="420" style="--d:600ms">
+          <div class="spec-top"><h3>Intermediate</h3><a href="#price">Details →</a></div>
+          <div class="chips"><span class="chip">1,430 sq ft</span><span class="chip price">from RM 459,900</span></div>
+          <p class="meta">4 bed · 2 bath · 2 car parks</p>
+        </div>
+      </article>
+      <article class="card" data-in="settle" data-at="110" style="--d:800ms;--dx:40px;--dy:0px">
+        <img src="../assets/img-12-1687x945.jpg" alt="The end of an Iris row" loading="lazy" style="object-position:100% 50%">
+        <span class="tag glass illus">Artist's illustration</span>
+        <div class="spec glass" data-in="rise" data-at="530" style="--d:600ms">
+          <div class="spec-top"><h3>End lot</h3><a href="#price">Details →</a></div>
+          <div class="chips"><span class="chip">1,430 sq ft</span><span class="chip price">from RM 479,900</span></div>
+          <p class="meta">4 bed · 2 bath · 2 car parks</p>
+        </div>
+      </article>
+      <article class="card" data-in="settle" data-at="220" style="--d:800ms;--dx:40px;--dy:0px">
+        <img src="../assets/img-17-1685x945.jpg" alt="An Iris corner home" loading="lazy" style="object-position:74% 50%">
+        <span class="tag glass illus">Artist's illustration</span>
+        <div class="spec glass" data-in="rise" data-at="640" style="--d:600ms">
+          <div class="spec-top"><h3>Corner</h3><a href="#price">Details →</a></div>
+          <div class="chips"><span class="chip">1,490 sq ft</span><span class="chip price">from RM 546,940</span></div>
+          <p class="meta">4 bed · 2 bath · 2 car parks</p>
+        </div>
+      </article>
+    </div>
+    <div class="inside">
+      <div class="wf-img" data-label="Interior — not supplied"></div>
+      <div data-in="rise" style="--d:700ms">
+        <p class="label">Inside every Iris home</p>
+        <ul class="specs">
+          <li><b>4</b>bedrooms</li><li><b>2</b>bathrooms</li><li><b>2</b>car parks</li><li><b>2' × 2'</b>floor tiles</li>
+          <li style="grid-column:1/-1">Solid main door with digital lock, and a practical single-storey layout.</li>
+        </ul>
+      </div>
+    </div>
+  </div></section>
+
+  <!-- (02) Township -->
+  <section class="sec" id="township" aria-label="Township"><div class="wrap">
+    <div class="head">
+      <p class="label" data-in="fade"><i>(02)</i>Township</p>
+      <h2 class="statement" data-in="rise" data-at="120" style="--d:700ms">Twelve homes to an acre, gated and guarded, <em>with parks and a walking trail.</em></h2>
+    </div>
+    <div>
+      <div class="row" data-group>
+        <figure class="tile" data-in="settle" style="--d:800ms;--dx:40px;--dy:0px"><img src="../assets/img-15-1018x552.jpg" alt="" loading="lazy" style="object-position:48% 50%"><span class="tag glass illus">Artist's illustration</span><figcaption class="glass" data-in="rise" data-at="420" style="--d:600ms">Badminton court and park</figcaption></figure>
+        <figure class="tile" data-in="settle" data-at="100" style="--d:800ms;--dx:40px;--dy:0px"><img src="../assets/img-16-914x513.jpg" alt="" loading="lazy" style="object-position:62% 50%"><span class="tag glass illus">Artist's illustration</span><figcaption class="glass" data-in="rise" data-at="520" style="--d:600ms">Children's playground</figcaption></figure>
+        <figure class="tile" data-in="settle" data-at="200" style="--d:800ms;--dx:40px;--dy:0px"><img src="../assets/img-14-1536x600.jpg" alt="" loading="lazy" style="object-position:56% 50%"><span class="tag glass illus">Artist's illustration</span><figcaption class="glass" data-in="rise" data-at="620" style="--d:600ms">The entrance, Taman Bukit Enstek</figcaption></figure>
+        <figure class="tile" data-in="settle" data-at="300" style="--d:800ms;--dx:40px;--dy:0px"><img src="../assets/img-02-1689x951.jpg" alt="" loading="lazy" style="object-position:45% 50%"><span class="tag glass illus">Artist's illustration</span><figcaption class="glass" data-in="rise" data-at="720" style="--d:600ms">Guard house and roundabout, from above</figcaption></figure>
+      </div>
+    </div>
+    <ul class="facil" data-in="fade" style="--d:700ms" aria-label="Facilities">
+      <li>Guard house</li><li>Perimeter fencing</li><li>Children's playground</li><li>Badminton court</li><li>Takraw</li><li>Gazebo</li><li>Walkway &amp; jogging track</li><li>Outdoor gym</li><li>Parcourse</li><li>Smart-home features</li>
+    </ul>
+  </div></section>
+
+  <!-- (03) Location -->
+  <section class="sec" id="location" aria-label="Location"><div class="wrap">
+    <div class="head">
+      <p class="label" data-in="fade"><i>(03)</i>Location</p>
+      <h2 class="statement" data-in="rise" data-at="120" style="--d:700ms">Bandar Enstek, Negeri Sembilan, <em>on the KLIA–Seremban corridor.</em></h2>
+    </div>
+    <div class="loc">
+      <figure class="map" data-in="fade" style="--d:800ms"><img src="../assets/img-04-1536x780.jpg" alt="Map of Enstek Heights between KLIA, Nilai and Seremban" loading="lazy"><figcaption>Location map from the project profile. Not to scale.</figcaption></figure>
+      <div>
+        <ul class="times" data-group>
+          <li data-in="rise"><span>KLIA</span><b>To confirm</b></li>
+          <li data-in="rise" data-at="80"><span>KLIA2</span><b>To confirm</b></li>
+          <li data-in="rise" data-at="160"><span>Nilai</span><b>To confirm</b></li>
+          <li data-in="rise" data-at="240"><span>Seremban</span><b>To confirm</b></li>
+          <li data-in="rise" data-at="320"><span>Sales gallery</span><b>To be announced</b></li>
+        </ul>
+        <p class="small">Drive times to be confirmed by the developer.</p>
+      </div>
+    </div>
+  </div></section>
+
+  <!-- (04) Price & ownership -->
+  <section class="sec" id="price" aria-label="Price and ownership"><div class="wrap">
+    <div class="pricecard" data-in="rise" style="--d:800ms">
+      <div>
+        <p class="label"><i>(04)</i>Price &amp; ownership</p>
+        <p class="from"><span>From</span>RM 459,900<sup>*</sup></p>
+        <p class="from-sub"><em>Freehold, with your own title.</em></p>
+        <ul class="own">
+          <li>Freehold with individual title</li>
+          <li>Easy ownership scheme; terms to be confirmed</li>
+          <li>Gated and guarded, with perimeter fencing</li>
+          <li>Smart-home features</li>
+        </ul>
+      </div>
+      <div>
+        <table>
+          <caption>Iris, Type D1 · 123 homes · 22' × 70' lots</caption>
+          <thead><tr><th scope="col">Type</th><th scope="col">Built-up</th><th scope="col">From</th></tr></thead>
+          <tbody>
+            <tr><td>Intermediate</td><td>1,430 sq ft</td><td>RM 459,900</td></tr>
+            <tr><td>End lot</td><td>1,430 sq ft</td><td>RM 479,900</td></tr>
+            <tr><td>Corner</td><td>1,490 sq ft</td><td>RM 546,940</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="fine">*Price from RM 459,900 onwards. Prices, layouts and specifications are subject to change. All images are artist's illustrations. Concept only; final developer materials and sales terms govern.</p>
+    </div>
+  </div></section>
+
+  <!-- Enquiry close -->
+  <section class="sec enq" id="book" aria-label="Book a viewing"><div class="wrap enq-grid">
+    <div>
+      <p class="label" data-in="fade">Book a viewing</p>
+      <h2 class="big" data-in="rise" data-at="120" style="--d:700ms">See Iris <em>for yourself.</em></h2>
+      <p>Tell us which home you'd like to see and we'll get back to you to arrange a time at the sales gallery.</p>
+      <p class="small">Sales contact details will be added before launch.</p>
+      <p class="small">Sales gallery details will be confirmed before launch.</p>
+    </div>
+    <form onsubmit="return false" data-in="rise" data-at="200" style="--d:700ms" aria-label="Book a viewing">
+      <label>Name<input disabled type="text" autocomplete="name" placeholder="Your name"></label>
+      <label>Phone<input disabled type="tel" autocomplete="tel" placeholder="01x-xxx xxxx"></label>
+      <label class="wide">Which home?<select disabled><option>Not sure yet</option><option>Intermediate · from RM 459,900</option><option>End lot · from RM 479,900</option><option>Corner · from RM 546,940</option></select></label>
+      <button disabled class="pill gold wide" type="submit">Viewing requests open after launch</button>
+      <p class="small wide">Design preview only. This form does not send an enquiry.</p>
+    </form>
+  </div></section>
+</main>
+
+<footer><div class="wrap">
+  <div class="mark"><b>Enstek Heights</b><span>Iris · Type D1</span></div>
+  <p>Taman Bukit Enstek, Bandar Enstek, Negeri Sembilan. Developed by New Times Development Sdn Bhd · newtimesdev.com</p>
+  <p class="legal">Freehold · Single-storey superlink · 123 units · From RM 459,900. Final licensing and statutory particulars will be supplied in the approved sales version.</p>
+  <p class="legal">All images are artist's illustrations and may differ from the finished homes. This concept does not collect personal details.</p>
+</div></footer>
+</body>
+</html>

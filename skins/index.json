@@ -56,5 +56,19 @@
     "template": "bespoke",
     "href": "bespoke/volkspeed/index.html",
     "status": "warm-lead concept \u00b7 shared T2 service enquiry \u2192 Kites"
+  },
+  {
+    "slug": "enstek-heights-a",
+    "name": "Enstek Heights \u00b7 Concept A",
+    "industry": "Property development \u00b7 Iris Type D1",
+    "template": "bespoke",
+    "status": "client review \u00b7 dark concept \u00b7 enquiries inactive"
+  },
+  {
+    "slug": "enstek-heights-b",
+    "name": "Enstek Heights \u00b7 Concept B",
+    "industry": "Property development \u00b7 Iris Type D1",
+    "template": "bespoke",
+    "status": "client review \u00b7 daylight concept \u00b7 enquiries inactive"
   }
 ]
