@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /preview/kites/
+Sitemap: https://kites-studio.github.io/preview/kites/sitemap.xml
