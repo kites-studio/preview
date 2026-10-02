@@ -1,0 +1,2 @@
+:HL["/preview/kites/_next/static/css/7f1eadd67adcc819.css","style"]
+0:{"tree":{"name":"","param":null,"prefetchHints":4176,"slots":{"children":{"name":"(site)","param":null,"prefetchHints":4192,"slots":{"children":{"name":"privacy","param":null,"prefetchHints":4192,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}}}}}},"staleTime":300,"buildId":"u94gsXl63nbM2aIrwUqYz"}
