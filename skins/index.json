@@ -70,5 +70,13 @@
     "industry": "Property development \u00b7 Iris Type D1",
     "template": "bespoke",
     "status": "client review \u00b7 daylight concept \u00b7 enquiries inactive"
+  },
+  {
+    "slug": "audax-malaysia",
+    "name": "Audax Malaysia",
+    "industry": "Long-distance cycling \u00b7 Malaysia",
+    "template": "bespoke",
+    "href": "bespoke/audax-malaysia/",
+    "status": "Stage 1 client preview \u00b7 12 pages \u00b7 official ticket links"
   }
 ]
