@@ -1,6 +1,6 @@
-:HL["/preview/kites/_next/static/css/7f1eadd67adcc819.css","style"]
+:HL["/preview/kites/_next/static/css/d0b7a14fa028278e.css","style"]
 :HL["/preview/kites/_next/static/css/bb827597858e5a9f.css","style"]
 :HL["/preview/kites/projects/kitesprints-v2.webp","image"]
 :HL["/preview/kites/projects/clearup-mobile.webp","image"]
 :HL["/preview/kites/projects/interiors-detail.webp","image"]
-0:{"tree":{"name":"","param":null,"prefetchHints":4176,"slots":{"children":{"name":"(site)","param":null,"prefetchHints":4192,"slots":{"children":{"name":"services","param":null,"prefetchHints":4192,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}}}}}},"staleTime":300,"buildId":"u94gsXl63nbM2aIrwUqYz"}
+0:{"tree":{"name":"","param":null,"prefetchHints":4176,"slots":{"children":{"name":"(site)","param":null,"prefetchHints":4192,"slots":{"children":{"name":"services","param":null,"prefetchHints":4192,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}}}}}},"staleTime":300,"buildId":"pl9h6oemig93cseqJtcmH"}
