@@ -35,3 +35,6 @@ Image URLs and visual checks: ../../../assets/audax-malaysia/selected-assets.jso
 Published via the parent repository’s kites-demos subtree. Client link: https://kites-studio.github.io/preview/audax-malaysia/ . Catalogue: https://kites-studio.github.io/preview/all/ . Page assets and navigation are scoped to /preview/bespoke/audax-malaysia/.
 
 Design preference: no decorative numbered section labels or eyebrow rules.
+
+## 5 October editorial refinement
+Removed decorative small text and repeated copy. Five provisional Pexels cycling images, responsive 750/1200/2400 px WebP, with high-resolution originals and source records in ../../../assets/audax-malaysia/editorial/. These are editorial placeholders, not Audax event photography. Full decision and validation record: ../../../docs/AUDAX-EDITORIAL-PASS.md.
