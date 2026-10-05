@@ -41,3 +41,7 @@
 @media(max-width:760px){.campaign-hero{height:max(720px,calc(min((100vw - 24px)*1140/1149,430px) + 360px));min-height:0}.campaign-hero .hero-slide{transition:none}.campaign-hero .hero-slides,.campaign-hero .hero-content{transition:opacity 250ms ease}.campaign-hero .hero-content{animation:none}.campaign-hero.is-changing .hero-slides,.campaign-hero.is-changing .hero-content{opacity:0}.campaign-hero:after{transition:none}}
 @media(max-width:380px){.campaign-hero{height:620px;min-height:620px}}
 @media(prefers-reduced-motion:reduce){.campaign-hero .hero-slides,.campaign-hero .hero-content{transition:none}}
+
+.hero-dots{position:absolute;bottom:8px;left:50%;transform:translateX(-50%);display:flex;z-index:4}.hero-dots button{display:grid;place-items:center;width:44px;height:44px;padding:0;border:0;background:transparent;border-radius:50%}.hero-dots span{width:7px;height:7px;border-radius:50%;background:#ffffff66;transition:background .2s}.hero-dots button[aria-pressed=true] span{background:#fff}.hero-dots button:hover span{background:#fff}
+@media(max-width:760px){.campaign-hero{height:max(760px,calc(min((100vw - 24px)*1140/1149,430px) + 400px))}.campaign-hero:not(.is-pink) .hero-content{bottom:64px}}
+@media(max-width:380px){.campaign-hero{height:640px;min-height:640px}}
