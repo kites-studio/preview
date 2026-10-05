@@ -41,3 +41,6 @@ Removed decorative small text and repeated copy. Five provisional Pexels cycling
 
 ## Booking and motion
 Sticky booking header, accessible native booking dialog, controlled hero slideshow and reduced-motion fallback. Twelve unique image placements site-wide. Date/type cards replace repeating photos. Dedicated checks and source record: ../../../docs/AUDAX-BOOKING-PASS.md.
+
+## Shop prototype
+Sample jerseys and bicycles, demo RM prices, local bag and checkout preview at `/shop/`. No personal/payment fields or order submission. Six size-selectable products, category/price controls and sample fulfilment fees. Source and scope: `docs/AUDAX-SHOP-PASS.md`.
