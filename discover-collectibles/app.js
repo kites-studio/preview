@@ -56,13 +56,21 @@ function renderCheckoutSummary(){
  const submit=$('#checkout-form button[type="submit"]');if(submit)submit.disabled=t.count===0;
 }
 function eventDetail(type){
- if(type==='carnival'){$('#event-detail').innerHTML=`<p class="kicker">THE DC COMMUNITY ARCHIVE</p><h2 id="event-title">DC Carnival<br>& Trade Show.</h2><p>Collecting, trading, tournaments and a weekend together at Discover Collectibles.</p><img class="archive-poster" src="assets/dc-carnival.jpg" alt="DC Carnival and Trade Show 2025 poster"><div class="event-facts"><span><small>PAST EVENT</small>16–17 August 2025</span><span><small>LOCATION</small>Discover Collectibles, Kepong</span></div><p>This event has ended. The website can keep these memories alongside new store events.</p><a class="button secondary" href="https://david.my/dc-carnival-trade-show-2025/" target="_blank" rel="noopener noreferrer">Read the event feature ↗</a>`;}
+ if(type==='cardshow'){$('#event-detail').innerHTML=`<p class="kicker">THE DC COMMUNITY ARCHIVE</p><h2 id="event-title">Sports Day<br>× Cardshow.</h2><p>Cards, friendly faces and a day out with the DC community.</p><img class="archive-poster" src="assets/cardshow-recap.webp" alt="Discover Collectibles’ Sports Day and Cardshow recap"><div class="event-facts"><span><small>PAST EVENT</small>September 2026</span><span><small>COMMUNITY</small>Discover Collectibles</span></div><p>A real moment from DC’s archive. Follow the store for the next confirmed event.</p><a class="button secondary" href="https://www.facebook.com/photo.php?fbid=122310004352196857" target="_blank" rel="noopener noreferrer">See DC’s original recap ↗</a>`;}
+ else if(type==='carnival'){$('#event-detail').innerHTML=`<p class="kicker">THE DC COMMUNITY ARCHIVE</p><h2 id="event-title">DC Carnival<br>& Trade Show.</h2><p>Collecting, trading, tournaments and a weekend together at Discover Collectibles.</p><img class="archive-poster" src="assets/dc-carnival.jpg" alt="DC Carnival and Trade Show 2025 poster"><div class="event-facts"><span><small>PAST EVENT</small>16–17 August 2025</span><span><small>LOCATION</small>Discover Collectibles, Kepong</span></div><p>This event has ended. The website can keep these memories alongside new store events.</p><a class="button secondary" href="https://david.my/dc-carnival-trade-show-2025/" target="_blank" rel="noopener noreferrer">Read the event feature ↗</a>`;}
  else{
  const pokemon=type==='pokemon';
  $('#event-detail').innerHTML=`<p class="kicker">SAMPLE EVENT · EXPLORE THE EXPERIENCE</p><h2 id="event-title">${pokemon?'Pokémon Weekly.':'One Piece Showdown.'}</h2><p>${pokemon?'Bring a deck, meet other players, and make Wednesday your game night.':'Bring your crew, test your deck, and make a game of your Saturday.'}</p><div class="event-facts"><span><small>SAMPLE TIME</small>${pokemon?'Wednesday · 8:30 PM':'Saturday · 2:00 PM'}</span><span><small>VENUE</small>Discover Collectibles</span></div><p>The real event page would show the confirmed format, entry fee, prizes and organiser registration link.</p><button class="button primary" data-action="event-register">Try a demo registration ${icon('arrow')}</button><p id="event-status" class="bag-footnote" role="status">Preview schedule only. No live event or place is being offered.</p>`;
  }
  openDialog('#event-dialog');
 }
+const videoTitles={'7690431426512162056':'Kuro’s Gengar ex pull','7686025068916362517':'The DFV 2.0 drop','7684168280164060437':'Behind the scenes at DC'};
+function videoDetail(id){
+ if(!Object.hasOwn(videoTitles,id))return;
+ $('#video-detail').innerHTML=`<p class="kicker">DISCOVER COLLECTIBLES ON TIKTOK</p><h2 id="video-title">${videoTitles[id]}</h2><iframe src="https://www.tiktok.com/player/v1/${id}?autoplay=0" title="${videoTitles[id]} — original DC TikTok" allow="fullscreen; encrypted-media" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe><p>If the player is unavailable, watch the original on TikTok.</p><a class="button secondary" href="https://www.tiktok.com/@discovercollectibles.os/video/${id}" target="_blank" rel="noopener noreferrer">Watch on TikTok ↗</a>`;
+ openDialog('#video-dialog');
+}
+$('#video-dialog').addEventListener('close',()=>{$('#video-detail').replaceChildren();});
 function setFilter(filter){view.filter=filter;view.game='all';view.query='';$('#search').value='';renderProducts();}
 document.addEventListener('click',event=>{
  const target=event.target.closest('button,a');if(!target)return;
@@ -79,6 +87,7 @@ document.addEventListener('click',event=>{
   if(target.dataset.quantity){const id=target.dataset.quantity,delta=target.dataset.delta,item=readBag().items.find(line=>line.id===id);if(item){updateBagItem(id,item.quantity+Number(delta));const focus=$(`#bag-dialog [data-quantity="${id}"][data-delta="${delta}"]`);(focus&&!focus.disabled?focus:$('#bag-dialog [data-close]')).focus({preventScroll:true});}}
   if(target.dataset.remove){updateBagItem(target.dataset.remove,0);$('#bag-dialog [data-close]').focus({preventScroll:true});}
   if(target.dataset.event)eventDetail(target.dataset.event);
+  if(target.dataset.video)videoDetail(target.dataset.video);
   const action=target.dataset.action;
   if(action==='bag'){view.fulfilment='delivery';codeError='';renderBag();openDialog('#bag-dialog');}
   if(action==='favourites'){setFilter('favourites');$('#shop').scrollIntoView();}
