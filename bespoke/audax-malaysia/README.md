@@ -44,3 +44,6 @@ Sticky booking header, accessible native booking dialog, controlled hero slidesh
 
 ## Shop prototype
 Sample jerseys and bicycles, demo RM prices, local bag and checkout preview at `/shop/`. No personal/payment fields or order submission. Six size-selectable products, category/price controls and sample fulfilment fees. Source and scope: `docs/AUDAX-SHOP-PASS.md`.
+
+## Homepage calendar
+Upcoming / Full 2026 season board replaces homepage ride cards. Current official upcoming dates override the old poster. All-day upcoming-date download: `audax-upcoming-rides.ics`. Scope/source/validation: `docs/AUDAX-CALENDAR-PASS.md`.

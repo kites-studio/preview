@@ -1,0 +1,62 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Made by Kites//Audax Ride Preview//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Audax Malaysia upcoming rides
+BEGIN:VEVENT
+UID:ice-cream-ride-20261017@kites-audax-preview
+DTSTAMP:20261005T072815Z
+DTSTART;VALUE=DATE:20261017
+DTEND;VALUE=DATE:20261019
+SUMMARY:The Ice Cream Ride 3.0
+LOCATION:Mixue The Core Kota Damansara
+URL:https://www.audaxmalaysia.com/audax-ice-cream-ride-3
+DESCRIPTION:Ride dates from Audax Malaysia. Check organiser details befor
+ e travelling or registering.
+END:VEVENT
+BEGIN:VEVENT
+UID:super-randonneurs-20261101@kites-audax-preview
+DTSTAMP:20261005T072815Z
+DTSTART;VALUE=DATE:20261101
+DTEND;VALUE=DATE:20261102
+SUMMARY:A Ride with the Super Randonneurs
+LOCATION:Antara Daun Cafe\, Denai Alam
+URL:https://www.audaxmalaysia.com/superrandonneurs2025
+DESCRIPTION:Ride dates from Audax Malaysia. Check organiser details befor
+ e travelling or registering.
+END:VEVENT
+BEGIN:VEVENT
+UID:santai-600-20261114@kites-audax-preview
+DTSTAMP:20261005T072815Z
+DTSTART;VALUE=DATE:20261114
+DTEND;VALUE=DATE:20261116
+SUMMARY:Audax Santai 600 7.0
+LOCATION:Venue to be announced
+URL:https://www.audaxmalaysia.com/upcoming-rides
+DESCRIPTION:Ride dates from Audax Malaysia. Check organiser details befor
+ e travelling or registering.
+END:VEVENT
+BEGIN:VEVENT
+UID:final-push-20261212@kites-audax-preview
+DTSTAMP:20261005T072815Z
+DTSTART;VALUE=DATE:20261212
+DTEND;VALUE=DATE:20261214
+SUMMARY:The Final Push: BRM400
+LOCATION:Venue to be announced
+URL:https://www.audaxmalaysia.com/upcoming-rides
+DESCRIPTION:Ride dates from Audax Malaysia. Check organiser details befor
+ e travelling or registering.
+END:VEVENT
+BEGIN:VEVENT
+UID:pink-ride-20270117@kites-audax-preview
+DTSTAMP:20261005T072815Z
+DTSTART;VALUE=DATE:20270117
+DTEND;VALUE=DATE:20270118
+SUMMARY:The Pink Ride 10.0
+LOCATION:Kiara Bay Kuala Lumpur
+URL:https://www.audaxmalaysia.com/pink-ride-10
+DESCRIPTION:Ride dates from Audax Malaysia. Check organiser details befor
+ e travelling or registering.
+END:VEVENT
+END:VCALENDAR
