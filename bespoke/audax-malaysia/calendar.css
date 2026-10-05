@@ -6,3 +6,5 @@
 /* Natural-height upcoming panels; annual phone rows keep long ride names readable. */
 .season-grid:not(.season-year){align-items:start}
 @media(max-width:760px){.season-year{grid-template-columns:1fr;gap:12px}.season-year .season-month{padding:20px;min-height:0}.season-year .season-month-heading{flex-direction:row;align-items:baseline;gap:12px}.season-year .season-month-heading h3{font-size:25px}.season-year .season-event-date{flex-direction:row;gap:14px}.season-year .season-event time{font-size:34px}.season-year .season-event-date>span{font-size:15px}.season-year .season-event h4{font-size:23px;line-height:1.2}.season-year .season-pending,.season-year .season-event-actions>.text-link{font-size:15px}.season-year .season-event-actions{gap:12px}.season-year .season-rest-copy{margin-top:16px}}
+
+@media(max-width:760px){.season-section{margin-top:20px;padding-top:24px}}
