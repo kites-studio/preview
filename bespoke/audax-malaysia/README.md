@@ -38,3 +38,6 @@ Design preference: no decorative numbered section labels or eyebrow rules.
 
 ## 5 October editorial refinement
 Removed decorative small text and repeated copy. Five provisional Pexels cycling images, responsive 750/1200/2400 px WebP, with high-resolution originals and source records in ../../../assets/audax-malaysia/editorial/. These are editorial placeholders, not Audax event photography. Full decision and validation record: ../../../docs/AUDAX-EDITORIAL-PASS.md.
+
+## Booking and motion
+Sticky booking header, accessible native booking dialog, controlled hero slideshow and reduced-motion fallback. Twelve unique image placements site-wide. Date/type cards replace repeating photos. Dedicated checks and source record: ../../../docs/AUDAX-BOOKING-PASS.md.
