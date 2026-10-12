@@ -63,17 +63,6 @@ function eventDetail(type){
  }
  openDialog('#event-dialog');
 }
-const stories={
- pull:{title:'That first pack feeling.',image:'story-pull.svg',copy:'Card openings can become more than a passing post. Give each highlight a home, let collectors explore related cards, and connect your own TikTok video when your store goes live.',filter:'singles',button:'Explore singles'},
- drop:{title:'Something new on the shelf.',image:'story-drop.svg',copy:'Give a new release its own spotlight. Bring the product details, availability and collection into one place so viewers can move from the story to the shopping bag.',filter:'sealed',button:'Explore sealed products'},
- behind:{title:'The people behind the cards.',image:'story-behind.svg',copy:'Introduce your team, show how cards are packed, and share the everyday moments that make your store yours. These are sample content previews for a fictional brand.',filter:'all',button:'Explore the collection'}
-};
-function videoDetail(id){
- if(!Object.hasOwn(stories,id))return;const story=stories[id];
- $('#video-detail').innerHTML=`<p class="kicker">CARD SHOP · SAMPLE CONTENT PREVIEW</p><h2 id="video-title">${story.title}</h2><img class="story-preview" src="assets/${story.image}" alt="Illustrative story cover"><p>${story.copy}</p><a class="button secondary" href="#shop" data-filter="${story.filter}">${story.button} ↗</a>`;
- openDialog('#video-dialog');
-}
-$('#video-dialog').addEventListener('close',()=>{$('#video-detail').replaceChildren();});
 function setFilter(filter){view.filter=filter;view.game='all';view.query='';$('#search').value='';renderProducts();}
 document.addEventListener('click',event=>{
  const target=event.target.closest('button,a');if(!target)return;
@@ -90,7 +79,6 @@ document.addEventListener('click',event=>{
   if(target.dataset.quantity){const id=target.dataset.quantity,delta=target.dataset.delta,item=readBag().items.find(line=>line.id===id);if(item){updateBagItem(id,item.quantity+Number(delta));const focus=$(`#bag-dialog [data-quantity="${id}"][data-delta="${delta}"]`);(focus&&!focus.disabled?focus:$('#bag-dialog [data-close]')).focus({preventScroll:true});}}
   if(target.dataset.remove){updateBagItem(target.dataset.remove,0);$('#bag-dialog [data-close]').focus({preventScroll:true});}
   if(target.dataset.event)eventDetail(target.dataset.event);
-  if(target.dataset.video)videoDetail(target.dataset.video);
   const action=target.dataset.action;
   if(action==='bag'){view.fulfilment='delivery';codeError='';renderBag();openDialog('#bag-dialog');}
   if(action==='favourites'){setFilter('favourites');$('#shop').scrollIntoView();}
