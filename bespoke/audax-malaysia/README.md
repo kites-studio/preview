@@ -47,3 +47,6 @@ Sample jerseys and bicycles, demo RM prices, local bag and checkout preview at `
 
 ## Homepage calendar
 Upcoming / Full 2026 season board replaces homepage ride cards. Current official upcoming dates override the old poster. All-day upcoming-date download: `audax-upcoming-rides.ics`. Scope/source/validation: `docs/AUDAX-CALENDAR-PASS.md`.
+
+## 2 November 2026 update
+Live calendar synced with audaxmalaysia.com (checked 2 Nov 2026): November unmanned Santai 600 / Open 300, Final Push BRM400, Pink Ride 10.0 and the announced 2027 season. Rides retire automatically the day after they end (Ice Cream Ride 3.0 and the 1 Nov SR ride moved to Past Rides). New Pink Ride 10.0 flagship page (`pink.js`, `campaign.css`): entry options (RM85 with free jersey for first 500; ladies RM10 commitment or RM65 package), three distances, jersey and finisher tee, first-timer sweeper truck, venue, FAQ. Sample bicycle shop replaced by Official Kit using the organiser's own jersey, tee and size chart artwork; no cart or payments. Booking still hands off to Ticket2U.

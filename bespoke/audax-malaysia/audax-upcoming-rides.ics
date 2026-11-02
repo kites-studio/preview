@@ -5,58 +5,157 @@ CALSCALE:GREGORIAN
 METHOD:PUBLISH
 X-WR-CALNAME:Audax Malaysia upcoming rides
 BEGIN:VEVENT
-UID:ice-cream-ride-20261017@kites-audax-preview
-DTSTAMP:20261005T072815Z
-DTSTART;VALUE=DATE:20261017
-DTEND;VALUE=DATE:20261019
-SUMMARY:The Ice Cream Ride 3.0
-LOCATION:Mixue The Core Kota Damansara
-URL:https://www.audaxmalaysia.com/audax-ice-cream-ride-3
-DESCRIPTION:Ride dates from Audax Malaysia. Check organiser details befor
- e travelling or registering.
-END:VEVENT
-BEGIN:VEVENT
-UID:super-randonneurs-20261101@kites-audax-preview
-DTSTAMP:20261005T072815Z
+UID:santai-600-20261101@kites-audax-preview
+DTSTAMP:20261102T070000Z
 DTSTART;VALUE=DATE:20261101
-DTEND;VALUE=DATE:20261102
-SUMMARY:A Ride with the Super Randonneurs
-LOCATION:Antara Daun Cafe\, Denai Alam
-URL:https://www.audaxmalaysia.com/superrandonneurs2025
-DESCRIPTION:Ride dates from Audax Malaysia. Check organiser details befor
- e travelling or registering.
-END:VEVENT
-BEGIN:VEVENT
-UID:santai-600-20261114@kites-audax-preview
-DTSTAMP:20261005T072815Z
-DTSTART;VALUE=DATE:20261114
-DTEND;VALUE=DATE:20261116
-SUMMARY:Audax Santai 600 7.0
-LOCATION:Venue to be announced
-URL:https://www.audaxmalaysia.com/upcoming-rides
-DESCRIPTION:Ride dates from Audax Malaysia. Check organiser details befor
- e travelling or registering.
+DTEND;VALUE=DATE:20261201
+SUMMARY:Santai 600 & Open 300 (unmanned)
+LOCATION:Two routes to choose
+URL:https://www.audaxmalaysia.com/santai-600-2026
+DESCRIPTION:Dates from Audax Malaysia. Check organiser details before travel
+  or registering.
 END:VEVENT
 BEGIN:VEVENT
 UID:final-push-20261212@kites-audax-preview
-DTSTAMP:20261005T072815Z
+DTSTAMP:20261102T070000Z
 DTSTART;VALUE=DATE:20261212
 DTEND;VALUE=DATE:20261214
 SUMMARY:The Final Push: BRM400
 LOCATION:Venue to be announced
 URL:https://www.audaxmalaysia.com/upcoming-rides
-DESCRIPTION:Ride dates from Audax Malaysia. Check organiser details befor
- e travelling or registering.
+DESCRIPTION:Dates from Audax Malaysia. Check organiser details before travel
+  or registering.
 END:VEVENT
 BEGIN:VEVENT
 UID:pink-ride-20270117@kites-audax-preview
-DTSTAMP:20261005T072815Z
+DTSTAMP:20261102T070000Z
 DTSTART;VALUE=DATE:20270117
 DTEND;VALUE=DATE:20270118
 SUMMARY:The Pink Ride 10.0
-LOCATION:Kiara Bay Kuala Lumpur
+LOCATION:Kiara Bay Sales Gallery\, Kepong\, Kuala Lumpur
 URL:https://www.audaxmalaysia.com/pink-ride-10
-DESCRIPTION:Ride dates from Audax Malaysia. Check organiser details befor
- e travelling or registering.
+DESCRIPTION:Dates from Audax Malaysia. Check organiser details before travel
+  or registering.
+END:VEVENT
+BEGIN:VEVENT
+UID:ramadhan-20270227@kites-audax-preview
+DTSTAMP:20261102T070000Z
+DTSTART;VALUE=DATE:20270227
+DTEND;VALUE=DATE:20270228
+SUMMARY:Ramadhan Night Ride (BRM200)
+LOCATION:TBA
+URL:https://www.audaxmalaysia.com/upcoming-rides
+DESCRIPTION:Dates from Audax Malaysia. Check organiser details before travel
+  or registering.
+END:VEVENT
+BEGIN:VEVENT
+UID:post-raya-20270327@kites-audax-preview
+DTSTAMP:20261102T070000Z
+DTSTART;VALUE=DATE:20270327
+DTEND;VALUE=DATE:20270328
+SUMMARY:Audax Post-Raya 300
+LOCATION:TBA
+URL:https://www.audaxmalaysia.com/upcoming-rides
+DESCRIPTION:Dates from Audax Malaysia. Check organiser details before travel
+  or registering.
+END:VEVENT
+BEGIN:VEVENT
+UID:fleche-20270417@kites-audax-preview
+DTSTAMP:20261102T070000Z
+DTSTART;VALUE=DATE:20270417
+DTEND;VALUE=DATE:20270419
+SUMMARY:Flèches Nationales / BRM400
+LOCATION:TBA
+URL:https://www.audaxmalaysia.com/upcoming-rides
+DESCRIPTION:Dates from Audax Malaysia. Check organiser details before travel
+  or registering.
+END:VEVENT
+BEGIN:VEVENT
+UID:big-hills-20270522@kites-audax-preview
+DTSTAMP:20261102T070000Z
+DTSTART;VALUE=DATE:20270522
+DTEND;VALUE=DATE:20270525
+SUMMARY:Audax Big Hills 9
+LOCATION:TBA
+URL:https://www.audaxmalaysia.com/upcoming-rides
+DESCRIPTION:Dates from Audax Malaysia. Check organiser details before travel
+  or registering.
+END:VEVENT
+BEGIN:VEVENT
+UID:peaks-20270619@kites-audax-preview
+DTSTAMP:20261102T070000Z
+DTSTART;VALUE=DATE:20270619
+DTEND;VALUE=DATE:20270620
+SUMMARY:Audax Peaks Challenge (BRM300)
+LOCATION:TBA
+URL:https://www.audaxmalaysia.com/upcoming-rides
+DESCRIPTION:Dates from Audax Malaysia. Check organiser details before travel
+  or registering.
+END:VEVENT
+BEGIN:VEVENT
+UID:anniv-20270711@kites-audax-preview
+DTSTAMP:20261102T070000Z
+DTSTART;VALUE=DATE:20270711
+DTEND;VALUE=DATE:20270712
+SUMMARY:Audax 11th Anniversary 200
+LOCATION:TBA
+URL:https://www.audaxmalaysia.com/upcoming-rides
+DESCRIPTION:Dates from Audax Malaysia. Check organiser details before travel
+  or registering.
+END:VEVENT
+BEGIN:VEVENT
+UID:merdeka-20270821@kites-audax-preview
+DTSTAMP:20261102T070000Z
+DTSTART;VALUE=DATE:20270821
+DTEND;VALUE=DATE:20270823
+SUMMARY:Audax Merdeka Ride 2027 (BRM400)
+LOCATION:TBA
+URL:https://www.audaxmalaysia.com/upcoming-rides
+DESCRIPTION:Dates from Audax Malaysia. Check organiser details before travel
+  or registering.
+END:VEVENT
+BEGIN:VEVENT
+UID:brm1000-20270911@kites-audax-preview
+DTSTAMP:20261102T070000Z
+DTSTART;VALUE=DATE:20270911
+DTEND;VALUE=DATE:20270915
+SUMMARY:Audax BRM1000
+LOCATION:TBA
+URL:https://www.audaxmalaysia.com/upcoming-rides
+DESCRIPTION:Dates from Audax Malaysia. Check organiser details before travel
+  or registering.
+END:VEVENT
+BEGIN:VEVENT
+UID:santai-20271016@kites-audax-preview
+DTSTAMP:20261102T070000Z
+DTSTART;VALUE=DATE:20271016
+DTEND;VALUE=DATE:20271018
+SUMMARY:Audax Santai 600
+LOCATION:TBA
+URL:https://www.audaxmalaysia.com/upcoming-rides
+DESCRIPTION:Dates from Audax Malaysia. Check organiser details before travel
+  or registering.
+END:VEVENT
+BEGIN:VEVENT
+UID:new-season-20271113@kites-audax-preview
+DTSTAMP:20261102T070000Z
+DTSTART;VALUE=DATE:20271113
+DTEND;VALUE=DATE:20271114
+SUMMARY:Audax New Season BRM300
+LOCATION:TBA
+URL:https://www.audaxmalaysia.com/upcoming-rides
+DESCRIPTION:Dates from Audax Malaysia. Check organiser details before travel
+  or registering.
+END:VEVENT
+BEGIN:VEVENT
+UID:last-light-20271218@kites-audax-preview
+DTSTAMP:20261102T070000Z
+DTSTART;VALUE=DATE:20271218
+DTEND;VALUE=DATE:20271220
+SUMMARY:The Last Light (BRM400)
+LOCATION:TBA
+URL:https://www.audaxmalaysia.com/upcoming-rides
+DESCRIPTION:Dates from Audax Malaysia. Check organiser details before travel
+  or registering.
 END:VEVENT
 END:VCALENDAR

@@ -1,0 +1,151 @@
+/* Pink Ride 10.0 campaign layer + official kit. Loaded after styles.css. */
+:root{--pink:#ef86b1;--pink-soft:#f49dc0;--night:#0b0b0c;--night-2:#151416}
+.button.pink{background:var(--pink);color:var(--ink)}
+.button.pink:hover{background:#ffa9ce}
+.button.outline-light{background:transparent;color:white;border:1px solid #ffffff40}
+.button.outline-light:hover{background:#ffffff14}
+.text-link.light{color:white;background:none;border:0;padding:0;cursor:pointer}
+button.text-link{background:none;border:0;padding:0;color:inherit}
+.booking-perk{background:#fde7f0;color:#6d1f42;padding:14px;border-radius:12px;font-size:14px;line-height:1.5;margin:16px 0 4px}
+.season-bar{margin-top:20px;background:var(--night);color:white}
+.season-bar p{color:#c9c4c7}
+.season-bar .button.outline{color:white;border-color:#ffffff40}
+
+/* Home: Pink entry ticket */
+.ticket-card.pink{background:var(--pink)}
+.ticket-card.pink .ticket-distance>span:not(.unit){color:#9a2f5c}
+.ticket-card.pink>p,.ticket-card.pink small{color:#4a1830}
+.ticket-card.pink .ticket-divider{border-color:#a8466f}
+.ticket-card.pink .ticket-distance{font-size:clamp(48px,4.4vw,80px)}
+
+/* Home: kit teaser */
+.kit-teaser{margin:0 24px 90px;border-radius:24px;background:#000;color:white;display:grid;grid-template-columns:.85fr 1.15fr;align-items:center;overflow:hidden}
+.kit-teaser-copy{padding:70px clamp(28px,4.3vw,72px)}
+.kit-teaser h2 em,.kit-hero h1 em,.pr-hero h1 em,.pr-kit h2 em{font-style:normal;color:var(--pink-soft)}
+.kit-teaser p{color:#c9c4c7;font-size:17px;margin:24px 0 32px;max-width:380px}
+.kit-teaser-actions,.kit-hero-actions,.pr-actions,.pr-kit-actions{display:flex;align-items:center;gap:26px;flex-wrap:wrap}
+.kit-teaser-photo{display:block}
+.kit-teaser-photo img{height:auto;object-fit:contain;transition:transform .6s ease}
+.kit-teaser-photo:hover img{transform:scale(1.03)}
+
+/* Kit page */
+.kit-hero{margin:0 24px;border-radius:24px;background:#000;color:white;display:grid;grid-template-columns:.8fr 1.2fr;align-items:center;overflow:hidden;min-height:560px}
+.kit-hero-copy{padding:60px clamp(28px,4.3vw,72px)}
+.kit-kicker,.pr-kicker{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--pink-soft);font-weight:600;margin-bottom:22px}
+.kit-hero h1{font-size:clamp(56px,6.4vw,98px)}
+.kit-hero-copy>p:not(.kit-kicker){color:#c9c4c7;font-size:17px;margin:24px 0 34px;max-width:400px}
+.kit-hero-photo img{height:auto;object-fit:contain}
+.kit-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.kit-card{background:#000;color:white;border-radius:22px;overflow:hidden;display:flex;flex-direction:column}
+.kit-card-photo img{height:auto;aspect-ratio:750/600;object-fit:contain}
+.kit-card-body{padding:30px 32px 34px;display:flex;flex-direction:column;gap:22px;flex:1}
+.kit-card-body h3{font-size:32px}
+.kit-card-body p{color:#c9c4c7;font-size:15px;margin-top:12px}
+.kit-card-price{display:flex;flex-direction:column;gap:4px;border-top:1px solid #ffffff22;padding-top:18px}
+.kit-card-price strong{font-size:22px;font-weight:500;color:var(--pink-soft)}
+.kit-card-price span{font-size:13px;color:#a9a3a6}
+.kit-card .button,.kit-card .text-link{align-self:flex-start;margin-top:auto}
+.kit-card .text-link{color:white}
+.size-chart{background:white;border-radius:18px;padding:18px;overflow-x:auto}
+.size-chart img{min-width:720px;height:auto;object-fit:contain}
+
+/* Pink Ride flagship */
+.pr-hero{margin:0 24px;border-radius:24px;background:#000;color:white;display:grid;grid-template-columns:1fr 1fr;overflow:hidden;align-items:center}
+.pr-hero-art img{height:auto;max-height:860px;object-fit:contain}
+.pr-hero-copy{padding:56px clamp(28px,4.3vw,72px)}
+.pr-hero h1{font-size:clamp(60px,6.6vw,112px);color:white}
+.pr-lede{color:#d8d2d5;font-size:18px;margin:26px 0 34px;max-width:470px}
+.pr-facts{display:grid;grid-template-columns:1fr 1fr;gap:20px 30px;margin:0 0 36px;padding:26px 0;border-top:1px solid #ffffff24;border-bottom:1px solid #ffffff24}
+.pr-facts div{display:flex;flex-direction:column;gap:6px}
+.pr-facts dt{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#a9a3a6}
+.pr-facts dd{margin:0;font-size:17px;font-weight:500}
+.pr-sponsors{margin-top:42px}
+.pr-sponsors>span{font-size:12px;color:#a9a3a6}
+.pr-sponsors>div{display:flex;align-items:center;gap:22px;margin-top:12px}
+.pr-sponsors img{width:auto;height:56px;object-fit:contain}
+.pr-sponsors img:first-child{height:38px}
+.pr-banner{margin:18px 24px 0;border-radius:18px;background:var(--pink);display:flex;align-items:center;justify-content:space-between;gap:24px;padding:22px clamp(24px,3vw,40px)}
+.pr-banner p{color:var(--ink);font-size:18px;letter-spacing:-.01em}
+.pr-banner span{color:#4a1830}
+.pr-banner .button.pink{background:var(--ink);color:white}
+.pr-entry-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.pr-entry{background:var(--night);color:white;border-radius:22px;padding:32px;display:flex;flex-direction:column}
+.pr-entry.is-featured{background:linear-gradient(160deg,#2a0f1c,#0b0b0c 62%);box-shadow:inset 0 0 0 1px #ef86b155}
+.pr-tag{align-self:flex-start;font-size:12px;font-weight:600;padding:6px 12px;border-radius:30px;background:#ffffff14;color:var(--pink-soft)}
+.pr-entry.is-featured .pr-tag{background:var(--pink);color:var(--ink)}
+.pr-entry h3{font-size:26px;margin:24px 0 10px}
+.pr-price{font-size:64px;letter-spacing:-.06em;line-height:1;color:white;font-weight:450}
+.pr-price small{font-size:14px;letter-spacing:0;color:#a9a3a6;margin-right:8px;vertical-align:middle}
+.pr-entry ul{list-style:none;padding:0;margin:26px 0 30px;display:flex;flex-direction:column;gap:12px;flex:1}
+.pr-entry li{font-size:15px;color:#d8d2d5;padding-left:22px;position:relative}
+.pr-entry li:before{content:'';position:absolute;left:0;top:.55em;width:9px;height:9px;border-radius:50%;background:var(--pink)}
+.pr-entry .button{width:100%}
+.pr-footnote{font-size:13px;margin-top:22px;max-width:760px}
+.pr-distances{background:var(--soft)}
+.pr-distance-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.pr-distance-grid article{background:white;border-radius:22px;padding:32px}
+.pr-km{font-size:clamp(70px,7vw,112px);line-height:1;letter-spacing:-.07em;color:var(--ink);font-weight:450}
+.pr-km span{font-size:22px;letter-spacing:-.02em;margin-left:8px;color:#c4487d}
+.pr-distance-grid h3{margin:22px 0 12px;font-size:24px}
+.pr-distance-grid p:not(.pr-km){font-size:15px}
+.pr-kit{margin:0 24px;border-radius:24px;background:#000;color:white;display:grid;grid-template-columns:1.2fr .8fr;align-items:center;overflow:hidden}
+.pr-kit-photo img{height:auto;object-fit:contain}
+.pr-kit-copy{padding:60px clamp(28px,4vw,64px) 60px 20px}
+.pr-kit-copy>p{color:#c9c4c7;font-size:16px;margin:24px 0 28px}
+.pr-kit-tee{display:flex;align-items:center;gap:18px;background:#ffffff0d;border-radius:16px;padding:12px;margin-bottom:30px}
+.pr-kit-tee img{width:120px;height:96px;object-fit:contain;flex:none}
+.pr-kit-tee div{display:flex;flex-direction:column;gap:4px}
+.pr-kit-tee span{font-size:14px;color:#a9a3a6}
+.pr-first{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.pr-first-intro>p:not(.pr-small){font-size:17px;margin:24px 0 30px}
+.pr-cutoffs{display:flex;gap:16px}
+.pr-cutoffs div{flex:1;border-radius:18px;background:#fde7f0;padding:22px;display:flex;flex-direction:column;gap:4px}
+.pr-cutoffs strong{font-size:44px;letter-spacing:-.05em;font-weight:450;line-height:1}
+.pr-cutoffs span{font-size:14px;color:#6d1f42}
+.pr-small{font-size:12px;margin-top:12px}
+.pr-tips{list-style:none;counter-reset:tip;padding:0;margin:0;display:flex;flex-direction:column}
+.pr-tips li{counter-increment:tip;display:grid;grid-template-columns:52px 1fr;column-gap:10px;padding:22px 0;border-bottom:1px solid var(--line)}
+.pr-tips li:first-child{border-top:1px solid var(--line)}
+.pr-tips li:before{content:counter(tip);grid-row:span 2;font-size:28px;letter-spacing:-.05em;color:#c4487d;line-height:1}
+.pr-tips strong{font-weight:550;font-size:17px}
+.pr-tips span{font-size:15px;color:var(--muted);margin-top:4px}
+.pr-venue{display:grid;grid-template-columns:1.3fr .7fr;gap:60px;align-items:center;background:var(--soft)}
+.pr-address{font-size:18px;margin:24px 0 30px;line-height:1.6}
+.pr-address strong{color:var(--ink);font-weight:550}
+.pr-venue-card{background:var(--night);color:white;border-radius:22px;padding:36px;display:flex;flex-direction:column;align-items:flex-start;gap:4px}
+.pr-venue-card strong{font-size:120px;line-height:.95;letter-spacing:-.07em;font-weight:450;color:var(--pink-soft)}
+.pr-venue-card span{color:#c9c4c7}
+.pr-venue-card em{font-style:normal;margin-top:18px;font-size:14px;border-top:1px solid #ffffff24;padding-top:14px;width:100%}
+.pr-final{margin:0 24px 24px;border-radius:24px;background:#000;color:white;text-align:center;padding:90px 24px;display:flex;flex-direction:column;align-items:center;gap:20px;background-image:radial-gradient(circle at 50% 120%,#ef86b155,transparent 60%)}
+.pr-final h2{font-size:clamp(46px,5.4vw,84px)}
+.pr-final p{color:#c9c4c7}
+
+@media(max-width:1000px){
+ .pr-hero,.kit-hero,.kit-teaser,.pr-kit{grid-template-columns:1fr}
+ .pr-hero-art img{max-height:640px;margin:auto}
+ .pr-entry-grid,.pr-distance-grid{grid-template-columns:1fr}
+ .pr-first,.pr-venue{grid-template-columns:1fr;gap:40px}
+ .pr-kit-copy{padding:10px 28px 50px}
+ .kit-teaser-copy{padding:50px 28px 10px}
+ .kit-hero{min-height:0}
+}
+@media(max-width:760px){
+ .pr-hero,.kit-hero,.kit-teaser,.pr-kit,.pr-final{margin-left:12px;margin-right:12px}
+ .pr-banner{margin:12px 12px 0;flex-direction:column;align-items:flex-start}
+ .pr-hero-copy{padding:34px 22px 40px}
+ .pr-facts{grid-template-columns:1fr 1fr;gap:16px}
+ .pr-facts dd{font-size:15px}
+ .pr-sponsors img{height:44px}.pr-sponsors img:first-child{height:28px}
+ .kit-grid{grid-template-columns:1fr}
+ .kit-card-body{padding:24px}
+ .pr-price{font-size:54px}
+ .pr-entry{padding:26px}
+ .pr-cutoffs strong{font-size:36px}
+ .pr-venue-card strong{font-size:96px}
+ .pr-final{padding:70px 20px}
+ .ticket-card.pink .ticket-distance{font-size:44px}
+ .ticket-card.pink{padding:28px 22px}
+}
+
+.season-more{grid-column:1/-1;display:flex;justify-content:center;padding-top:6px}
+@media(max-width:760px){.kit-teaser{margin-bottom:60px}}
