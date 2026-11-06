@@ -1,1021 +1,504 @@
 <!doctype html>
-<html lang="en" data-theme="light">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Design Metabolists Draft</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400&family=Jost:wght@300;400;500&display=swap"
-    />
-    <link rel="stylesheet" href="hark.css" />
-    <link rel="stylesheet" href="hark-hero.css" />
-    <style>
-      :root {
-        --x-ink: #111111;
-        --x-paper: #ffffff;
-        --x-warm: #faf7f0;
-        --x-grey: #6b6b6b;
-        --x-line: rgba(17, 17, 17, 0.14);
-        --x-y: #f0d552;
-        --x-a: #f8c557;
-        --x-o: #f68745;
-        --x-pad: clamp(20px, 4vw, 56px);
-        --x-max: 1440px;
-        --x-ease: cubic-bezier(0.2, 0.7, 0.2, 1);
-        --x-nav: 72px;
-      }
-      html { scroll-padding-top: var(--x-nav); }
-      .page.x-page { max-width: none; padding: 0; display: block; }
-      body.x-body { background: var(--x-paper); color: var(--x-ink); font-family: "Jost", var(--sans); font-weight: 400; font-size: 16px; line-height: 1.6; }
-      .x-body ::selection { background: var(--x-a); color: var(--x-ink); }
-      .x-wrap { max-width: var(--x-max); margin: 0 auto; padding: 0 var(--x-pad); }
-      .x-grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: clamp(12px, 2vw, 28px); }
-      .x-label { font-weight: 500; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; line-height: 1.5; }
-      .x-light { font-weight: 300; text-transform: lowercase; letter-spacing: -0.02em; line-height: 1.05; }
-      .x-grey { color: var(--x-grey); }
-      .x-note { color: var(--x-grey); font-style: italic; font-size: 14px; }
-      .x-stripe { display: grid; grid-template-rows: repeat(3, 1fr); height: 9px; width: 100%; }
-      .x-stripe i:nth-child(1) { background: var(--x-y); }
-      .x-stripe i:nth-child(2) { background: var(--x-a); }
-      .x-stripe i:nth-child(3) { background: var(--x-o); }
-      .x-tag { display: inline-block; font-weight: 500; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; border: 1px solid currentColor; padding: 1px 6px; margin-left: 8px; vertical-align: middle; opacity: 0.75; }
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Projects — Design Metabolists</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Jost:wght@300&display=swap" />
+<style>
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:#fff;color:#000;font:400 15px/1.55 Inter,"Helvetica Neue",Arial,sans-serif;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+:focus-visible{outline:2px solid #F68745;outline-offset:3px}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.wrap{max-width:1280px;margin:0 auto;padding:0 40px}
+.skip{position:absolute;left:-9999px;top:8px;background:#fff;padding:0 12px;min-height:44px;display:inline-flex;align-items:center;z-index:100}
+h1.xh{font-size:13px;font-weight:400;color:#767676;margin:28px 0 0;line-height:1.4}
+.skip:focus{left:8px}
 
-      /* logo */
-      .x-logo { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; color: inherit; }
-      .x-logo__word { font-weight: 300; font-size: 19px; line-height: 0.95; letter-spacing: 0.01em; text-transform: lowercase; }
-      .x-logo__word span { display: block; }
-      .x-logo__mark { display: grid; grid-template-rows: repeat(3, 1fr); gap: 3px; width: 26px; height: 27px; }
-      .x-logo__mark i:nth-child(1) { background: var(--x-y); }
-      .x-logo__mark i:nth-child(2) { background: var(--x-a); }
-      .x-logo__mark i:nth-child(3) { background: var(--x-o); }
+/* header */
+.hdr{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid #eee}
+.hdr .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{display:inline-flex;align-items:center;gap:10px;min-height:44px}
+.logo img{height:22px;width:auto}
+.logo span{font:300 17px/1 Jost,"Helvetica Neue",Arial,sans-serif;letter-spacing:.01em}
+.nav{display:flex;align-items:center;gap:28px;font-size:14px}
+.nav a{color:#767676;padding:10px 0}
+.nav a:hover{color:#000}
+.nav a[aria-current="page"]{color:#000;text-decoration:underline;text-underline-offset:5px;text-decoration-thickness:1px}
+.menu-btn{font-size:14px;min-height:44px;padding:0 2px}
+.menu-btn:hover{text-decoration:underline;text-underline-offset:5px}
+.hdr .mob{display:none}
+@media (max-width:759px){.hdr .mob{display:inline-flex;align-items:center;padding:0 4px}}
 
-      /* nav */
-      .x-nav { position: sticky; top: 0; z-index: 50; background: rgba(255, 255, 255, 0.94); border-bottom: 1px solid var(--x-line); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
-      .x-nav__in { display: flex; align-items: center; justify-content: space-between; height: var(--x-nav); }
-      .x-nav__links { display: flex; gap: clamp(16px, 2.4vw, 36px); }
-      .x-nav__links a, .x-link { position: relative; text-decoration: none; font-weight: 500; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; padding: 12px 0; }
-      .x-nav__links a::after, .x-link::after { content: ""; position: absolute; left: 0; right: 0; bottom: 6px; height: 2px; background: var(--x-o); transform: scaleX(0); transform-origin: left; transition: transform 0.35s var(--x-ease); }
-      .x-nav__links a:hover::after, .x-nav__links a[aria-current="true"]::after, .x-link:hover::after { transform: scaleX(1); }
-      .x-menu { display: none; background: none; border: 1px solid var(--x-ink); color: var(--x-ink); font: 500 12px/1 "Jost", sans-serif; letter-spacing: 0.16em; text-transform: uppercase; padding: 0 16px; height: 44px; cursor: pointer; }
-      @media (max-width: 900px) {
-        .x-menu { display: block; }
-        .x-nav__links { display: none; position: absolute; top: var(--x-nav); left: 0; right: 0; flex-direction: column; gap: 0; background: var(--x-paper); border-bottom: 1px solid var(--x-line); padding: 8px var(--x-pad) 20px; }
-        .x-nav.is-open .x-nav__links { display: flex; }
-        .x-nav__links a { font-size: 14px; padding: 14px 0; border-bottom: 1px solid var(--x-line); }
-        .x-nav__links a::after { bottom: -1px; }
-      }
+/* menu panel */
+.panel{position:fixed;inset:0;z-index:50;background:#fff;overflow-y:auto}
+.panel[hidden]{display:none}
+.panel .bar{display:flex;align-items:center;justify-content:space-between;height:60px;border-bottom:1px solid #eee}
+.panel-body{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px;padding-top:48px;padding-bottom:48px}
+.panel h2{font-size:13px;font-weight:400;color:#767676;margin:0 0 12px}
+.panel ul{list-style:none;margin:0;padding:0}
+.panel li a{display:flex;align-items:center;min-height:44px;font-size:17px}
+.panel li a:hover{text-decoration:underline;text-underline-offset:5px}
+.panel .main-links{display:none}
 
-      /* hero */
-      .x-hero { position: relative; height: calc(100svh - var(--x-nav)); min-height: 560px; color: #fff; overflow: hidden; background: var(--x-ink); }
-      .x-hero > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-      .x-hero::before { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0, 0, 0, 0.62) 0%, rgba(0, 0, 0, 0.18) 45%, rgba(0, 0, 0, 0) 70%); z-index: 1; }
-      .x-hero__copy { position: absolute; z-index: 2; left: 0; right: 0; bottom: clamp(48px, 8vh, 96px); }
-      .x-hero__copy .x-label { opacity: 0.9; margin-bottom: 20px; max-width: 34em; }
-      .x-hero h1 { font-size: clamp(48px, 9vw, 136px); margin-bottom: 20px; }
-      .x-hero__sub { font-weight: 300; font-size: clamp(17px, 1.6vw, 22px); max-width: 32em; margin-bottom: 32px; }
-      .x-hero .x-stripe { position: absolute; left: 0; right: 0; bottom: 0; z-index: 2; }
-      .x-btns { display: flex; flex-wrap: wrap; gap: 12px; }
-      .x-btn { display: inline-flex; align-items: center; min-height: 48px; padding: 0 26px; border: 1px solid currentColor; text-decoration: none; font-weight: 500; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; transition: background 0.25s, color 0.25s; cursor: pointer; background: none; color: inherit; font-family: inherit; }
-      .x-btn--fill { background: #fff; color: var(--x-ink); border-color: #fff; }
-      .x-btn--fill:hover { background: var(--x-y); border-color: var(--x-y); }
-      .x-btn:not(.x-btn--fill):hover { background: #fff; color: var(--x-ink); }
-      .x-btn--dark { background: var(--x-ink); color: #fff; border-color: var(--x-ink); }
-      .x-btn--dark:hover { background: var(--x-o); border-color: var(--x-o); color: var(--x-ink); }
+/* views */
+main{min-height:60vh}
+.view{animation:fade .18s ease-out}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+.view[hidden]{display:none}
+h1.ph{font-size:20px;font-weight:500;line-height:1.3;margin:56px 0 32px}
+h1:focus{outline:none}
+h1:focus-visible{outline:2px solid #F68745;outline-offset:3px}
 
-      /* sections */
-      .x-sec { padding: clamp(80px, 11vw, 160px) 0; border-top: 1px solid var(--x-line); }
-      .x-sec--warm { background: var(--x-warm); }
-      .x-head { margin-bottom: clamp(40px, 6vw, 80px); align-items: end; }
-      .x-head .x-label { grid-column: 1 / span 3; display: flex; gap: 14px; align-items: baseline; }
-      .x-num { color: var(--x-o); }
-      .x-head h2 { grid-column: 4 / span 9; font-size: clamp(36px, 5.4vw, 80px); }
-      @media (max-width: 900px) { .x-head .x-label, .x-head h2 { grid-column: 1 / -1; } .x-head .x-label { margin-bottom: 18px; } }
+/* filters */
+.filters{display:flex;gap:28px;overflow-x:auto;white-space:nowrap;margin:8px 0 48px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.filters::-webkit-scrollbar{display:none}
+.filters button{font-size:14px;color:#767676;min-height:44px;min-width:44px;padding:0;border-bottom:2px solid transparent;flex:none}
+.filters button:hover{color:#000}
+.filters button[aria-pressed="true"]{color:#000;border-bottom-color:#F68745}
+.filters small{font-size:12px;color:#767676;margin-left:4px}
 
-      /* intro */
-      .x-statement { grid-column: 1 / span 11; font-size: clamp(34px, 5.6vw, 84px); margin-bottom: clamp(56px, 8vw, 112px); }
-      .x-cols { border-top: 1px solid var(--x-ink); }
-      .x-col { grid-column: span 4; padding: 28px 0 0; }
-      .x-col h3 { font-weight: 400; font-size: 22px; margin-bottom: 8px; }
-      .x-col h3::before { content: ""; display: block; width: 32px; height: 3px; margin-bottom: 20px; background: var(--x-c, var(--x-y)); }
-      .x-col p { color: var(--x-grey); max-width: 26em; }
-      .x-figs { margin-top: clamp(56px, 8vw, 104px); border-top: 1px solid var(--x-line); }
-      .x-fig { grid-column: span 4; padding-top: 28px; border-right: 1px solid var(--x-line); padding-right: 16px; }
-      .x-fig:last-child { border-right: 0; }
-      .x-fig b { display: block; font-weight: 300; font-size: clamp(56px, 7vw, 104px); line-height: 1; letter-spacing: -0.03em; margin-bottom: 12px; }
-      .x-fig span { color: var(--x-grey); }
-      @media (max-width: 760px) { .x-col, .x-fig { grid-column: 1 / -1; } .x-fig { border-right: 0; border-bottom: 1px solid var(--x-line); padding-bottom: 28px; } .x-fig:last-child { border-bottom: 0; } }
+/* catalogue */
+.cat{display:block}
+.row{display:grid;grid-template-columns:28% minmax(0,1fr);gap:40px;margin-bottom:80px;align-items:start}
+.row[hidden]{display:none}
+.row h2{font-size:15px;font-weight:500;line-height:1.4;margin:0 0 6px}
+.row .m{font-size:13px;color:#767676;margin:0;line-height:1.5}
+.row .im{aspect-ratio:3/2;overflow:hidden;background:#f2f2f2}
+.row img{width:100%;height:100%;object-fit:cover;transition:opacity .18s}
+.row:hover img{opacity:.9}
+.row:hover h2{text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px}
+.note{font-size:13px;color:#767676;margin:0 0 64px}
 
-      /* module tiles */
-      .x-mod { position: relative; display: block; text-decoration: none; color: inherit; cursor: pointer; transition: transform 0.45s var(--x-ease); background: none; border: 0; padding: 0; font: inherit; text-align: left; width: 100%; }
-      .x-mod__img { position: relative; overflow: hidden; background: var(--x-warm); }
-      .x-mod__img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s var(--x-ease); }
-      .x-mod__cap { position: relative; padding: 16px 0 18px; }
-      .x-mod__cap::before { content: ""; position: absolute; left: 0; top: 0; height: 3px; width: 100%; background: linear-gradient(to right, var(--x-y) 0 33.33%, var(--x-a) 33.33% 66.66%, var(--x-o) 66.66%); transform: scaleX(0); transform-origin: left; transition: transform 0.5s var(--x-ease); }
-      .x-mod:hover, .x-mod:focus-visible { transform: translateY(-6px); }
-      .x-mod:hover .x-mod__img img { transform: scale(1.03); }
-      .x-mod:hover .x-mod__cap::before, .x-mod:focus-visible .x-mod__cap::before { transform: scaleX(1); }
-      .x-mod:focus-visible { outline: 2px solid var(--x-o); outline-offset: 4px; }
-      .x-mod h3 { font-weight: 400; font-size: clamp(18px, 1.6vw, 24px); line-height: 1.25; margin-bottom: 4px; }
-      .x-mod .x-label { color: var(--x-grey); font-size: 11px; }
+/* project page */
+.back{display:inline-flex;align-items:center;min-height:44px;font-size:14px;margin-top:24px}
+.back:hover{text-decoration:underline;text-underline-offset:4px}
+#v-project h1.ph{margin:24px 0 16px}
+.facts{display:grid;grid-template-columns:max-content 1fr;gap:4px 24px;margin:0 0 40px;font-size:13px}
+.facts dt{color:#767676}
+.facts dd{margin:0}
+.pimg img{width:100%;height:auto}
+.pimg img[hidden]{display:none}
+.desc{max-width:620px;margin:32px 0 64px}
+.pn{display:flex;justify-content:space-between;gap:24px;border-top:1px solid #eee;padding-top:24px}
+.pn a{display:flex;flex-direction:column;min-height:44px;max-width:48%}
+.pn a[hidden]{display:none}
+.pn a.next{margin-left:auto;text-align:right}
+.pn small{font-size:13px;color:#767676}
+.pn span{font-weight:500}
+.pn a:hover span{text-decoration:underline;text-underline-offset:4px}
+#v-project .back.end{margin:24px 0 48px}
 
-      /* works */
-      .x-works { row-gap: clamp(32px, 4vw, 64px); }
-      .x-w1 { grid-column: 1 / span 8; } .x-w1 .x-mod__img { aspect-ratio: 16 / 10; }
-      .x-w2 { grid-column: 9 / span 4; } .x-w2 .x-mod__img { aspect-ratio: 4 / 5.6; }
-      .x-w3 { grid-column: 1 / span 5; } .x-w3 .x-mod__img { aspect-ratio: 4 / 5; }
-      .x-w4 { grid-column: 6 / span 7; align-self: end; } .x-w4 .x-mod__img { aspect-ratio: 4 / 3; }
-      .x-w5 { grid-column: 1 / span 4; } .x-w5 .x-mod__img { aspect-ratio: 3 / 4; }
-      .x-w6 { grid-column: 5 / span 8; } .x-w6 .x-mod__img { aspect-ratio: 16 / 11; }
-      .x-w2 { align-self: start; margin-top: clamp(0px, 8vw, 120px); }
-      @media (max-width: 760px) { .x-works > * { grid-column: 1 / -1 !important; margin-top: 0 !important; } .x-works .x-mod__img { aspect-ratio: 4 / 3 !important; } }
+/* practice */
+.intro{max-width:620px}
+.intro p{margin:0 0 16px}
+h2.sub{font-size:15px;font-weight:500;margin:56px 0 16px}
+.services{list-style:none;margin:0;padding:0;font-size:14px;max-width:620px}
+.services li{padding:4px 0}
+table{border-collapse:collapse;width:100%;max-width:900px;font-size:14px}
+th,td{text-align:left;vertical-align:top;padding:12px 24px 12px 0;border-bottom:1px solid #e6e6e6}
+thead th{font-size:13px;font-weight:400;color:#767676}
+td:first-child{white-space:nowrap}
+td:last-child{color:#555}
+.office{font-size:14px;color:#767676;margin:40px 0 64px}
 
-      /* index */
-      .x-bar { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; align-items: center; padding: 16px 0; border-top: 1px solid var(--x-ink); border-bottom: 1px solid var(--x-line); margin-bottom: 40px; }
-      .x-chips, .x-view { display: flex; flex-wrap: wrap; gap: 8px; }
-      .x-chip { min-height: 44px; padding: 0 18px; border: 1px solid var(--x-line); background: none; color: var(--x-ink); font: 500 12px/1 "Jost", sans-serif; letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer; transition: border-color 0.2s, background 0.2s; }
-      .x-chip:hover { border-color: var(--x-ink); }
-      .x-chip[aria-pressed="true"] { background: var(--x-a); border-color: var(--x-a); }
-      .x-chip sup { font-size: 10px; margin-left: 4px; color: var(--x-grey); }
-      .x-view .x-chip[aria-pressed="true"] { background: var(--x-ink); border-color: var(--x-ink); color: #fff; }
-      /* timeline */
-      .x-tml { overflow-x: auto; overflow-y: hidden; scroll-snap-type: x proximity; overscroll-behavior-x: contain; scrollbar-width: thin; }
-      .x-tml:focus-visible { outline: 2px solid var(--x-o); outline-offset: 4px; }
-      .x-tml__track { position: relative; display: flex; width: max-content; height: 720px; list-style: none; margin: 0; padding: 0 48px 0 0; }
-      .x-tml__track::before { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 1px; background: var(--x-ink); }
-      .x-tml__it { position: relative; flex: 0 0 250px; margin-right: -100px; height: 50%; display: flex; align-items: flex-end; padding-bottom: 28px; scroll-snap-align: start; transition: opacity 0.3s; }
-      .x-tml__it:nth-child(even) { align-self: flex-end; align-items: flex-start; padding: 28px 0 0; }
-      .x-tml__it:last-child { margin-right: 0; }
-      .x-tml__it::before { content: ""; position: absolute; left: 28px; bottom: 0; width: 1px; height: 28px; background: var(--x-ink); }
-      .x-tml__it::after { content: ""; position: absolute; left: 24px; bottom: -4px; width: 9px; height: 9px; border-radius: 50%; background: var(--x-ink); }
-      .x-tml__it:nth-child(even)::before { bottom: auto; top: 0; }
-      .x-tml__it:nth-child(even)::after { bottom: auto; top: -4px; }
-      .x-tml__it.is-dim { opacity: 0.2; }
-      .x-tml__card { display: block; width: 100%; background: var(--x-paper); border: 1px solid var(--x-line); padding: 0 0 16px; color: inherit; font: inherit; text-align: left; }
-      button.x-tml__card { cursor: pointer; transition: border-color 0.2s; }
-      button.x-tml__card:hover { border-color: var(--x-ink); }
-      button.x-tml__card:focus-visible { outline: 2px solid var(--x-o); outline-offset: 3px; }
-      .x-tml__card img { display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; }
-      .x-tml__txt { padding: 14px 16px 0; }
-      .x-tml__yr { font-weight: 300; font-size: 28px; line-height: 1; letter-spacing: -0.02em; margin-bottom: 8px; }
-      .x-tml__card h3 { font-weight: 400; font-size: 17px; line-height: 1.3; }
-      .x-tml__by { color: var(--x-grey); font-size: 14px; line-height: 1.4; margin-top: 4px; }
-      .x-tml__card--ch { background: var(--x-ink); border-color: var(--x-ink); color: #fff; }
-      .x-tml__card--ch .x-tml__by { color: rgba(255, 255, 255, 0.75); }
-      .x-tml__cat { display: inline-block; margin-top: 10px; padding: 3px 8px; font-weight: 500; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: #111; background: #f8c557; }
-      .x-tml__cat--res { background: #f0d552; }
-      .x-tml__cat--concept { background: #f68745; }
-      .x-tml__prog { height: 6px; margin-top: 20px; background: var(--x-line); }
-      .x-tml__prog i { display: block; height: 100%; background: linear-gradient(to right, var(--x-y) 0 33.33%, var(--x-a) 33.33% 66.66%, var(--x-o) 66.66%); clip-path: inset(0 100% 0 0); }
-      @media (max-width: 700px) { .x-tml__track { height: 680px; } .x-tml__it { flex-basis: 220px; margin-right: -90px; } }
-      [hidden] { display: none !important; }
+/* people */
+.band img{width:100%;height:auto}
+.band figcaption{font-size:13px;color:#767676;margin-top:12px}
+.band{margin:0 0 56px}
+.people{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:40px 24px;list-style:none;margin:0;padding:0}
+.por{aspect-ratio:1;background:#f2f2f2;display:flex;align-items:center;justify-content:center;font-size:13px;color:#666;margin-bottom:12px}
+.people h2{font-size:15px;font-weight:500;margin:0;line-height:1.4}
+.people p{font-size:13px;color:#767676;margin:0}
+.support{font-size:13px;color:#767676;margin:48px 0 64px}
 
-      /* lightbox */
-      /* case-study overlay */
-      .x-lb { position: fixed; inset: 0; z-index: 100; background: var(--x-paper); color: var(--x-ink); overflow-y: auto; overscroll-behavior: contain; transition: background-color 0.5s var(--x-ease), opacity 0.35s var(--x-ease); }
-      .x-lb.is-veil { background-color: rgba(255, 255, 255, 0); }
-      .x-lb.is-out { opacity: 0; }
-      .x-lb__ctl, .x-lb__body, .x-lb__next { transition: opacity 0.35s var(--x-ease); }
-      .x-lb.is-morph .x-lb__hero { visibility: hidden; }
-      .x-lb.is-morph .x-lb__ctl, .x-lb.is-morph .x-lb__body, .x-lb.is-morph .x-lb__next { opacity: 0; }
-      .x-lb__ctl { position: fixed; top: 16px; right: var(--x-pad); z-index: 2; display: flex; gap: 8px; align-items: center; }
-      .x-lb__ctl button { width: 48px; height: 48px; border: 1px solid var(--x-ink); background: var(--x-paper); color: var(--x-ink); font: 300 22px/1 "Jost", sans-serif; cursor: pointer; }
-      .x-lb__ctl button:hover, .x-lb__ctl button:focus-visible { background: var(--x-o); border-color: var(--x-o); }
-      .x-lb__count { background: var(--x-paper); padding: 4px 10px; font-size: 13px; letter-spacing: 0.1em; margin-right: 4px; }
-      .x-lb__hero { position: relative; height: 60vh; min-height: 280px; background: var(--x-ink); }
-      .x-lb__hero img { display: block; width: 100%; height: 100%; object-fit: cover; }
-      .x-lb__hero .x-lb__bands, .x-lb__hero.is-text img { display: none; }
-      .x-lb__hero.is-text { height: 36vh; min-height: 200px; background: none; }
-      .x-lb__hero.is-text .x-lb__bands { display: grid; height: 100%; }
-      .x-lb__bands { grid-template-rows: repeat(3, 1fr); }
-      .x-lb__bands i:nth-child(1) { background: var(--x-y); }
-      .x-lb__bands i:nth-child(2) { background: var(--x-a); }
-      .x-lb__bands i:nth-child(3) { background: var(--x-o); }
-      .x-lb__clone { position: fixed; z-index: 101; margin: 0; object-fit: cover; pointer-events: none; transition: left 0.6s var(--x-ease), top 0.6s var(--x-ease), width 0.6s var(--x-ease), height 0.6s var(--x-ease); }
-      div.x-lb__clone { display: grid; }
-      .x-lb__body { padding-top: clamp(32px, 5vw, 64px); padding-bottom: clamp(56px, 8vw, 112px); }
-      .x-lb__meta { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
-      .x-lb__meta .x-tml__cat { margin-top: 0; }
-      .x-lb__draft { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--x-grey); border: 1px solid var(--x-line); padding: 2px 8px; }
-      .x-lb__title { font-weight: 300; text-transform: lowercase; letter-spacing: -0.03em; line-height: 1; font-size: clamp(40px, 7vw, 104px); margin: 20px 0 clamp(32px, 5vw, 64px); max-width: 14em; }
-      .x-lb__cols { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(32px, 6vw, 96px); }
-      .x-lb__facts { margin: 0; border-bottom: 1px solid var(--x-line); }
-      .x-lb__facts div { display: grid; grid-template-columns: 7em 1fr; gap: 16px; padding: 14px 0; border-top: 1px solid var(--x-line); }
-      .x-lb__facts dt { color: var(--x-grey); }
-      .x-lb__facts dd { margin: 0; }
-      .x-lb__copy h4 { margin: 0 0 8px; }
-      .x-lb__copy p { font-size: 18px; line-height: 1.6; max-width: 34em; margin: 0 0 32px; }
-      .x-lb__next { display: block; width: 100%; border: 0; background: var(--x-ink); color: #fff; text-align: left; font: inherit; padding: clamp(40px, 6vw, 88px) var(--x-pad); cursor: pointer; transition: background-color 0.3s; }
-      .x-lb__next:hover, .x-lb__next:focus-visible { background: var(--x-o); color: var(--x-ink); }
-      .x-lb__next b { display: block; font-weight: 300; text-transform: lowercase; letter-spacing: -0.03em; line-height: 1; font-size: clamp(36px, 6vw, 88px); margin-top: 12px; }
-      .x-tml__card[role="button"] { cursor: pointer; transition: border-color 0.2s; }
-      .x-tml__card[role="button"]:hover { border-color: var(--x-ink); }
-      .x-tml__card[role="button"]:focus-visible { outline: 2px solid var(--x-o); outline-offset: 3px; }
-      @media (max-width: 760px) { .x-lb__cols { grid-template-columns: 1fr; } .x-lb__ctl { top: 10px; } }
-      @media (prefers-reduced-motion: reduce) { .x-lb, .x-lb *, .x-lb__clone { transition: none !important; } }
+/* contact */
+.contact{display:grid;grid-template-columns:200px minmax(0,1fr);gap:16px 40px;margin:0 0 64px;max-width:820px}
+.contact dt{color:#767676;font-size:13px;padding-top:2px}
+.contact dd{margin:0}
+.contact a{text-decoration:underline;text-underline-offset:4px;text-decoration-color:#bbb}
+.contact a:hover{text-decoration-color:#000}
 
-      /* metabolism */
-      .x-meta-text { grid-column: 4 / span 7; font-size: clamp(17px, 1.4vw, 20px); font-weight: 300; }
-      .x-meta-text p + p { margin-top: 1.1em; }
-      .x-meta-text .x-note { margin-top: 28px; }
-      @media (max-width: 900px) { .x-meta-text { grid-column: 1 / -1; } }
-      .x-tl { list-style: none; margin: clamp(56px, 8vw, 104px) 0 0; padding: 0; display: grid; grid-template-columns: repeat(6, minmax(150px, 1fr)); overflow-x: auto; scroll-snap-type: x mandatory; border-top: 1px solid var(--x-ink); }
-      .x-tl li { position: relative; padding: 32px 20px 8px 0; scroll-snap-align: start; }
-      .x-tl li::before { content: ""; position: absolute; top: -6px; left: 0; width: 11px; height: 11px; border-radius: 50%; background: var(--x-warm); border: 1px solid var(--x-ink); }
-      .x-tl li.is-firm::before { background: var(--x-o); border-color: var(--x-o); }
-      .x-tl b { display: block; font-weight: 300; font-size: clamp(32px, 3.4vw, 48px); line-height: 1; margin-bottom: 10px; }
-      .x-tl li.is-firm b { color: var(--x-o); }
-      .x-tl span { font-size: 15px; color: #444; display: block; max-width: 14em; }
+/* footer */
+.ftr .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;font-size:13px;color:#767676;padding-top:24px;padding-bottom:24px}
+.ftr nav{display:flex;gap:20px}
+.ftr a{display:inline-flex;align-items:center;min-height:44px}
+.ftr a:hover{color:#000;text-decoration:underline;text-underline-offset:4px}
 
-      /* practice */
-      .x-rows { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--x-ink); }
-      .x-rows li { display: grid; grid-template-columns: 80px 1fr; align-items: baseline; padding: 24px 0; border-bottom: 1px solid var(--x-line); transition: padding 0.35s var(--x-ease); }
-      .x-rows li:hover { padding-left: 12px; }
-      .x-rows .x-n { font-weight: 500; font-size: 13px; letter-spacing: 0.12em; }
-      .x-rows li:nth-child(3n + 1) .x-n { color: #c9a90f; }
-      .x-rows li:nth-child(3n + 2) .x-n { color: #d99a1c; }
-      .x-rows li:nth-child(3n) .x-n { color: var(--x-o); }
-      .x-rows .x-t { font-weight: 300; font-size: clamp(24px, 3vw, 42px); line-height: 1.15; text-transform: lowercase; }
-      .x-after { margin-top: 32px; color: var(--x-grey); max-width: 40em; }
-
-      /* track record */
-      .x-marquee { overflow: hidden; border-top: 1px solid var(--x-line); border-bottom: 1px solid var(--x-line); padding: clamp(24px, 3vw, 44px) 0; -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
-      .x-marquee__track { display: flex; width: max-content; animation: x-marq 70s linear infinite; }
-      .x-marquee:hover .x-marquee__track { animation-play-state: paused; }
-      .x-marquee__set { display: flex; align-items: center; list-style: none; margin: 0; padding: 0; flex-shrink: 0; }
-      .x-marquee__set li { display: flex; align-items: center; white-space: nowrap; font-weight: 300; font-size: clamp(40px, 6vw, 96px); line-height: 1.15; letter-spacing: -0.02em; text-transform: lowercase; }
-      .x-marquee__set li::after { content: ""; flex-shrink: 0; width: 16px; height: 18px; margin: 0 clamp(28px, 3.4vw, 56px); background: linear-gradient(var(--x-y) 0 28%, transparent 28% 36%, var(--x-a) 36% 64%, transparent 64% 72%, var(--x-o) 72%); }
-      @keyframes x-marq { to { transform: translateX(-50%); } }
-      .x-eng { margin-top: clamp(56px, 8vw, 104px); }
-      .x-eng h3 { margin-bottom: 20px; }
-      .x-eng ol { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--x-ink); }
-      .x-eng li { display: grid; grid-template-columns: 160px 1fr; gap: 16px; padding: 18px 0; border-bottom: 1px solid var(--x-line); }
-      .x-eng li span:first-child { font-weight: 500; font-size: 13px; letter-spacing: 0.1em; font-variant-numeric: tabular-nums; padding-top: 2px; }
-      .x-eng li span:last-child { font-size: 18px; }
-      .x-eng small { display: block; color: var(--x-grey); font-size: 14px; }
-      @media (max-width: 600px) { .x-eng li { grid-template-columns: 1fr; gap: 4px; } }
-
-      /* team */
-      .x-teamfig { margin: 0 0 clamp(48px, 7vw, 96px); }
-      .x-teamfig__img { position: relative; overflow: hidden; aspect-ratio: 800 / 544; background: var(--x-paper); }
-      .x-teamfig__img img { display: block; width: 100%; height: 100%; object-fit: cover; transform-origin: 50% 45%; transition: transform 2.4s var(--x-ease); }
-      .x-teamfig:hover .x-teamfig__img img { transform: scale(1.04); }
-      .x-teamfig figcaption { margin-top: 12px; font-size: 13px; color: var(--x-grey); }
-      .x-teamfig.x-wipe { opacity: 1; transform: none; }
-      .x-teamfig.x-wipe .x-teamfig__img::after { content: ""; position: absolute; top: 0; bottom: 0; left: -200%; width: 300%; z-index: 1; pointer-events: none; background: linear-gradient(90deg, var(--x-o) 0 33.34%, var(--x-a) 33.34% 66.67%, var(--x-y) 66.67% 100%); transition: transform 0.95s cubic-bezier(0.7, 0, 0.2, 1) 0.1s; }
-      .x-teamfig.x-wipe.is-in .x-teamfig__img::after { transform: translateX(100%); }
-      .x-teamfig.x-wipe:not(.is-in) .x-teamfig__img img { transform: scale(1.08); }
-      .x-team-lead { font-weight: 300; font-size: clamp(22px, 2.4vw, 30px); line-height: 1.3; margin-bottom: clamp(24px, 3vw, 40px); }
-      .x-team { row-gap: 40px; }
-      .x-person { grid-column: span 6; }
-      .x-mono { aspect-ratio: 5 / 4; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; background: linear-gradient(180deg, var(--x-y) 0 33.34%, var(--x-a) 33.34% 66.67%, var(--x-o) 66.67% 100%); }
-      .x-mono img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-      .x-mono b { position: relative; font-weight: 300; font-size: clamp(88px, 11vw, 168px); line-height: 1; letter-spacing: 0.02em; text-transform: lowercase; color: var(--x-ink); }
-      .x-person h3 { font-weight: 400; font-size: clamp(24px, 2.4vw, 30px); margin-top: 20px; }
-      .x-person p { color: var(--x-grey); }
-      .x-team-note { grid-column: 1 / -1; }
-      .x-team-note p:first-child { font-weight: 300; font-size: 22px; line-height: 1.35; margin-bottom: 12px; }
-      @media (max-width: 560px) { .x-person { grid-column: 1 / -1; } }
-      @media (prefers-reduced-motion: reduce) { .x-teamfig__img img { transition: none; } .x-teamfig:hover .x-teamfig__img img { transform: none; } .x-teamfig.x-wipe .x-teamfig__img::after { display: none; } }
-
-      /* contact */
-      .x-contact h2 { font-size: clamp(48px, 9vw, 136px); margin-bottom: clamp(48px, 7vw, 96px); }
-      .x-details { grid-column: 1 / span 4; }
-      .x-details dl { margin: 0; }
-      .x-details dt { font-weight: 500; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--x-grey); padding-top: 18px; border-top: 1px solid var(--x-line); }
-      .x-details dd { margin: 4px 0 18px; font-size: 18px; }
-      .x-details a { text-decoration: none; background: linear-gradient(var(--x-o), var(--x-o)) 0 100% / 0 2px no-repeat; transition: background-size 0.3s var(--x-ease); }
-      .x-details a:hover { background-size: 100% 2px; }
-      .x-form { grid-column: 6 / span 7; display: grid; grid-template-columns: 1fr 1fr; gap: 0 24px; }
-      .x-field { display: flex; flex-direction: column; margin-bottom: 24px; }
-      .x-field--full { grid-column: 1 / -1; }
-      .x-field label { font-weight: 500; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--x-grey); margin-bottom: 6px; }
-      .x-field input, .x-field select, .x-field textarea { font: 300 18px/1.4 "Jost", sans-serif; color: var(--x-ink); background: transparent; border: 0; border-bottom: 1px solid var(--x-ink); border-radius: 0; padding: 10px 0; min-height: 44px; -webkit-appearance: none; appearance: none; }
-      .x-field select { background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23111' stroke-width='1.2'/%3E%3C/svg%3E") right 4px center no-repeat; }
-      .x-field textarea { min-height: 120px; resize: vertical; }
-      .x-field input:focus, .x-field select:focus, .x-field textarea:focus { outline: none; border-bottom: 2px solid var(--x-o); }
-      .x-form .x-btns { grid-column: 1 / -1; align-items: center; }
-      .x-map { grid-column: 1 / -1; margin-top: clamp(56px, 8vw, 96px); border: 0; width: 100%; height: 420px; filter: grayscale(1) contrast(1.05); display: block; }
-      @media (max-width: 900px) { .x-details, .x-form { grid-column: 1 / -1; } .x-form { margin-top: 32px; } }
-      @media (max-width: 560px) { .x-form { grid-template-columns: 1fr; } .x-map { height: 300px; } }
-
-      /* footer */
-      .x-foot { background: var(--x-ink); color: #fff; }
-      .x-foot__in { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 24px; padding-top: 48px; padding-bottom: 48px; }
-      .x-foot p { color: rgba(255, 255, 255, 0.7); font-size: 14px; }
-      .x-pill { display: inline-block; font-weight: 500; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; border: 1px solid var(--x-a); color: var(--x-a); border-radius: 999px; padding: 4px 12px; }
-
-      /* accessibility fixes: readable sizes, text-safe accent shades, tap targets */
-      :root { --x-o-text: #a3460f; }
-      .x-tag { font-size: 12px; }
-      .x-mod .x-label, .x-list th, .x-details dt, .x-field label, .x-pill { font-size: 12px; }
-      .x-chip sup { font-size: 12px; color: inherit; opacity: 1; }
-      .x-num, .x-tl li.is-firm b, .x-list tbody tr:hover td:first-child, .x-list tbody tr:focus-visible td:first-child { color: var(--x-o-text); }
-      .x-rows li:nth-child(3n + 1) .x-n { color: #7a6400; }
-      .x-rows li:nth-child(3n + 2) .x-n { color: #8a5a00; }
-      .x-rows li:nth-child(3n) .x-n { color: var(--x-o-text); }
-      .x-logo { min-height: 44px; }
-      .x-details a { display: inline-flex; align-items: center; min-height: 44px; }
-      .x-lb__ctl button { flex: 0 0 48px; min-width: 48px; }
-
-      /* reveal */
-      .x-rv { opacity: 0; transform: translateY(24px); transition: opacity 0.9s var(--x-ease), transform 0.9s var(--x-ease); }
-      .x-rv.is-in { opacity: 1; transform: none; }
-      @media (prefers-reduced-motion: reduce) {
-        .x-rv { opacity: 1; transform: none; transition: none; }
-        .x-mod, .x-mod__img img, .x-mod__cap::before, .x-rows li, .x-nav__links a::after { transition: none !important; }
-        .x-mod:hover, .x-mod:focus-visible { transform: none; }
-        .x-mod:hover .x-mod__img img { transform: none; }
-      }
-
-      /* ---- motion pass ---- */
-      /* logo intro */
-      html.x-lock { overflow: hidden; }
-      .x-intro { position: fixed; inset: 0; z-index: 200; background: #fff; overflow: hidden; cursor: pointer; animation: x-intro-kill 0s 6s forwards; }
-      @keyframes x-intro-kill { to { visibility: hidden; opacity: 0; } }
-      .x-intro.is-skip { opacity: 0; transition: opacity 0.2s; }
-      .x-intro__word { position: absolute; right: calc(50% - 52px); top: 50%; transform: translateY(-50%); font: 300 34px/0.95 "Jost", sans-serif; letter-spacing: 0.01em; text-transform: lowercase; color: var(--x-ink); opacity: 0; }
-      .x-intro__word span { display: block; }
-      .x-intro__bar { position: absolute; left: calc(50% + 68px); top: calc(50% - 35px + var(--i) * 25px); width: 72px; height: 20px; transform: translateX(-100vw); }
-      .x-intro__bar:nth-child(1) { --i: 0; background: var(--x-y); }
-      .x-intro__bar:nth-child(2) { --i: 1; background: var(--x-a); }
-      .x-intro__bar:nth-child(3) { --i: 2; background: var(--x-o); }
-      .x-intro.is-play .x-intro__bar { transform: none; transition: transform 0.55s var(--x-ease) calc(var(--i) * 140ms); }
-      .x-intro.is-play .x-intro__word { opacity: 1; transition: opacity 0.5s ease 0.55s; }
-      .x-intro.is-band .x-intro__word { opacity: 0; transition: opacity 0.2s; }
-      .x-intro.is-band .x-intro__bar { left: 0; width: 100%; top: calc(var(--i) * 33.34%); height: 33.4%; transition: left 0.45s var(--x-ease), width 0.45s var(--x-ease), top 0.45s var(--x-ease), height 0.45s var(--x-ease); }
-      .x-intro.is-out { background: transparent; }
-      .x-intro.is-out .x-intro__bar { transform: translateY(-110vh); transition: transform 0.5s cubic-bezier(0.7, 0, 0.2, 1) calc(var(--i) * 60ms); }
-
-      /* living hero */
-      .x-slides { position: absolute; inset: 0; }
-      .x-slide { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 1.4s ease; transform-origin: 60% 50%; }
-      .x-slide.is-on { opacity: 1; }
-      .x-slide.is-zoom { animation: x-kb 7.4s linear forwards; }
-      @keyframes x-kb { from { transform: scale(1); } to { transform: scale(1.08); } }
-      .x-hero__meta { position: absolute; z-index: 2; right: var(--x-pad); bottom: 40px; width: min(300px, 40vw); text-align: right; text-shadow: 0 1px 12px rgba(0, 0, 0, 0.35); }
-      .x-hero__count { font-weight: 500; font-size: 12px; letter-spacing: 0.18em; font-variant-numeric: tabular-nums; }
-      .x-hero__cap { font-weight: 300; font-size: 18px; line-height: 1.3; margin: 8px 0 14px; }
-      .x-prog { display: grid; gap: 3px; }
-      .x-prog i { position: relative; display: block; height: 2px; overflow: hidden; background: rgba(255, 255, 255, 0.28); }
-      .x-prog i::after { content: ""; position: absolute; inset: 0; background: var(--c); transform: scaleX(0); transform-origin: left; }
-      .x-prog i:nth-child(1) { --c: var(--x-y); --d: 6s; --dl: 0s; }
-      .x-prog i:nth-child(2) { --c: var(--x-a); --d: 5.75s; --dl: 0.25s; }
-      .x-prog i:nth-child(3) { --c: var(--x-o); --d: 5.5s; --dl: 0.5s; }
-      .x-prog.is-run i::after { animation: x-prog var(--d) linear var(--dl) forwards; }
-      @keyframes x-prog { to { transform: scaleX(1); } }
-      @media (max-width: 900px) { .x-hero__meta { top: 24px; bottom: auto; width: min(240px, 60vw); } }
-
-      /* band-wipe reveals */
-      .x-works.x-wipe .x-rv { opacity: 1; transform: none; }
-      .x-works.x-wipe .x-mod__img::after { content: ""; position: absolute; top: 0; bottom: 0; left: -200%; width: 300%; z-index: 1; pointer-events: none; background: linear-gradient(90deg, var(--x-o) 0 33.34%, var(--x-a) 33.34% 66.67%, var(--x-y) 66.67% 100%); transition: transform 0.95s cubic-bezier(0.7, 0, 0.2, 1) 0.1s; }
-      .x-works.x-wipe .is-in .x-mod__img::after { transform: translateX(100%); }
-      .x-works.x-wipe .x-rv:not(.is-in) .x-mod__img img { transform: scale(1.08); }
-      .x-rv.x-rv--soft { transform: translateY(12px); }
-      .x-rv.x-rv--soft.is-in { transform: none; }
-
-      /* cursor */
-      html.x-has-cursor, html.x-has-cursor * { cursor: none; }
-      html.x-has-cursor input, html.x-has-cursor textarea, html.x-has-cursor iframe { cursor: text; }
-      html.x-has-cursor select { cursor: auto; }
-      .x-cursor { position: fixed; left: 0; top: 0; z-index: 300; width: 72px; height: 72px; margin: -36px 0 0 -36px; pointer-events: none; opacity: 0; transition: opacity 0.2s; }
-      .x-cursor.is-on { opacity: 1; }
-      .x-cursor__c { display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; border-radius: 50%; background: var(--x-o); transform: scale(0.14); transition: transform 0.35s var(--x-ease); }
-      .x-cursor__c span { font: 500 12px/1 "Jost", sans-serif; letter-spacing: 0.16em; color: var(--x-ink); opacity: 0; transition: opacity 0.2s; }
-      .x-cursor.is-view .x-cursor__c { transform: scale(1); }
-      .x-cursor.is-view .x-cursor__c span { opacity: 1; }
-
-      .x-fig b { font-variant-numeric: tabular-nums; }
-
-      @media (prefers-reduced-motion: reduce) {
-        .x-intro { display: none; }
-        .x-slide, .x-slide.is-zoom { animation: none; transition: none; }
-        .x-prog { display: none; }
-        .x-works.x-wipe .x-mod__img::after { display: none; }
-        .x-marquee { -webkit-mask-image: none; mask-image: none; }
-        .x-marquee__track { animation: none; width: auto; flex-wrap: wrap; }
-        .x-marquee__set { flex-wrap: wrap; row-gap: 12px; padding: 0 var(--x-pad); }
-        .x-marquee__set li { font-size: clamp(28px, 3.6vw, 48px); }
-        .x-marquee__set[aria-hidden="true"] { display: none; }
-        .x-cursor__c, .x-cursor__c span { transition: none; }
-      }
-    </style>
-  </head>
-  <body class="x-body">
-    <div class="x-intro" id="x-intro" aria-hidden="true">
-      <p class="x-intro__word"><span>design</span><span>metabolists</span></p>
-      <i class="x-intro__bar"></i><i class="x-intro__bar"></i><i class="x-intro__bar"></i>
+@media (max-width:759px){
+  .wrap{padding:0 20px}
+  .nav{display:none}
+  .panel .main-links{display:block}
+  .panel-body{grid-template-columns:1fr;gap:32px;padding-top:32px}
+  .row{grid-template-columns:1fr;gap:14px;margin-bottom:48px}
+  .row .im{order:-1}
+  h1.ph{margin:40px 0 24px}
+  .filters{gap:22px;margin:16px -20px 32px;padding:0 20px}
+  .people{grid-template-columns:repeat(2,minmax(0,1fr));gap:32px 16px}
+  .contact{grid-template-columns:1fr;gap:4px}
+  .contact dd{margin-bottom:16px}
+  th,td{padding-right:14px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="hdr">
+  <div class="wrap">
+    <a class="logo" href="#/projects" aria-label="design metabolists, projects"><img src="logo-mark.png" alt="" width="22" height="22" /><span>design metabolists</span></a>
+    <div class="nav">
+      <a href="#/projects" data-r="projects">Projects</a>
+      <a href="#/practice" data-r="practice">Practice</a>
+      <a href="#/people" data-r="people">People</a>
+      <a href="#/contact" data-r="contact">Contact</a>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="panel" data-menu>Menu</button>
     </div>
-    <div class="page x-page" id="top">
-      <header class="x-nav" id="x-nav">
-        <div class="x-wrap x-nav__in">
-          <a class="x-logo" href="#top" aria-label="Design Metabolists, home">
-            <span class="x-logo__word"><span>design</span><span>metabolists</span></span>
-            <span class="x-logo__mark" aria-hidden="true"><i></i><i></i><i></i></span>
-          </a>
-          <button class="x-menu" type="button" aria-expanded="false" aria-controls="x-links">Menu</button>
-          <nav class="x-nav__links" id="x-links" aria-label="Sections">
-            <a href="#works">Works</a>
-            <a href="#index">Timeline</a>
-            <a href="#practice">Practice</a>
-            <a href="#metabolism">Metabolism</a>
-            <a href="#track-record">Track Record</a>
-            <a href="#team">Team</a>
-            <a href="#contact">Contact</a>
-          </nav>
-        </div>
-      </header>
+    <button class="menu-btn mob" type="button" aria-expanded="false" aria-controls="panel" data-menu>Menu</button>
+  </div>
+</header>
 
-      <main>
-        <section class="x-hero" aria-label="Introduction">
-          <div class="x-slides">
-            <img class="x-slide is-on" id="img-hero" src="43_home.jpg" alt="Concept of stacked, curving mixed-use towers rising over a river" data-cap="River Towers Vision" fetchpriority="high" />
-            <img class="x-slide" data-from="img-terraces" alt="Cluster terrace houses lit at dusk" data-cap="Cluster Terraces" />
-            <img class="x-slide" data-from="img-eco" alt="Aerial render of a waterfront eco masterplan" data-cap="Waterfront Eco Masterplan" />
-            <img class="x-slide" data-from="img-nrp-park" alt="Aerial view of the renewed park at Bukit Batok" data-cap="NRP Bukit Batok Blk 266–267" />
-            <img class="x-slide" data-from="img-tower" alt="Residential tower with a planted green facade" data-cap="Green-Facade Residential Tower" />
-          </div>
-          <div class="x-hero__meta">
-            <p class="x-hero__count"><span id="x-hero-n">01</span> / 05</p>
-            <p class="x-hero__cap" id="x-hero-cap">River Towers Vision</p>
-            <div class="x-prog" id="x-prog" aria-hidden="true"><i></i><i></i><i></i></div>
-          </div>
-          <div class="x-hero__copy">
-            <div class="x-wrap">
-              <p class="x-label">chartered architects · professional designers · development consultants</p>
-              <h1 class="x-light">design that evolves.</h1>
-              <p class="x-hero__sub">Shaping Singapore's homes, neighbourhoods and public spaces since 1973.</p>
-              <div class="x-btns">
-                <a class="x-btn x-btn--fill" href="#works">View works</a>
-                <a class="x-btn" href="#contact">Start a project</a>
-              </div>
-            </div>
-          </div>
-          <div class="x-stripe" aria-hidden="true"><i></i><i></i><i></i></div>
-        </section>
-
-        <section class="x-sec" aria-label="About the practice" style="border-top: 0">
-          <div class="x-wrap">
-            <div class="x-grid">
-              <p class="x-statement x-light x-rv">Designing to tackle the small details for your big plans.</p>
-            </div>
-            <div class="x-grid x-cols">
-              <div class="x-col x-rv"><h3>Residential</h3><p>Landed homes, strata housing and apartments.</p></div>
-              <div class="x-col x-rv" style="--x-c: var(--x-a)"><h3>Public</h3><p>Neighbourhood renewal, additions &amp; alterations for government and civic clients.</p></div>
-              <div class="x-col x-rv" style="--x-c: var(--x-o)"><h3>Concept &amp; Masterplanning</h3><p>Urban visions, mixed-use and transformation studies.</p></div>
-            </div>
-            <div class="x-grid x-figs">
-              <div class="x-fig x-rv"><b>1973</b><span>Founded</span></div>
-              <div class="x-fig x-rv"><b>50+</b><span>Years in practice</span></div>
-              <div class="x-fig x-rv"><b>4</b><span>Sectors: residential, corporate, government, civic</span></div>
-            </div>
-          </div>
-        </section>
-
-        <section class="x-sec" id="works">
-          <div class="x-wrap">
-            <div class="x-grid x-head">
-              <p class="x-label"><span class="x-num">01</span> Selected works</p>
-              <h2 class="x-light">plug-in modules for a growing city.</h2>
-            </div>
-            <div class="x-grid x-works">
-              <div class="x-w1 x-rv"><button class="x-mod" type="button" data-open="Cluster Terraces"><div class="x-mod__img"><img id="img-terraces" src="13_residential.jpg" alt="Cluster terrace houses lit at dusk" loading="lazy" /></div><div class="x-mod__cap"><h3>Cluster Terraces<span class="x-tag">Working title</span></h3><p class="x-label">Residential · Singapore</p></div></button></div>
-              <div class="x-w2 x-rv"><button class="x-mod" type="button" data-open="NRP Bukit Batok Blk 266–267"><div class="x-mod__img"><img id="img-nrp-park" src="22_nrp.jpg" alt="Aerial view of the renewed park at Bukit Batok" loading="lazy" /></div><div class="x-mod__cap"><h3>Neighbourhood Renewal, Bukit Batok Blk 266–267</h3><p class="x-label">Public · NRP · Bukit Batok</p></div></button></div>
-              <div class="x-w3 x-rv"><button class="x-mod" type="button" data-open="Waterfront Eco Masterplan"><div class="x-mod__img"><img id="img-eco" src="37_concept.jpg" alt="Aerial render of a waterfront eco masterplan" loading="lazy" /></div><div class="x-mod__cap"><h3>Waterfront Eco Masterplan<span class="x-tag">Working title</span></h3><p class="x-label">Concept · Masterplan</p></div></button></div>
-              <div class="x-w4 x-rv"><button class="x-mod" type="button" data-open="Hillside Bungalow"><div class="x-mod__img"><img id="img-bungalow" src="06_residential.jpg" alt="A bungalow set into a hillside" loading="lazy" /></div><div class="x-mod__cap"><h3>Hillside Bungalow<span class="x-tag">Working title</span></h3><p class="x-label">Residential · Landed</p></div></button></div>
-              <div class="x-w5 x-rv"><button class="x-mod" type="button" data-open="Night Safari"><div class="x-mod__img"><img id="img-mangrove" src="29_aa.png" alt="River and trees at the Night Safari" loading="lazy" /></div><div class="x-mod__cap"><h3>Night Safari</h3><p class="x-label">Public · A&amp;A · Mandai</p></div></button></div>
-              <div class="x-w6 x-rv"><button class="x-mod" type="button" data-open="Green-Facade Residential Tower"><div class="x-mod__img"><img id="img-tower" src="41_concept.jpg" alt="Residential tower with a planted green facade" loading="lazy" /></div><div class="x-mod__cap"><h3>Green-Facade Residential Tower<span class="x-tag">Working title</span></h3><p class="x-label">Concept</p></div></button></div>
-            </div>
-          </div>
-        </section>
-
-        <section class="x-sec x-sec--warm" id="index">
-          <div class="x-wrap">
-            <div class="x-grid x-head">
-              <p class="x-label"><span class="x-num">02</span> Timeline</p>
-              <h2 class="x-light">fifty years of work.</h2>
-            </div>
-            <div class="x-bar">
-              <div class="x-chips" role="group" aria-label="Filter timeline">
-                <button class="x-chip" type="button" data-filter="all" aria-pressed="true">All</button>
-                <button class="x-chip" type="button" data-filter="res" aria-pressed="false">Residential</button>
-                <button class="x-chip" type="button" data-filter="pub" aria-pressed="false">Public</button>
-                <button class="x-chip" type="button" data-filter="concept" aria-pressed="false">Concept</button>
-              </div>
-            </div>
-            <div class="x-tml" id="x-tml" tabindex="0" role="region" aria-label="Timeline, scroll sideways">
-              <ol class="x-tml__track">
-                <li class="x-tml__it"><div class="x-tml__card x-tml__card--ch"><div class="x-stripe" aria-hidden="true"><i></i><i></i><i></i></div><div class="x-tml__txt"><p class="x-tml__yr">1973</p><h3>Design Metabolists founded in Singapore</h3><p class="x-tml__by">As the Metabolism movement peaks.</p></div></div></li>
-                <li class="x-tml__it"><div class="x-tml__card x-tml__card--ch"><div class="x-stripe" aria-hidden="true"><i></i><i></i><i></i></div><div class="x-tml__txt"><p class="x-tml__yr">1980s–2000s</p><h3>Building the practice</h3><p class="x-tml__by">Homes and public work across Singapore. Archive being digitised.</p></div></div></li>
-                <li class="x-tml__it" data-cat="pub"><div class="x-tml__card"><div class="x-stripe" aria-hidden="true"><i></i><i></i><i></i></div><div class="x-tml__txt"><p class="x-tml__yr">2016</p><h3>Public library redevelopment</h3><p class="x-tml__by">National Library Board</p><span class="x-tml__cat">Public</span></div></div></li>
-                <li class="x-tml__it" data-cat="pub"><div class="x-tml__card"><div class="x-stripe" aria-hidden="true"><i></i><i></i><i></i></div><div class="x-tml__txt"><p class="x-tml__yr">2016</p><h3>Tanjong Rhu Park Connector</h3><p class="x-tml__by">National Parks Board</p><span class="x-tml__cat">Public</span></div></div></li>
-                <li class="x-tml__it" data-cat="pub"><div class="x-tml__card"><div class="x-stripe" aria-hidden="true"><i></i><i></i><i></i></div><div class="x-tml__txt"><p class="x-tml__yr">2018</p><h3>Police building A&amp;A</h3><p class="x-tml__by">Ministry of Home Affairs</p><span class="x-tml__cat">Public</span></div></div></li>
-                <li class="x-tml__it" data-cat="res"><button class="x-tml__card" type="button" data-catlabel="Residential" data-loc="Chancery Hill" data-status="Completed 2019"><img src="02_residential.jpg" alt="Modern landed house at Chancery Hill Walk" loading="lazy" /><div class="x-tml__txt"><p class="x-tml__yr">2019</p><h3>Residence at 13 Chancery Hill Walk</h3><span class="x-tml__cat x-tml__cat--res">Residential</span></div></button></li>
-                <li class="x-tml__it" data-cat="pub"><div class="x-tml__card"><div class="x-stripe" aria-hidden="true"><i></i><i></i><i></i></div><div class="x-tml__txt"><p class="x-tml__yr">2021</p><h3>Defu Industrial Estate reinstatement</h3><p class="x-tml__by">JTC Corporation</p><span class="x-tml__cat">Public</span></div></div></li>
-                <li class="x-tml__it" data-cat="pub"><div class="x-tml__card"><div class="x-stripe" aria-hidden="true"><i></i><i></i><i></i></div><div class="x-tml__txt"><p class="x-tml__yr">Ongoing</p><h3>Civil Service Club</h3><p class="x-tml__by">60 Tessensohn Road</p><span class="x-tml__cat">Public</span></div></div></li>
-                <li class="x-tml__it" data-cat="pub"><div class="x-tml__card"><div class="x-stripe" aria-hidden="true"><i></i><i></i><i></i></div><div class="x-tml__txt"><p class="x-tml__yr">2025–2027</p><h3>Term consultant</h3><p class="x-tml__by">Chua Chu Kang Town Council</p><span class="x-tml__cat">Public</span></div></div></li>
-                <li class="x-tml__it"><div class="x-tml__card x-tml__card--ch"><div class="x-stripe" aria-hidden="true"><i></i><i></i><i></i></div><div class="x-tml__txt"><p class="x-tml__yr">Archive</p><h3>Dates to be confirmed</h3></div></div></li>
-                <li class="x-tml__it" data-cat="pub"><button class="x-tml__card" type="button" data-catlabel="Public · NRP" data-loc="Bukit Batok" data-status="Completed"><img data-from="img-nrp-park" alt="Aerial view of the renewed park at Bukit Batok" /><div class="x-tml__txt"><p class="x-tml__yr">TBC</p><h3>NRP Bukit Batok Blk 266–267</h3><span class="x-tml__cat">Public</span></div></button></li>
-                <li class="x-tml__it" data-cat="pub"><button class="x-tml__card" type="button" data-catlabel="Public · A&amp;A" data-loc="Mandai" data-status="Completed"><img data-from="img-mangrove" alt="River and trees at the Night Safari" /><div class="x-tml__txt"><p class="x-tml__yr">TBC</p><h3>Night Safari</h3><span class="x-tml__cat">Public</span></div></button></li>
-                <li class="x-tml__it" data-cat="res"><button class="x-tml__card" type="button" data-catlabel="Residential" data-loc="Singapore" data-status="Concept"><img data-from="img-terraces" alt="Cluster terrace houses lit at dusk" /><div class="x-tml__txt"><p class="x-tml__yr">TBC</p><h3>Cluster Terraces</h3><span class="x-tml__cat x-tml__cat--res">Residential</span></div></button></li>
-                <li class="x-tml__it" data-cat="res"><button class="x-tml__card" type="button" data-catlabel="Residential" data-loc="Singapore" data-status="Built"><img data-from="img-bungalow" alt="A bungalow set into a hillside" /><div class="x-tml__txt"><p class="x-tml__yr">TBC</p><h3>Hillside Bungalow</h3><span class="x-tml__cat x-tml__cat--res">Residential</span></div></button></li>
-                <li class="x-tml__it" data-cat="res"><button class="x-tml__card" type="button" data-catlabel="Residential" data-loc="Singapore" data-status="Built"><img src="04_residential.jpg" alt="A pair of semi-detached houses" loading="lazy" /><div class="x-tml__txt"><p class="x-tml__yr">TBC</p><h3>Semi-Detached Houses</h3><span class="x-tml__cat x-tml__cat--res">Residential</span></div></button></li>
-                <li class="x-tml__it" data-cat="res"><button class="x-tml__card" type="button" data-catlabel="Residential" data-loc="Singapore" data-status="Built"><img src="07_residential.jpg" alt="Strata cluster housing" loading="lazy" /><div class="x-tml__txt"><p class="x-tml__yr">TBC</p><h3>Strata Cluster Housing</h3><span class="x-tml__cat x-tml__cat--res">Residential</span></div></button></li>
-                <li class="x-tml__it" data-cat="res"><button class="x-tml__card" type="button" data-catlabel="Residential" data-loc="Singapore" data-status="Concept"><img src="10_residential.jpg" alt="Courtyard apartments lit at night" loading="lazy" /><div class="x-tml__txt"><p class="x-tml__yr">TBC</p><h3>Courtyard Apartments</h3><span class="x-tml__cat x-tml__cat--res">Residential</span></div></button></li>
-                <li class="x-tml__it" data-cat="res"><button class="x-tml__card" type="button" data-catlabel="Residential" data-loc="Singapore" data-status="Concept"><img src="01_residential.jpg" alt="Condominium drop-off canopy at dusk" loading="lazy" /><div class="x-tml__txt"><p class="x-tml__yr">TBC</p><h3>Residential Development Drop-off</h3><span class="x-tml__cat x-tml__cat--res">Residential</span></div></button></li>
-                <li class="x-tml__it" data-cat="pub"><button class="x-tml__card" type="button" data-catlabel="Public · NRP" data-loc="Singapore" data-status="Completed"><img src="17_nrp.jpg" alt="Precinct playground under neighbourhood renewal" loading="lazy" /><div class="x-tml__txt"><p class="x-tml__yr">TBC</p><h3>NRP Precinct Playground</h3><span class="x-tml__cat">Public</span></div></button></li>
-                <li class="x-tml__it" data-cat="pub"><button class="x-tml__card" type="button" data-catlabel="Public · NRP" data-loc="Singapore" data-status="Completed"><img src="20_nrp.jpg" alt="Community garden beds in a housing estate" loading="lazy" /><div class="x-tml__txt"><p class="x-tml__yr">TBC</p><h3>NRP Community Garden</h3><span class="x-tml__cat">Public</span></div></button></li>
-                <li class="x-tml__it" data-cat="pub"><button class="x-tml__card" type="button" data-catlabel="Public · NRP" data-loc="Singapore" data-status="Completed"><img src="24_nrp.jpg" alt="Precinct plaza with shelters and seating" loading="lazy" /><div class="x-tml__txt"><p class="x-tml__yr">TBC</p><h3>NRP Precinct Plaza</h3><span class="x-tml__cat">Public</span></div></button></li>
-                <li class="x-tml__it" data-cat="pub"><button class="x-tml__card" type="button" data-catlabel="Public · A&amp;A" data-loc="Singapore" data-status="Completed"><img src="26_aa.jpg" alt="Place of worship lit at night" loading="lazy" /><div class="x-tml__txt"><p class="x-tml__yr">TBC</p><h3>Place of Worship A&amp;A</h3><span class="x-tml__cat">Public</span></div></button></li>
-                <li class="x-tml__it" data-cat="pub"><button class="x-tml__card" type="button" data-catlabel="Public · A&amp;A" data-loc="Singapore" data-status="Completed"><img src="32_aa.jpg" alt="Hawker centre and market canopy" loading="lazy" /><div class="x-tml__txt"><p class="x-tml__yr">TBC</p><h3>Hawker &amp; Market Upgrading</h3><span class="x-tml__cat">Public</span></div></button></li>
-                <li class="x-tml__it" data-cat="pub"><button class="x-tml__card" type="button" data-catlabel="Public · A&amp;A" data-loc="Singapore" data-status="Concept"><img src="30_aa.jpg" alt="Institutional campus buildings at dusk" loading="lazy" /><div class="x-tml__txt"><p class="x-tml__yr">TBC</p><h3>Institutional Campus</h3><span class="x-tml__cat">Public</span></div></button></li>
-                <li class="x-tml__it" data-cat="concept"><button class="x-tml__card" type="button" data-catlabel="Concept" data-loc="" data-status="Study"><img data-from="img-eco" alt="Aerial render of a waterfront eco masterplan" /><div class="x-tml__txt"><p class="x-tml__yr">TBC</p><h3>Waterfront Eco Masterplan</h3><span class="x-tml__cat x-tml__cat--concept">Concept</span></div></button></li>
-                <li class="x-tml__it" data-cat="concept"><button class="x-tml__card" type="button" data-catlabel="Concept" data-loc="" data-status="Study"><img src="38_concept.jpg" alt="Angular civic centre with a green wall" loading="lazy" /><div class="x-tml__txt"><p class="x-tml__yr">TBC</p><h3>Civic Centre Study</h3><span class="x-tml__cat x-tml__cat--concept">Concept</span></div></button></li>
-                <li class="x-tml__it" data-cat="concept"><button class="x-tml__card" type="button" data-catlabel="Concept" data-loc="" data-status="Study"><img data-from="img-tower" alt="Residential tower with a planted green facade" /><div class="x-tml__txt"><p class="x-tml__yr">TBC</p><h3>Green-Facade Residential Tower</h3><span class="x-tml__cat x-tml__cat--concept">Concept</span></div></button></li>
-                <li class="x-tml__it" data-cat="concept"><button class="x-tml__card" type="button" data-catlabel="Concept" data-loc="" data-status="Study"><img src="42_concept.jpg" alt="Retail mall with a glass front" loading="lazy" /><div class="x-tml__txt"><p class="x-tml__yr">TBC</p><h3>Glass-Front Retail Mall</h3><span class="x-tml__cat x-tml__cat--concept">Concept</span></div></button></li>
-                <li class="x-tml__it" data-cat="concept"><button class="x-tml__card" type="button" data-catlabel="Concept" data-loc="" data-status="Study"><img data-from="img-hero" alt="Concept of stacked, curving mixed-use towers rising over a river" /><div class="x-tml__txt"><p class="x-tml__yr">TBC</p><h3>River Towers Vision</h3><span class="x-tml__cat x-tml__cat--concept">Concept</span></div></button></li>
-              </ol>
-            </div>
-            <div class="x-tml__prog" aria-hidden="true"><i id="x-tml-prog"></i></div>
-          </div>
-        </section>
-        <section class="x-sec" id="metabolism" style="background: var(--x-warm)">
-          <div class="x-wrap">
-            <div class="x-grid x-head">
-              <p class="x-label"><span class="x-num">03</span> Why 'Metabolists'</p>
-              <h2 class="x-light">architecture as a living organism.</h2>
-            </div>
-            <div class="x-grid">
-              <div class="x-meta-text x-rv">
-                <p>Metabolism was a post-war Japanese architecture movement, launched with a manifesto at the 1960 World Design Conference in Tokyo by Kiyonori Kikutake, Kisho Kurokawa, Fumihiko Maki and others, mentored by Kenzo Tange.</p>
-                <p>Its name comes from the Japanese <em>shinchintaisha</em>, the replacement of old with new: buildings and cities that grow, adapt and renew like living things.</p>
-                <p>Its ideas reached Singapore through architects such as William Lim and Tay Kheng Soon, shaping landmarks like People's Park Complex and Golden Mile Complex.</p>
-                <p>Design Metabolists was founded in 1973, as the movement was at its height, and carries the same belief: good design keeps evolving with the people who use it.</p>
-                <p class="x-note">Draft copy — firm to confirm the story behind the name.</p>
-              </div>
-            </div>
-            <ol class="x-tl" tabindex="0" aria-label="Timeline">
-              <li><b>1960</b><span>Metabolism manifesto, Tokyo</span></li>
-              <li><b>1970</b><span>Expo '70, Osaka</span></li>
-              <li><b>1972</b><span>Nakagin Capsule Tower</span></li>
-              <li class="is-firm"><b>1973</b><span>Design Metabolists founded</span></li>
-              <li class="is-firm"><b>2016</b><span>National Library Board public library redevelopment</span></li>
-              <li class="is-firm"><b>2025</b><span>Chua Chu Kang Town Council consultant panel (2025–2027)</span></li>
-            </ol>
-          </div>
-        </section>
-
-        <section class="x-sec" id="practice">
-          <div class="x-wrap">
-            <div class="x-grid x-head">
-              <p class="x-label"><span class="x-num">04</span> Practice</p>
-              <h2 class="x-light">from first sketch to handover.</h2>
-            </div>
-            <ul class="x-rows">
-              <li class="x-rv"><span class="x-n">01</span><span class="x-t">Architectural design</span></li>
-              <li class="x-rv"><span class="x-n">02</span><span class="x-t">Development consultancy</span></li>
-              <li class="x-rv"><span class="x-n">03</span><span class="x-t">Neighbourhood renewal &amp; upgrading</span></li>
-              <li class="x-rv"><span class="x-n">04</span><span class="x-t">Additions &amp; alterations</span></li>
-              <li class="x-rv"><span class="x-n">05</span><span class="x-t">Masterplanning &amp; concept design</span></li>
-              <li class="x-rv"><span class="x-n">06</span><span class="x-t">Project management &amp; authority submissions</span></li>
-            </ul>
-            <p class="x-after">We work under a Quality Management System, from first sketch to handover.</p>
-          </div>
-        </section>
-
-        <section class="x-sec" id="track-record">
-          <div class="x-wrap">
-            <div class="x-grid x-head">
-              <p class="x-label"><span class="x-num">05</span> Trusted by public clients</p>
-              <h2 class="x-light">a track record in public work.</h2>
-            </div>
-          </div>
-          <div class="x-marquee" role="region" aria-label="Clients">
-            <div class="x-marquee__track">
-              <ul class="x-marquee__set">
-                <li>National Library Board</li>
-                <li>Ministry of Home Affairs</li>
-                <li>National Parks Board</li>
-                <li>JTC Corporation</li>
-                <li>Chua Chu Kang Town Council</li>
-                <li>Civil Service Club</li>
-                <li>Night Safari</li>
-              </ul>
-              <ul class="x-marquee__set" aria-hidden="true">
-                <li>National Library Board</li>
-                <li>Ministry of Home Affairs</li>
-                <li>National Parks Board</li>
-                <li>JTC Corporation</li>
-                <li>Chua Chu Kang Town Council</li>
-                <li>Civil Service Club</li>
-                <li>Night Safari</li>
-              </ul>
-            </div>
-          </div>
-          <div class="x-wrap">
-            <div class="x-eng">
-              <h3 class="x-label">Selected engagements</h3>
-              <ol>
-                <li><span>2016</span><span>Public library redevelopment<small>Multi-disciplinary consultant · National Library Board</small></span></li>
-                <li><span>2016</span><span>Tanjong Rhu Park Connector<small>Consultancy · National Parks Board</small></span></li>
-                <li><span>2018</span><span>Police building additions &amp; alterations<small>Ministry of Home Affairs</small></span></li>
-                <li><span>2019</span><span>Residence, 13 Chancery Hill Walk<small>Completed</small></span></li>
-                <li><span>2021</span><span>Reinstatement works, Defu Industrial Estate<small>JTC</small></span></li>
-                <li><span>Ongoing</span><span>Civil Service Club<small>60 Tessensohn Road</small></span></li>
-                <li><span>2025–2027</span><span>Term architectural consultant<small>Chua Chu Kang Town Council</small></span></li>
-              </ol>
-            </div>
-          </div>
-        </section>
-
-        <section class="x-sec x-sec--warm" id="team">
-          <div class="x-wrap">
-            <div class="x-grid x-head">
-              <p class="x-label"><span class="x-num">06</span> Team</p>
-              <h2 class="x-light">the people behind the work.</h2>
-            </div>
-            <figure class="x-teamfig x-rv">
-              <div class="x-teamfig__img"><img src="team_hdb_awards_2018.jpg" alt="The Design Metabolists team together at the HDB Awards 2018" width="800" height="544" loading="lazy" /></div>
-              <figcaption>The Design Metabolists team at the HDB Awards 2018.</figcaption>
-            </figure>
-            <p class="x-team-lead x-rv">The people behind fifty years of work.</p>
-            <div class="x-grid x-team">
-              <div class="x-person x-rv"><div class="x-mono" aria-hidden="true"><b>et</b></div><h3>Eric P.L. Tay</h3><p>Principal Architect</p><p>B.Arch, Birmingham School of Architecture</p></div>
-              <div class="x-person x-rv"><div class="x-mono" aria-hidden="true"><b>rt</b></div><h3>Rita L.C. Tan</h3><p>Finance Manager</p></div>
-              <div class="x-team-note x-rv"><p>Supported by a team of architectural designers.</p><p class="x-note">Headshots and bios to come.</p></div>
-            </div>
-          </div>
-        </section>
-
-        <section class="x-sec x-contact" id="contact">
-          <div class="x-wrap">
-            <p class="x-label" style="margin-bottom: 24px"><span class="x-num">07</span> Contact</p>
-            <h2 class="x-light">let's build what's next.</h2>
-            <div class="x-grid">
-              <div class="x-details">
-                <dl>
-                  <dt>Studio</dt><dd>Blk 165 Bukit Merah Central<br />#03-3675/77<br />Singapore 150165</dd>
-                  <dt>Tel</dt><dd><a href="tel:+6562808166">(65) 6280 8166</a></dd>
-                  <dt>Fax</dt><dd>(65) 6280 8655</dd>
-                  <dt>Email</dt><dd><a href="mailto:admin@desmetab.com.sg">admin@desmetab.com.sg</a></dd>
-                </dl>
-              </div>
-              <form class="x-form" id="x-form" novalidate>
-                <div class="x-field"><label for="f-name">Name</label><input id="f-name" name="name" autocomplete="name" required /></div>
-                <div class="x-field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required /></div>
-                <div class="x-field x-field--full"><label for="f-type">Project type</label><select id="f-type" name="type"><option>Residential</option><option>Public</option><option>Commercial</option><option>Other</option></select></div>
-                <div class="x-field x-field--full"><label for="f-msg">Message</label><textarea id="f-msg" name="message" rows="4"></textarea></div>
-                <div class="x-btns"><button class="x-btn x-btn--dark" type="submit">Send</button><span class="x-grey" id="f-status" role="status" style="font-size: 14px"></span></div>
-              </form>
-              <iframe class="x-map" title="Map of 165 Bukit Merah Central, Singapore 150165" src="https://www.google.com/maps?q=165+Bukit+Merah+Central+Singapore+150165&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
-          </div>
-        </section>
-      </main>
-
-      <footer class="x-foot">
-        <div class="x-stripe" aria-hidden="true"><i></i><i></i><i></i></div>
-        <div class="x-wrap x-foot__in">
-          <a class="x-logo" href="#top" aria-label="Design Metabolists, back to top">
-            <span class="x-logo__word"><span>design</span><span>metabolists</span></span>
-            <span class="x-logo__mark" aria-hidden="true"><i></i><i></i><i></i></span>
-          </a>
-          <p>© 2026 Design Metabolists. Chartered architects, Singapore.</p>
-          <span class="x-pill">Draft concept v0.2</span>
-        </div>
-      </footer>
+<div class="panel" id="panel" role="dialog" aria-modal="true" aria-label="Menu" hidden>
+  <div class="wrap bar">
+    <a class="logo" href="#/projects" aria-label="design metabolists, projects"><img src="logo-mark.png" alt="" width="22" height="22" style="height:22px;width:auto" /><span>design metabolists</span></a>
+    <button class="menu-btn" type="button" id="close">Close</button>
+  </div>
+  <div class="wrap panel-body">
+    <div>
+      <h2>Projects</h2>
+      <ul>
+        <li><a href="#/projects">All</a></li>
+        <li><a href="#/projects?c=residential">Residential</a></li>
+        <li><a href="#/projects?c=public">Public</a></li>
+        <li><a href="#/projects?c=concept">Concept &amp; Masterplanning</a></li>
+      </ul>
     </div>
-
-    <div class="x-lb" id="x-lb" role="dialog" aria-modal="true" aria-labelledby="x-lb-title" hidden>
-      <div class="x-lb__ctl"><span class="x-lb__count" id="x-lb-count"></span><button type="button" data-step="-1" aria-label="Previous project">←</button><button type="button" data-step="1" aria-label="Next project">→</button><button class="x-lb__close" type="button" aria-label="Close">×</button></div>
-      <div class="x-lb__hero" id="x-lb-hero"><img id="x-lb-img" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="" /><div class="x-lb__bands" aria-hidden="true"><i></i><i></i><i></i></div></div>
-      <div class="x-wrap x-lb__body">
-        <p class="x-lb__meta"><span class="x-tml__cat" id="x-lb-chip"></span><span class="x-lb__draft">draft copy</span></p>
-        <h2 class="x-lb__title" id="x-lb-title"></h2>
-        <div class="x-lb__cols">
-          <dl class="x-lb__facts">
-            <div><dt class="x-label">Client</dt><dd id="x-lb-f0"></dd></div>
-            <div><dt class="x-label">Location</dt><dd id="x-lb-f1"></dd></div>
-            <div><dt class="x-label">Year</dt><dd id="x-lb-f2"></dd></div>
-            <div><dt class="x-label">Scope</dt><dd id="x-lb-f3"></dd></div>
-            <div><dt class="x-label">Status</dt><dd id="x-lb-f4"></dd></div>
-          </dl>
-          <div class="x-lb__copy">
-            <h4 class="x-label">The brief</h4><p id="x-lb-f5"></p>
-            <h4 class="x-label">Our approach</h4><p id="x-lb-f6"></p>
-          </div>
-        </div>
-      </div>
-      <div class="x-stripe" aria-hidden="true"><i></i><i></i><i></i></div>
-      <button class="x-lb__next" type="button" data-step="1"><span class="x-label">next project →</span><b id="x-lb-next"></b></button>
+    <div>
+      <h2>Practice</h2>
+      <ul>
+        <li><a href="#/practice">Practice</a></li>
+        <li><a href="#/people">People</a></li>
+        <li><a href="#/contact">Contact</a></li>
+      </ul>
     </div>
+    <div>
+      <h2>Get in touch</h2>
+      <ul>
+        <li><a href="mailto:admin@desmetab.com.sg">admin@desmetab.com.sg</a></li>
+        <li><a href="tel:+6562808166">(65) 6280 8166</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
 
-    <div class="x-cursor" id="x-cursor" aria-hidden="true"><div class="x-cursor__c"><span>view</span></div></div>
-    <script src="hark.js"></script>
-    <script>
-      (function () {
-        var d = document;
-        var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+<main id="main" class="wrap">
 
-        // shared images: copy the src already in the page
-        [].forEach.call(d.querySelectorAll("img[data-from]"), function (im) {
-          var src = d.getElementById(im.getAttribute("data-from"));
-          if (src) im.src = src.getAttribute("src");
-        });
+<section class="view" id="v-projects" aria-labelledby="h-projects">
+  <h1 class="xh" id="h-projects" tabindex="-1">Projects</h1>
+  <div class="filters" role="group" aria-label="Filter projects by category">
+    <button type="button" data-f="all" aria-pressed="true">All<small>24</small></button>
+    <button type="button" data-f="residential" aria-pressed="false">Residential<small>8</small></button>
+    <button type="button" data-f="public" aria-pressed="false">Public<small>8</small></button>
+    <button type="button" data-f="concept" aria-pressed="false">Concept &amp; Masterplanning<small>8</small></button>
+  </div>
+  <div class="cat" id="cat">
+<a class="row" href="#/projects/condominium-entrance" data-cat="residential"><div><h2>Condominium entrance</h2><p class="m">Residential · Visualisation</p></div><div class="im"><img src="01_residential-sm.jpg" alt="Visualisation of a residential development's arrival drop-off beneath a curved canopy." width="800" height="533" fetchpriority="high" /></div></a>
+<a class="row" href="#/projects/detached-house-garden" data-cat="residential"><div><h2>Detached house with garden</h2><p class="m">Residential · Visualisation</p></div><div class="im"><img src="02_residential-sm.jpg" alt="Visualisation of a three-storey detached house with a sloping roof and landscaped front garden." width="800" height="533" /></div></a>
+<a class="row" href="#/projects/semi-detached-houses" data-cat="residential"><div><h2>Semi-detached houses</h2><p class="m">Residential · Visualisation</p></div><div class="im"><img src="04_residential-sm.jpg" alt="Visualisation of a pair of semi-detached houses set among mature trees." width="800" height="533" loading="lazy" decoding="async" /></div></a>
+<a class="row" href="#/projects/hillside-house" data-cat="residential"><div><h2>Hillside house</h2><p class="m">Residential · Visualisation</p></div><div class="im"><img src="06_residential-sm.jpg" alt="Visualisation of a detached house stepping across a landscaped site." width="800" height="533" loading="lazy" decoding="async" /></div></a>
+<a class="row" href="#/projects/strata-housing" data-cat="residential"><div><h2>Strata housing</h2><p class="m">Residential · Visualisation</p></div><div class="im"><img src="07_residential-sm.jpg" alt="Visualisation of a strata housing development with layered balconies and roof terraces." width="800" height="533" loading="lazy" decoding="async" /></div></a>
+<a class="row" href="#/projects/courtyard-apartments" data-cat="residential"><div><h2>Courtyard apartments</h2><p class="m">Residential · Visualisation</p></div><div class="im"><img src="10_residential-sm.jpg" alt="Evening visualisation of apartments arranged around a landscaped pool courtyard." width="800" height="533" loading="lazy" decoding="async" /></div></a>
+<a class="row" href="#/projects/cluster-terraces" data-cat="residential"><div><h2>Cluster terrace houses</h2><p class="m">Residential · Visualisation</p></div><div class="im"><img src="13_residential-sm.jpg" alt="Evening visualisation of a row of cluster terrace houses." width="800" height="533" loading="lazy" decoding="async" /></div></a>
+<a class="row" href="#/projects/terrace-houses" data-cat="residential"><div><h2>Terrace houses</h2><p class="m">Residential · Visualisation</p></div><div class="im"><img src="14_residential-sm.jpg" alt="Visualisation of terrace houses with pitched roofs and private pools." width="800" height="533" loading="lazy" decoding="async" /></div></a>
+<a class="row" href="#/projects/nrp-bukit-batok" data-cat="public"><div><h2>Neighbourhood Renewal, Bukit Batok Blk 266–267</h2><p class="m">Public · Visualisation</p><p class="m">Bukit Batok, Singapore</p></div><div class="im"><img src="22_nrp-sm.jpg" alt="Aerial visualisation of renewed precinct grounds with planting, paths and shelters under the Neighbourhood Renewal Programme." width="800" height="533" loading="lazy" decoding="async" /></div></a>
+<a class="row" href="#/projects/nrp-playground" data-cat="public"><div><h2>Precinct playground</h2><p class="m">Public · Visualisation</p></div><div class="im"><img src="17_nrp-sm.jpg" alt="Visualisation of a neighbourhood playground and fitness area within a housing precinct." width="800" height="533" loading="lazy" decoding="async" /></div></a>
+<a class="row" href="#/projects/nrp-community-garden" data-cat="public"><div><h2>Precinct garden and play area</h2><p class="m">Public · Visualisation</p></div><div class="im"><img src="20_nrp-sm.jpg" alt="Visualisation of a precinct garden with play equipment and seating." width="800" height="533" loading="lazy" decoding="async" /></div></a>
+<a class="row" href="#/projects/nrp-precinct-plaza" data-cat="public"><div><h2>Precinct plaza</h2><p class="m">Public · Visualisation</p></div><div class="im"><img src="24_nrp-sm.jpg" alt="Aerial visualisation of a precinct plaza with a pavilion, playground and planting between housing blocks." width="800" height="533" loading="lazy" decoding="async" /></div></a>
+<a class="row" href="#/projects/place-of-worship" data-cat="public"><div><h2>Place of worship</h2><p class="m">Public · Visualisation</p></div><div class="im"><img src="26_aa-sm.jpg" alt="Night visualisation of a place of worship with a perforated white facade and spire." width="800" height="533" loading="lazy" decoding="async" /></div></a>
+<a class="row" href="#/projects/market-canopy" data-cat="public"><div><h2>Market and hawker canopy</h2><p class="m">Public · Visualisation</p></div><div class="im"><img src="32_aa-sm.jpg" alt="Visualisation of a market and hawker centre beneath a large circular canopy." width="800" height="533" loading="lazy" decoding="async" /></div></a>
+<a class="row" href="#/projects/institutional-campus" data-cat="public"><div><h2>Institutional campus</h2><p class="m">Public · Visualisation</p></div><div class="im"><img src="30_aa-sm.jpg" alt="Dusk visualisation of a low-rise institutional campus." width="800" height="533" loading="lazy" decoding="async" /></div></a>
+<a class="row" href="#/projects/night-safari" data-cat="public"><div><h2>Night Safari</h2><p class="m">Public · Photograph</p><p class="m">Mandai, Singapore</p></div><div class="im"><img src="29_aa-sm.jpg" alt="Photograph of the river landscape at the Night Safari." width="800" height="533" loading="lazy" decoding="async" /></div></a>
+<a class="row" href="#/projects/river-towers" data-cat="concept"><div><h2>River towers</h2><p class="m">Concept &amp; Masterplanning · Concept visualisation</p></div><div class="im"><img src="43_home-sm.jpg" alt="Concept for stacked, curving mixed-use towers linked by a bridge over a river." width="800" height="533" loading="lazy" decoding="async" /></div></a>
+<a class="row" href="#/projects/waterfront-masterplan" data-cat="concept"><div><h2>Waterfront masterplan</h2><p class="m">Concept &amp; Masterplanning · Concept visualisation</p></div><div class="im"><img src="37_concept-sm.jpg" alt="Aerial concept of a waterfront development with terraced green roofs." width="800" height="533" loading="lazy" decoding="async" /></div></a>
+<a class="row" href="#/projects/masterplan-study" data-cat="concept"><div><h2>Masterplan study</h2><p class="m">Concept &amp; Masterplanning · Concept visualisation</p></div><div class="im"><img src="35_concept-sm.jpg" alt="Aerial concept of a large landscaped masterplan by the water." width="800" height="533" loading="lazy" decoding="async" /></div></a>
+<a class="row" href="#/projects/integrated-development" data-cat="concept"><div><h2>Integrated development</h2><p class="m">Concept &amp; Masterplanning · Concept visualisation</p></div><div class="im"><img src="36_concept-sm.jpg" alt="Night aerial concept of a circular integrated development with towers and a pool deck." width="800" height="533" loading="lazy" decoding="async" /></div></a>
+<a class="row" href="#/projects/civic-building" data-cat="concept"><div><h2>Civic building study</h2><p class="m">Concept &amp; Masterplanning · Concept visualisation</p></div><div class="im"><img src="38_concept-sm.jpg" alt="Concept for an angular civic building with a planted facade." width="800" height="533" loading="lazy" decoding="async" /></div></a>
+<a class="row" href="#/projects/mixed-use-block" data-cat="concept"><div><h2>Mixed-use block</h2><p class="m">Concept &amp; Masterplanning · Concept visualisation</p></div><div class="im"><img src="40_concept-sm.jpg" alt="Concept for a mid-rise block with a sculpted silver facade." width="800" height="533" loading="lazy" decoding="async" /></div></a>
+<a class="row" href="#/projects/green-tower" data-cat="concept"><div><h2>Residential tower with green facade</h2><p class="m">Concept &amp; Masterplanning · Concept visualisation</p></div><div class="im"><img src="41_concept-sm.jpg" alt="Concept for a residential tower with planted facades." width="800" height="533" loading="lazy" decoding="async" /></div></a>
+<a class="row" href="#/projects/retail-mall" data-cat="concept"><div><h2>Retail mall</h2><p class="m">Concept &amp; Masterplanning · Concept visualisation</p></div><div class="im"><img src="42_concept-sm.jpg" alt="Dusk concept of a retail mall with a glazed frontage." width="800" height="533" loading="lazy" decoding="async" /></div></a>
+  </div>
+  <p class="note">Most images are design visualisations. Project details are being added.</p>
+</section>
 
-        // mobile menu
-        var nav = d.getElementById("x-nav"), menu = nav.querySelector(".x-menu");
-        menu.addEventListener("click", function () {
-          var open = nav.classList.toggle("is-open");
-          menu.setAttribute("aria-expanded", open);
-          menu.textContent = open ? "Close" : "Menu";
-        });
-        [].forEach.call(nav.querySelectorAll(".x-nav__links a"), function (a) {
-          a.addEventListener("click", function () { nav.classList.remove("is-open"); menu.setAttribute("aria-expanded", "false"); menu.textContent = "Menu"; });
-        });
+<section class="view" id="v-project" hidden>
+  <a class="back" id="p-back" href="#/projects">← Projects</a>
+  <h1 class="ph" id="p-title" tabindex="-1">Project</h1>
+  <dl class="facts" id="p-facts"></dl>
+  <div class="pimg" id="p-imgs">
+<img data-slug="condominium-entrance" src="01_residential-lg.jpg" alt="Visualisation of a residential development's arrival drop-off beneath a curved canopy." loading="lazy" decoding="async" hidden />
+<img data-slug="detached-house-garden" src="02_residential-lg.jpg" alt="Visualisation of a three-storey detached house with a sloping roof and landscaped front garden." loading="lazy" decoding="async" hidden />
+<img data-slug="semi-detached-houses" src="04_residential-lg.jpg" alt="Visualisation of a pair of semi-detached houses set among mature trees." loading="lazy" decoding="async" hidden />
+<img data-slug="hillside-house" src="06_residential-lg.jpg" alt="Visualisation of a detached house stepping across a landscaped site." loading="lazy" decoding="async" hidden />
+<img data-slug="strata-housing" src="07_residential-lg.jpg" alt="Visualisation of a strata housing development with layered balconies and roof terraces." loading="lazy" decoding="async" hidden />
+<img data-slug="courtyard-apartments" src="10_residential-lg.jpg" alt="Evening visualisation of apartments arranged around a landscaped pool courtyard." loading="lazy" decoding="async" hidden />
+<img data-slug="cluster-terraces" src="13_residential-lg.jpg" alt="Evening visualisation of a row of cluster terrace houses." loading="lazy" decoding="async" hidden />
+<img data-slug="terrace-houses" src="14_residential-lg.jpg" alt="Visualisation of terrace houses with pitched roofs and private pools." loading="lazy" decoding="async" hidden />
+<img data-slug="nrp-bukit-batok" src="22_nrp-lg.jpg" alt="Aerial visualisation of renewed precinct grounds with planting, paths and shelters under the Neighbourhood Renewal Programme." loading="lazy" decoding="async" hidden />
+<img data-slug="nrp-playground" src="17_nrp-lg.jpg" alt="Visualisation of a neighbourhood playground and fitness area within a housing precinct." loading="lazy" decoding="async" hidden />
+<img data-slug="nrp-community-garden" src="20_nrp-lg.jpg" alt="Visualisation of a precinct garden with play equipment and seating." loading="lazy" decoding="async" hidden />
+<img data-slug="nrp-precinct-plaza" src="24_nrp-lg.jpg" alt="Aerial visualisation of a precinct plaza with a pavilion, playground and planting between housing blocks." loading="lazy" decoding="async" hidden />
+<img data-slug="place-of-worship" src="26_aa-lg.jpg" alt="Night visualisation of a place of worship with a perforated white facade and spire." loading="lazy" decoding="async" hidden />
+<img data-slug="market-canopy" src="32_aa-lg.jpg" alt="Visualisation of a market and hawker centre beneath a large circular canopy." loading="lazy" decoding="async" hidden />
+<img data-slug="institutional-campus" src="30_aa-lg.jpg" alt="Dusk visualisation of a low-rise institutional campus." loading="lazy" decoding="async" hidden />
+<img data-slug="night-safari" src="29_aa-lg.jpg" alt="Photograph of the river landscape at the Night Safari." loading="lazy" decoding="async" hidden />
+<img data-slug="river-towers" src="43_home-lg.jpg" alt="Concept for stacked, curving mixed-use towers linked by a bridge over a river." loading="lazy" decoding="async" hidden />
+<img data-slug="waterfront-masterplan" src="37_concept-lg.jpg" alt="Aerial concept of a waterfront development with terraced green roofs." loading="lazy" decoding="async" hidden />
+<img data-slug="masterplan-study" src="35_concept-lg.jpg" alt="Aerial concept of a large landscaped masterplan by the water." loading="lazy" decoding="async" hidden />
+<img data-slug="integrated-development" src="36_concept-lg.jpg" alt="Night aerial concept of a circular integrated development with towers and a pool deck." loading="lazy" decoding="async" hidden />
+<img data-slug="civic-building" src="38_concept-lg.jpg" alt="Concept for an angular civic building with a planted facade." loading="lazy" decoding="async" hidden />
+<img data-slug="mixed-use-block" src="40_concept-lg.jpg" alt="Concept for a mid-rise block with a sculpted silver facade." loading="lazy" decoding="async" hidden />
+<img data-slug="green-tower" src="41_concept-lg.jpg" alt="Concept for a residential tower with planted facades." loading="lazy" decoding="async" hidden />
+<img data-slug="retail-mall" src="42_concept-lg.jpg" alt="Dusk concept of a retail mall with a glazed frontage." loading="lazy" decoding="async" hidden />
+  </div>
+  <p class="desc" id="p-desc"></p>
+  <nav class="pn" aria-label="More projects">
+    <a id="p-prev" class="prev" href="#/projects"><small>← Previous</small><span></span></a>
+    <a id="p-next" class="next" href="#/projects"><small>Next →</small><span></span></a>
+  </nav>
+  <a class="back end" id="p-back2" href="#/projects">Back to Projects</a>
+</section>
 
-        // active link
-        var links = [].slice.call(nav.querySelectorAll(".x-nav__links a"));
-        var groups = { works: "works", index: "index", practice: "practice", metabolism: "metabolism", "track-record": "track-record", team: "team", contact: "contact" };
-        function sync() {
-          var cur = null;
-          Object.keys(groups).forEach(function (id) { var s = d.getElementById(id); if (s && s.getBoundingClientRect().top <= 120) cur = groups[id]; });
-          links.forEach(function (a) { if (a.getAttribute("href") === "#" + cur) a.setAttribute("aria-current", "true"); else a.removeAttribute("aria-current"); });
-        }
-        window.addEventListener("scroll", sync, { passive: true }); sync();
+<section class="view" id="v-practice" hidden>
+  <h1 class="ph" tabindex="-1">Practice</h1>
+  <div class="intro">
+    <p>Design Metabolists is a Singapore practice of chartered architects, professional designers and development consultants, established in 1973.</p>
+    <p>We provide architectural design and consultancy for residential, corporate, government and civic clients, working under a quality management system from first sketch to handover. Designing to tackle the small details for your big plans.</p>
+  </div>
+  <h2 class="sub">Services</h2>
+  <ul class="services">
+    <li>Architectural design</li>
+    <li>Development consultancy</li>
+    <li>Neighbourhood renewal and upgrading</li>
+    <li>Additions and alterations</li>
+    <li>Masterplanning and concept design</li>
+    <li>Authority submissions and project management</li>
+  </ul>
+  <h2 class="sub">Selected public and private commissions</h2>
+  <table>
+    <thead><tr><th scope="col">Year</th><th scope="col">Project</th><th scope="col">Client</th></tr></thead>
+    <tbody>
+      <tr><td>2016</td><td>Public library redevelopment (multi-disciplinary consultant)</td><td>National Library Board</td></tr>
+      <tr><td>2016</td><td>Tanjong Rhu Park Connector</td><td>National Parks Board</td></tr>
+      <tr><td>2018</td><td>Police building additions and alterations</td><td>Ministry of Home Affairs</td></tr>
+      <tr><td>2019</td><td>Residence, 13 Chancery Hill Walk (completed)</td><td>Private client</td></tr>
+      <tr><td>2021</td><td>Reinstatement works, Defu Industrial Estate</td><td>JTC Corporation</td></tr>
+      <tr><td>Ongoing</td><td>Civil Service Club, 60 Tessensohn Road</td><td>Civil Service Club</td></tr>
+      <tr><td>2025–2027</td><td>Term architectural consultant</td><td>Chua Chu Kang Town Council</td></tr>
+    </tbody>
+  </table>
+  <p class="office">Blk 165 Bukit Merah Central, Singapore.</p>
+</section>
 
-        // motion setup: soft heading fade-ups and the band wipe on Selected Works
-        if (!reduce && "IntersectionObserver" in window) {
-          [].forEach.call(d.querySelectorAll(".x-head h2, .x-contact h2"), function (h) { h.classList.add("x-rv", "x-rv--soft"); });
-          d.querySelector(".x-works").classList.add("x-wipe");
-          d.querySelector(".x-teamfig").classList.add("x-wipe");
-        }
+<section class="view" id="v-people" hidden>
+  <h1 class="ph" tabindex="-1">People</h1>
+  <figure class="band">
+    <img src="team-hdb-awards-2018.jpg" alt="The Design Metabolists team together at the HDB Awards 2018" loading="lazy" decoding="async" />
+    <figcaption>The Design Metabolists team at the HDB Awards 2018.</figcaption>
+  </figure>
+  <ul class="people">
+    <li><div class="por" aria-hidden="true">ET</div><h2>Eric P.L. Tay</h2><p>Principal Architect</p></li>
+    <li><div class="por" aria-hidden="true">RT</div><h2>Rita L.C. Tan</h2><p>Finance Manager</p></li>
+  </ul>
+  <p class="support">Supported by a team of architectural designers and assistants.</p>
+</section>
 
-        // reveal
-        var rv = d.querySelectorAll(".x-rv");
-        if (reduce || !("IntersectionObserver" in window)) { [].forEach.call(rv, function (e) { e.classList.add("is-in"); }); }
-        else {
-          var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("is-in"); io.unobserve(e.target); } }); }, { rootMargin: "0px 0px -8% 0px" });
-          [].forEach.call(rv, function (e) { io.observe(e); });
-        }
+<section class="view" id="v-contact" hidden>
+  <h1 class="ph" tabindex="-1">Contact</h1>
+  <dl class="contact">
+    <dt>Address</dt>
+    <dd><a href="https://www.google.com/maps/search/?api=1&amp;query=165%20Bukit%20Merah%20Central%20Singapore%20150165" target="_blank" rel="noopener">Blk 165 Bukit Merah Central, #03-3675/77, Singapore 150165</a></dd>
+    <dt>Telephone</dt>
+    <dd><a href="tel:+6562808166">(65) 6280 8166</a></dd>
+    <dt>Fax</dt>
+    <dd>(65) 6280 8655</dd>
+    <dt>Email</dt>
+    <dd><a href="mailto:admin@desmetab.com.sg">admin@desmetab.com.sg</a></dd>
+    <dt>LinkedIn</dt>
+    <dd><a href="https://www.linkedin.com/company/design-metabolists" target="_blank" rel="noopener">Design Metabolists</a></dd>
+  </dl>
+</section>
 
-        // timeline
-        var tml = d.getElementById("x-tml"), tmlProg = d.getElementById("x-tml-prog");
-        var its = [].slice.call(tml.querySelectorAll(".x-tml__it"));
-        var items = [].slice.call(tml.querySelectorAll("button.x-tml__card, [data-cat] > div.x-tml__card")).map(function (t) {
-          var q = function (s) { var e = t.querySelector(s); return e ? e.textContent.trim() : ""; }, ce = t.querySelector(".x-tml__cat");
-          if (t.tagName !== "BUTTON") { t.setAttribute("role", "button"); t.tabIndex = 0; }
-          return { el: t, img: t.querySelector("img"), title: q("h3"), yr: q(".x-tml__yr"), by: q(".x-tml__by"), chip: ce ? ce.className : "x-tml__cat", chipTxt: ce ? ce.textContent : "", cat: t.parentNode.getAttribute("data-cat"), catlabel: t.getAttribute("data-catlabel") || "", loc: t.getAttribute("data-loc"), status: t.getAttribute("data-status") };
-        });
-        var filter = "all";
-        function visible() { return items.filter(function (it) { return filter === "all" || it.cat === filter; }); }
-        [].forEach.call(d.querySelectorAll("[data-filter]"), function (b) {
-          b.addEventListener("click", function () {
-            filter = b.getAttribute("data-filter");
-            [].forEach.call(d.querySelectorAll("[data-filter]"), function (o) { o.setAttribute("aria-pressed", o === b); });
-            its.forEach(function (li) { var c = li.getAttribute("data-cat"); li.classList.toggle("is-dim", !!c && filter !== "all" && c !== filter); });
-          });
-        });
-        function tmlSync() {
-          var max = tml.scrollWidth - tml.clientWidth, p = max > 0 ? tml.scrollLeft / max : 1;
-          tmlProg.style.clipPath = "inset(0 " + (100 - p * 100) + "% 0 0)";
-        }
-        tml.addEventListener("scroll", tmlSync, { passive: true }); window.addEventListener("resize", tmlSync); tmlSync();
-        if (window.matchMedia("(pointer: fine)").matches) {
-          tml.addEventListener("wheel", function (e) {
-            if (Math.abs(e.deltaY) <= Math.abs(e.deltaX)) return;
-            var max = tml.scrollWidth - tml.clientWidth;
-            if ((e.deltaY < 0 && tml.scrollLeft <= 0) || (e.deltaY > 0 && tml.scrollLeft >= max - 1)) return;
-            e.preventDefault();
-            tml.scrollLeft += e.deltaMode === 1 ? e.deltaY * 16 : e.deltaY;
-          }, { passive: false });
-        }
+</main>
 
-        // lightbox
-        // case-study overlay
-        var lb = d.getElementById("x-lb"), lbImg = d.getElementById("x-lb-img"), hero = d.getElementById("x-lb-hero"), set = [], idx = 0, openIdx = 0, origin = null, lastFocus = null;
-        var T = "TBC", RB = ["Homes shaped around Singapore's climate and the way families live.", "Cross-ventilation, shaded facades and greenery at every level."], PB = ["Better everyday spaces for communities and public clients.", "Designed with stakeholders, built to last, easy to maintain."];
-        var DATA = {
-          "Residence at 13 Chancery Hill Walk": ["Private", "Chancery Hill, Singapore", "2019", "Architecture", "Completed", "A family home on a quiet landed street, designed for privacy and tropical living.", "Layered facades, deep overhangs and planted edges keep the house cool and shaded while opening living spaces to greenery."],
-          "NRP Bukit Batok Blk 266–267": ["Town Council / HDB", "Bukit Batok", T, "Neighbourhood Renewal Programme", "Completed", "Renew shared spaces for residents of all ages.", "A looping garden path connects playgrounds, fitness corners and shaded seating, turning leftover land between blocks into a park."],
-          "Night Safari": ["Mandai Wildlife Group", "Mandai", T, "Additions & alterations", "Completed", "Upgrade visitor facilities without disturbing the forest.", "Light-touch interventions that sit quietly within the existing landscape."]
-        };
-        function info(it) {
-          if (DATA[it.title]) return DATA[it.title];
-          var yr = it.yr || T, loc = it.loc || T;
-          if (!it.img) return [it.by || T, T, yr, "Consultancy", it.title === "Civil Service Club" ? "Ongoing" : /Chua Chu Kang/.test(it.by) ? "Current term" : "Completed", "Consultancy engagement for a public client.", "Details to follow."];
-          if (it.cat === "concept") return [T, loc, yr, T, "Design study", "A design study exploring how the city could grow next.", "Modular, adaptable forms in the spirit of Metabolism — architecture that can grow and renew."];
-          var res = it.cat === "res", b = res ? RB : PB;
-          var scope = res ? T : /NRP/.test(it.catlabel) ? "Neighbourhood Renewal Programme" : /A&A/.test(it.catlabel) ? "Additions & alterations" : T;
-          return [T, loc, yr, scope, it.status || T, b[0], b[1]];
-        }
-        function src(it) { return it.img ? it.img.currentSrc || it.img.src : ""; }
-        function fill() {
-          var it = set[idx], f = info(it), chip = d.getElementById("x-lb-chip");
-          hero.classList.toggle("is-text", !it.img);
-          if (it.img) { lbImg.src = src(it); lbImg.alt = it.img.alt; } else lbImg.alt = "";
-          chip.className = it.chip; chip.textContent = it.chipTxt || "Practice";
-          d.getElementById("x-lb-title").textContent = it.title;
-          f.forEach(function (v, i) { d.getElementById("x-lb-f" + i).textContent = v; });
-          d.getElementById("x-lb-count").textContent = (idx + 1) + " / " + set.length;
-          d.getElementById("x-lb-next").textContent = set[(idx + 1) % set.length].title;
-          lb.scrollTop = 0;
-        }
-        function onScreen(el) {
-          if (!el) return false;
-          var r = el.getBoundingClientRect(), c = tml.contains(el) ? tml.getBoundingClientRect() : { left: 0, right: innerWidth };
-          return r.width > 0 && r.bottom > 0 && r.top < innerHeight && r.right > Math.max(0, c.left) && r.left < Math.min(innerWidth, c.right);
-        }
-        function place(c, r) { c.style.left = r.left + "px"; c.style.top = r.top + "px"; c.style.width = r.width + "px"; c.style.height = r.height + "px"; }
-        function morph(from, to, it, cb) {
-          var c;
-          if (it.img) { c = d.createElement("img"); c.src = src(it); c.alt = ""; }
-          else { c = d.createElement("div"); c.className = "x-lb__bands"; c.innerHTML = "<i></i><i></i><i></i>"; }
-          c.classList.add("x-lb__clone"); c.setAttribute("aria-hidden", "true");
-          place(c, from); d.body.appendChild(c); void c.offsetWidth; place(c, to);
-          var fin = false, end = function () { if (fin) return; fin = true; pend = null; cb(); c.remove(); };
-          pend = end;
-          c.addEventListener("transitionend", end); setTimeout(end, 750);
-        }
-        var pend = null;
-        function settle() { if (pend) pend(); }
-        function open(it, from) {
-          settle();
-          set = visible(); if (set.indexOf(it) < 0) set = items;
-          idx = openIdx = set.indexOf(it); origin = from || it.img || it.el;
-          if (!lb.hidden) { fill(); return; }
-          lastFocus = d.activeElement;
-          fill(); lb.hidden = false; d.body.style.overflow = "hidden";
-          lb.querySelector(".x-lb__close").focus({ preventScroll: true });
-          if (reduce || !onScreen(origin)) return;
-          lb.classList.add("is-morph", "is-veil");
-          var r0 = origin.getBoundingClientRect(), r1 = hero.getBoundingClientRect();
-          void lb.offsetWidth; lb.classList.remove("is-veil");
-          morph(r0, r1, it, function () { lb.classList.remove("is-morph"); });
-        }
-        function close() {
-          settle();
-          if (lb.hidden) return;
-          var it = set[idx], tgt = idx === openIdx ? origin : it.img || it.el;
-          var done = function () { pend = null; lb.hidden = true; lb.classList.remove("is-morph", "is-veil", "is-out"); if (lastFocus) lastFocus.focus({ preventScroll: true }); };
-          d.body.style.overflow = "";
-          if (reduce) return done();
-          var r0 = hero.getBoundingClientRect();
-          if (onScreen(tgt) && r0.bottom > 0) { lb.classList.add("is-morph", "is-veil"); morph(r0, tgt.getBoundingClientRect(), it, done); }
-          else { lb.classList.add("is-out"); var t = setTimeout(done, 350); pend = function () { clearTimeout(t); done(); }; }
-        }
-        function step(n) { settle(); idx = (idx + n + set.length) % set.length; fill(); }
-        items.forEach(function (it) {
-          it.el.addEventListener("click", function () { open(it); });
-          if (!it.img) it.el.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(it); } });
-        });
-        [].forEach.call(d.querySelectorAll("[data-open]"), function (b) {
-          b.addEventListener("click", function () {
-            var t = b.getAttribute("data-open");
-            var it = items.filter(function (x) { return x.title === t; })[0];
-            if (it) open(it, b.querySelector("img"));
-          });
-        });
-        lb.querySelector(".x-lb__close").addEventListener("click", close);
-        [].forEach.call(lb.querySelectorAll("[data-step]"), function (b) { b.addEventListener("click", function () { step(+b.getAttribute("data-step")); }); });
-        d.addEventListener("keydown", function (e) {
-          if (lb.hidden) return;
-          if (e.key === "Escape") close();
-          else if (e.key === "ArrowRight") step(1);
-          else if (e.key === "ArrowLeft") step(-1);
-          else if (e.key === "Tab") {
-            var f = [].slice.call(lb.querySelectorAll("button")), first = f[0], last = f[f.length - 1];
-            if (e.shiftKey && d.activeElement === first) { e.preventDefault(); last.focus(); }
-            else if (!e.shiftKey && d.activeElement === last) { e.preventDefault(); first.focus(); }
-          }
-        });
+<footer class="ftr">
+  <div class="wrap">
+    <p style="margin:0">© 2026 Design Metabolists</p>
+    <nav aria-label="Footer"><a href="mailto:admin@desmetab.com.sg">admin@desmetab.com.sg</a><a href="#/contact">Contact</a></nav>
+  </div>
+</footer>
 
-        // enquiry form → mailto
-        var form = d.getElementById("x-form"), status = d.getElementById("f-status");
-        form.addEventListener("submit", function (e) {
-          e.preventDefault();
-          var el = form.elements, name = el["f-name"].value.trim(), email = el["f-email"].value.trim(), type = el["f-type"].value, msg = el["f-msg"].value.trim();
-          if (!name || !email) { status.textContent = "Please add your name and email."; return; }
-          var body = "Name: " + name + "\nEmail: " + email + "\nProject type: " + type + "\n\n" + msg;
-          status.textContent = "Opening your email app…";
-          window.location.href = "mailto:admin@desmetab.com.sg?subject=" + encodeURIComponent("Project enquiry — " + type + " — " + name) + "&body=" + encodeURIComponent(body);
-        });
-      })();
-    </script>
-    <script>
-      (function () {
-        var d = document, de = d.documentElement;
-        var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+<script>
+(function(){
+var CATS={all:"All",residential:"Residential",public:"Public",concept:"Concept & Masterplanning"};
+var P=[
+["condominium-entrance","Condominium entrance","residential","Visualisation","","Visualisation of a residential development's arrival drop-off beneath a curved canopy."],
+["detached-house-garden","Detached house with garden","residential","Visualisation","","Visualisation of a three-storey detached house with a sloping roof and landscaped front garden."],
+["semi-detached-houses","Semi-detached houses","residential","Visualisation","","Visualisation of a pair of semi-detached houses set among mature trees."],
+["hillside-house","Hillside house","residential","Visualisation","","Visualisation of a detached house stepping across a landscaped site."],
+["strata-housing","Strata housing","residential","Visualisation","","Visualisation of a strata housing development with layered balconies and roof terraces."],
+["courtyard-apartments","Courtyard apartments","residential","Visualisation","","Evening visualisation of apartments arranged around a landscaped pool courtyard."],
+["cluster-terraces","Cluster terrace houses","residential","Visualisation","","Evening visualisation of a row of cluster terrace houses."],
+["terrace-houses","Terrace houses","residential","Visualisation","","Visualisation of terrace houses with pitched roofs and private pools."],
+["nrp-bukit-batok","Neighbourhood Renewal, Bukit Batok Blk 266–267","public","Visualisation","Bukit Batok, Singapore","Aerial visualisation of renewed precinct grounds with planting, paths and shelters under the Neighbourhood Renewal Programme."],
+["nrp-playground","Precinct playground","public","Visualisation","","Visualisation of a neighbourhood playground and fitness area within a housing precinct."],
+["nrp-community-garden","Precinct garden and play area","public","Visualisation","","Visualisation of a precinct garden with play equipment and seating."],
+["nrp-precinct-plaza","Precinct plaza","public","Visualisation","","Aerial visualisation of a precinct plaza with a pavilion, playground and planting between housing blocks."],
+["place-of-worship","Place of worship","public","Visualisation","","Night visualisation of a place of worship with a perforated white facade and spire."],
+["market-canopy","Market and hawker canopy","public","Visualisation","","Visualisation of a market and hawker centre beneath a large circular canopy."],
+["institutional-campus","Institutional campus","public","Visualisation","","Dusk visualisation of a low-rise institutional campus."],
+["night-safari","Night Safari","public","Photograph","Mandai, Singapore","Photograph of the river landscape at the Night Safari."],
+["river-towers","River towers","concept","Concept visualisation","","Concept for stacked, curving mixed-use towers linked by a bridge over a river."],
+["waterfront-masterplan","Waterfront masterplan","concept","Concept visualisation","","Aerial concept of a waterfront development with terraced green roofs."],
+["masterplan-study","Masterplan study","concept","Concept visualisation","","Aerial concept of a large landscaped masterplan by the water."],
+["integrated-development","Integrated development","concept","Concept visualisation","","Night aerial concept of a circular integrated development with towers and a pool deck."],
+["civic-building","Civic building study","concept","Concept visualisation","","Concept for an angular civic building with a planted facade."],
+["mixed-use-block","Mixed-use block","concept","Concept visualisation","","Concept for a mid-rise block with a sculpted silver facade."],
+["green-tower","Residential tower with green facade","concept","Concept visualisation","","Concept for a residential tower with planted facades."],
+["retail-mall","Retail mall","concept","Concept visualisation","","Dusk concept of a retail mall with a glazed frontage."]
+].map(function(a){return {slug:a[0],title:a[1],cat:a[2],type:a[3],loc:a[4],desc:a[5]};});
+var BY={};P.forEach(function(p){BY[p.slug]=p;});
 
-        // living hero
-        function startHero() {
-          var slides = [].slice.call(d.querySelectorAll(".x-slide"));
-          if (reduce || slides.length < 2) return;
-          var nEl = d.getElementById("x-hero-n"), capEl = d.getElementById("x-hero-cap"), prog = d.getElementById("x-prog"), at = 0;
-          function go(n) {
-            var prev = slides[at];
-            if (n !== at) { prev.classList.remove("is-on"); prev._t = setTimeout(function () { prev.classList.remove("is-zoom"); }, 1500); }
-            at = n;
-            var s = slides[n];
-            clearTimeout(s._t); s.classList.remove("is-zoom"); void s.offsetWidth; s.classList.add("is-on", "is-zoom");
-            nEl.textContent = ("0" + (n + 1)).slice(-2);
-            capEl.textContent = s.getAttribute("data-cap");
-            prog.classList.remove("is-run"); void prog.offsetWidth; prog.classList.add("is-run");
-            setTimeout(function () { go((at + 1) % slides.length); }, 6000);
-          }
-          go(0);
-        }
+var filter="all",savedY=0,current=null;
+var views=["projects","project","practice","people","contact"];
+var rows=[].slice.call(document.querySelectorAll(".row"));
+var fbtns=[].slice.call(document.querySelectorAll("[data-f]"));
+if("scrollRestoration" in history)history.scrollRestoration="manual";
 
-        // logo intro
-        var intro = d.getElementById("x-intro");
-        if (!intro || reduce || getComputedStyle(intro).visibility === "hidden" || getComputedStyle(intro).display === "none") {
-          if (intro) intro.parentNode.removeChild(intro);
-          startHero();
-        } else {
-          var timers = [], done = false;
-          intro.style.animation = "none";
-          de.classList.add("x-lock");
-          var skip = function () { finish(true); };
-          var finish = function (skipped) {
-            if (done) return;
-            done = true;
-            timers.forEach(clearTimeout);
-            window.removeEventListener("pointerdown", skip);
-            window.removeEventListener("keydown", skip);
-            de.classList.remove("x-lock");
-            if (skipped) { intro.classList.add("is-skip"); setTimeout(function () { intro.remove(); }, 220); }
-            else intro.remove();
-            startHero();
-          };
-          window.addEventListener("pointerdown", skip);
-          window.addEventListener("keydown", skip);
-          requestAnimationFrame(function () {
-            requestAnimationFrame(function () {
-              if (done) return;
-              intro.classList.add("is-play");
-              timers.push(
-                setTimeout(function () { intro.classList.add("is-band"); }, 1150),
-                setTimeout(function () { intro.classList.add("is-out"); }, 1600),
-                setTimeout(function () { finish(false); }, 2250)
-              );
-            });
-          });
-        }
+function parse(){
+  var h=location.hash.replace(/^#/,"");
+  var m;
+  if(h===""||h==="/"||h==="/projects")return {name:"projects",c:"all"};
+  if((m=h.match(/^\/projects\?c=([a-z]+)$/)))return {name:"projects",c:CATS[m[1]]?m[1]:"all"};
+  if((m=h.match(/^\/projects\/([a-z0-9-]+)$/))&&BY[m[1]])return {name:"project",slug:m[1]};
+  if(/^\/(practice|people|contact)$/.test(h))return {name:h.slice(1)};
+  return null;
+}
+function projHash(){return filter==="all"?"#/projects":"#/projects?c="+filter;}
+function list(){return filter==="all"?P:P.filter(function(p){return p.cat===filter;});}
 
-        // count-ups
-        var figs = [].slice.call(d.querySelectorAll(".x-fig b"));
-        if (!reduce && "IntersectionObserver" in window) {
-          figs.forEach(function (b) {
-            var m = b.textContent.trim().match(/^(\d+)(.*)$/);
-            if (!m) return;
-            b._to = +m[1]; b._suf = m[2]; b._from = b._to > 1000 ? 1900 : 0;
-            b.textContent = b._from + b._suf;
-          });
-          var cio = new IntersectionObserver(function (es) {
-            es.forEach(function (e) {
-              if (!e.isIntersecting) return;
-              var b = e.target, t0 = null;
-              cio.unobserve(b);
-              (function tick(t) {
-                if (t0 === null) t0 = t;
-                var p = Math.min(1, (t - t0) / 1400), k = 1 - Math.pow(1 - p, 3);
-                b.textContent = Math.round(b._from + (b._to - b._from) * k) + b._suf;
-                if (p < 1) requestAnimationFrame(tick);
-              })(performance.now());
-            });
-          }, { threshold: 0.6 });
-          figs.forEach(function (b) { if (b._to != null) cio.observe(b); });
-        }
+function applyFilter(){
+  rows.forEach(function(r){r.hidden=!(filter==="all"||r.getAttribute("data-cat")===filter);});
+  fbtns.forEach(function(b){b.setAttribute("aria-pressed",String(b.getAttribute("data-f")===filter));});
+  ["p-back","p-back2"].forEach(function(id){document.getElementById(id).setAttribute("href",projHash());});
+}
 
-        // custom cursor
-        var cur = d.getElementById("x-cursor");
-        if (cur && window.matchMedia("(pointer: fine)").matches) {
-          de.classList.add("x-has-cursor");
-          var tx = 0, ty = 0, x = 0, y = 0, raf = 0, k = reduce ? 1 : 0.2, overField = false;
-          var tick = function () {
-            x += (tx - x) * k; y += (ty - y) * k;
-            if (Math.abs(tx - x) < 0.1 && Math.abs(ty - y) < 0.1) { x = tx; y = ty; raf = 0; }
-            else raf = requestAnimationFrame(tick);
-            cur.style.transform = "translate3d(" + x + "px," + y + "px,0)";
-          };
-          window.addEventListener("mousemove", function (e) {
-            tx = e.clientX; ty = e.clientY;
-            if (!cur.classList.contains("is-on")) { x = tx; y = ty; }
-            cur.classList.toggle("is-on", !overField);
-            if (!raf) raf = requestAnimationFrame(tick);
-          }, { passive: true });
-          d.addEventListener("mouseover", function (e) {
-            var t = e.target.closest ? e.target : e.target.parentElement;
-            if (!t) return;
-            overField = !!t.closest("input, textarea, select, iframe");
-            cur.classList.toggle("is-view", !!t.closest(".x-mod"));
-            if (overField) cur.classList.remove("is-on");
-          });
-          de.addEventListener("mouseleave", function () { cur.classList.remove("is-on"); });
-        }
-      })();
-    </script>
-  </body>
+function el(tag,txt){var e=document.createElement(tag);e.textContent=txt;return e;}
+
+function showProject(p){
+  document.getElementById("p-title").textContent=p.title;
+  var dl=document.getElementById("p-facts");dl.textContent="";
+  [["Category",CATS[p.cat]],["Type",p.type],["Location",p.loc]].forEach(function(f){
+    if(f[1]){dl.appendChild(el("dt",f[0]));dl.appendChild(el("dd",f[1]));}
+  });
+  [].forEach.call(document.querySelectorAll("#p-imgs img"),function(img){img.hidden=img.getAttribute("data-slug")!==p.slug;});
+  document.getElementById("p-desc").textContent=p.desc;
+  var l=list(),i=l.indexOf(p);
+  if(i<0){filter="all";applyFilter();l=P;i=l.indexOf(p);}
+  setPN("p-prev",l[i-1]);setPN("p-next",l[i+1]);
+}
+function setPN(id,p){
+  var a=document.getElementById(id);
+  if(!p){a.hidden=true;return;}
+  a.hidden=false;a.setAttribute("href","#/projects/"+p.slug);a.querySelector("span").textContent=p.title;
+}
+
+function render(){
+  var r=parse();
+  if(!r){history.replaceState(null,"","#/projects");r={name:"projects",c:"all"};}
+  var prev=current;current=r;
+  views.forEach(function(v){document.getElementById("v-"+v).hidden=v!==r.name;});
+  [].forEach.call(document.querySelectorAll(".nav a[data-r]"),function(a){
+    var on=a.getAttribute("data-r")===(r.name==="project"?"projects":r.name);
+    if(on)a.setAttribute("aria-current","page");else a.removeAttribute("aria-current");
+  });
+  var heading,title;
+  if(r.name==="projects"){
+    filter=r.c;applyFilter();
+    heading=document.getElementById("h-projects");
+    title=(filter==="all"?"Projects":CATS[filter]+" projects")+" — Design Metabolists";
+  }else if(r.name==="project"){
+    var p=BY[r.slug];showProject(p);
+    heading=document.getElementById("p-title");title=p.title+" — Design Metabolists";
+  }else{
+    heading=document.querySelector("#v-"+r.name+" h1");
+    title=r.name.charAt(0).toUpperCase()+r.name.slice(1)+" — Design Metabolists";
+  }
+  document.title=title;
+  if(prev){
+    heading.focus({preventScroll:true});
+    window.scrollTo(0,(r.name==="projects"&&prev.name==="project")?savedY:0);
+  }
+}
+
+window.addEventListener("scroll",function(){if(current&&current.name==="projects")savedY=window.scrollY;},{passive:true});
+window.addEventListener("hashchange",render);
+
+fbtns.forEach(function(b){b.addEventListener("click",function(){
+  filter=b.getAttribute("data-f");
+  history.replaceState(null,"",projHash());
+  current={name:"projects",c:filter};
+  applyFilter();
+  document.title=(filter==="all"?"Projects":CATS[filter]+" projects")+" — Design Metabolists";
+});});
+
+/* arrow keys on project page */
+document.addEventListener("keydown",function(e){
+  if(!current||current.name!=="project"||!panel.hidden||e.altKey||e.ctrlKey||e.metaKey||e.shiftKey)return;
+  var t=e.target.tagName;if(t==="INPUT"||t==="TEXTAREA"||t==="SELECT")return;
+  var a=null;
+  if(e.key==="ArrowLeft")a=document.getElementById("p-prev");
+  if(e.key==="ArrowRight")a=document.getElementById("p-next");
+  if(a&&!a.hidden){e.preventDefault();location.hash=a.getAttribute("href");}
+});
+
+/* menu */
+var panel=document.getElementById("panel"),opener=null;
+var mbtns=[].slice.call(document.querySelectorAll("[data-menu]"));
+function focusables(){return [].slice.call(panel.querySelectorAll("a[href],button")).filter(function(x){return x.offsetParent!==null;});}
+function openMenu(btn){
+  opener=btn;panel.hidden=false;document.body.style.overflow="hidden";
+  mbtns.forEach(function(b){b.setAttribute("aria-expanded","true");});
+  document.getElementById("close").focus();
+}
+function closeMenu(restore){
+  if(panel.hidden)return;
+  panel.hidden=true;document.body.style.overflow="";
+  mbtns.forEach(function(b){b.setAttribute("aria-expanded","false");});
+  if(restore&&opener)opener.focus();
+}
+mbtns.forEach(function(b){b.addEventListener("click",function(){openMenu(b);});});
+document.getElementById("close").addEventListener("click",function(){closeMenu(true);});
+panel.addEventListener("click",function(e){if(e.target.closest("a"))closeMenu(false);});
+document.addEventListener("keydown",function(e){
+  if(panel.hidden)return;
+  if(e.key==="Escape"){e.preventDefault();closeMenu(true);return;}
+  if(e.key==="Tab"){
+    var f=focusables(),first=f[0],last=f[f.length-1];
+    if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}
+    else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}
+  }
+});
+
+render();
+})();
+</script>
+</body>
 </html>
