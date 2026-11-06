@@ -13,9 +13,6 @@
   try{
     if(!/^(#\/?(projects)?)?$/.test(location.hash))return;
     if(window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches)return;
-    var seen=false;
-    try{seen=sessionStorage.getItem("dm-intro")==="1";sessionStorage.setItem("dm-intro","1");}catch(e){}
-    if(seen)return;
     de.classList.add("x-intro-on","x-lock");
     setTimeout(function(){de.classList.remove("x-lock");},6200);
   }catch(e){}
