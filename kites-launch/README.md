@@ -74,7 +74,7 @@ Standing rules:
 - [ ] Final prices (open question: RM998 / RM1,499 / RM9,999 as new tiers, or keep current prices)
 - [ ] Confirm or remove: deposit then balance before launch; "see the design before you pay the balance"; bank transfer or DuitNow QR; founding line; monthly care; Shopify fee figures; "we'll give you a date on WhatsApp before you pay"
 - [ ] Swap payment placeholders for real links
-- [ ] Add business name and registration number (E-Commerce Regulations 2012)
+- [x] Business name, registration number and address in the footer (E-Commerce Regulations 2012)
 - [ ] Check both pages on a phone (mobile layout was not tested against the originals)
 - [x] Client logos confirmed OK by Chris (9 Nov 2026)
 
