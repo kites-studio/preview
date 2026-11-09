@@ -1,0 +1,836 @@
+<!doctype html>
+<html lang="en">
+  <head>
+<meta name="robots" content="noindex, nofollow">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Kites · Start Your Store, Show Up Online, Level Up</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400&family=Instrument+Serif:ital@1&display=swap"
+    />
+    <link rel="stylesheet" href="hark.css" />
+    <link rel="stylesheet" href="hark-hero.css" />
+    <style>
+      /* Kites art direction: a deliberate departure from the default Hark look */
+      :root {
+        --k-bg: #17232d; --k-card: #1e2d39; --k-card-2: #253744; --k-line: rgba(255,255,255,.08);
+        --k-white: #fff; --k-body: #cfd6dc; --k-faded: #5f6e7a; --k-muted: #93a1ac;
+        --k-red: #e2553f; --k-red-text: #f2735f; --k-blue: #6fa3d1; --k-gold: #f0b43c; --k-ink: #17232d;
+        --k-serif: "Instrument Serif", Georgia, serif;
+        --k-head: 96px; --k-ease: cubic-bezier(.2,.7,.2,1);
+      }
+      html, body { background: var(--k-bg); color: var(--k-body); }
+      body { font-family: var(--sans); font-size: 15px; line-height: 1.55; padding-top: var(--k-head); }
+      .page { padding-block: 0 0; gap: 0; }
+      .main { gap: 0; }
+      .x-bleed { width: 100vw; margin-inline: calc(50% - 50vw); }
+      .x-serif { font-family: var(--k-serif); font-style: italic; font-weight: 400; letter-spacing: 0; }
+      .x-sec { padding-block: 72px; scroll-margin-top: var(--k-head); }
+      .x-h2 { color: var(--k-white); font-size: clamp(34px, 6vw, 60px); line-height: 1.04; letter-spacing: -.03em; font-weight: 500; }
+      .x-h2 .x-serif { font-size: 1.08em; }
+      .x-lede { color: var(--k-body); font-size: 17px; max-width: 34em; }
+      .x-center { text-align: center; display: grid; justify-items: center; gap: 20px; }
+      .x-eyebrow { display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; border: 1px solid var(--k-line); border-radius: 999px; background: var(--k-card); color: var(--k-body); font-size: 13px; }
+
+      /* header: ticker + nav */
+      .x-top { position: fixed; inset: 0 0 auto; z-index: 50; background: rgba(23,35,45,.86); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); border-bottom: 1px solid var(--k-line); }
+      .x-ticker { height: 32px; overflow: hidden; border-bottom: 1px solid var(--k-line); display: flex; align-items: center; font-size: 12.5px; color: var(--k-body); }
+      .x-track { display: flex; width: max-content; animation: x-marq 38s linear infinite; }
+      .x-track > * { flex: none; }
+      .x-ticker .x-track span { padding-right: 36px; white-space: nowrap; }
+      .x-ticker b { color: var(--k-red-text); font-weight: 400; margin-right: 8px; }
+      @keyframes x-marq { to { transform: translateX(-50%); } }
+      .x-nav { height: 64px; max-width: var(--page-max); margin: 0 auto; padding-inline: var(--gutter); display: flex; align-items: center; gap: 24px; }
+      .x-logo { display: flex; align-items: center; min-height: 44px; }
+      .x-logo img { height: 26px; width: auto; filter: brightness(0) invert(1); }
+      .x-nav nav { display: none; gap: 4px; margin-left: 8px; }
+      .x-nav nav a { color: var(--k-body); text-decoration: none; font-size: 14px; padding: 12px 12px; border-radius: 999px; }
+      .x-nav nav a:hover { color: var(--k-white); background: var(--k-card); }
+      .x-nav .x-btn { margin-left: auto; }
+      @media (min-width: 640px) { .x-nav nav { display: flex; } }
+
+      /* buttons with rolling labels */
+      .x-btns { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+      .x-btn { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; padding: 0 18px 0 22px; border-radius: 999px; font-size: 15px; font-weight: 500; text-decoration: none; white-space: nowrap; border: 0; cursor: pointer; font-family: inherit; transition: transform .3s var(--k-ease); }
+      .x-btn--pri { background: var(--k-white); color: var(--k-ink); }
+      .x-btn--sec { background: var(--k-card-2); color: var(--k-white); }
+      .x-btn--sm { min-height: 44px; padding: 0 14px 0 18px; font-size: 14px; }
+      .x-btn svg { width: 14px; height: 14px; flex: none; transition: transform .35s var(--k-ease); }
+      .x-btn:hover svg { transform: translateX(3px); }
+      .x-btn:focus-visible, .x-tab:focus-visible { outline: 2px solid var(--k-white); outline-offset: 3px; }
+      .x-lbl { display: inline-flex; }
+      .x-ch { display: inline-block; overflow: hidden; height: 1.3em; line-height: 1.3em; vertical-align: top; }
+      .x-ch > span { display: block; text-shadow: 0 1.3em currentColor; transition: transform .5s var(--k-ease); transition-delay: calc(var(--i) * 16ms); }
+      .x-btn:hover .x-ch > span, .x-btn:focus-visible .x-ch > span { transform: translateY(-1.3em); }
+
+      /* hero */
+      .x-hero { padding-block: 56px 32px; }
+      .x-hero h1 { color: var(--k-white); font-size: clamp(46px, 10vw, 104px); line-height: .98; letter-spacing: -.04em; font-weight: 500; max-width: 11em; }
+      .x-hero h1 .x-serif { font-size: 1.08em; }
+      .x-hero .x-lede { text-align: center; }
+      .x-built { color: var(--k-muted); font-size: 13px; }
+      .x-collage { position: relative; height: 470px; max-width: 900px; margin: 48px auto 0; }
+      .x-mock { position: absolute; background: var(--k-card); border: 1px solid var(--k-line); border-radius: 20px; box-shadow: 0 30px 60px -20px rgba(0,0,0,.55); animation: x-float 7s ease-in-out infinite; }
+      @keyframes x-float { 50% { transform: translateY(-10px); } }
+      .x-tag { position: absolute; top: -12px; left: 16px; z-index: 3; padding: 3px 10px; border-radius: 999px; font-size: 12px; font-weight: 600; color: var(--k-ink); }
+      .x-tag--red { background: var(--k-red); color: #fff; background: #c9432f; }
+      .x-tag--blue { background: var(--k-blue); }
+      .x-tag--gold { background: var(--k-gold); }
+      .x-c-chart { left: 0; top: 36px; width: min(300px, 62%); padding: 18px; z-index: 2; }
+      .x-c-phone { right: 0; top: 0; width: 44%; max-width: 215px; animation-delay: -2.4s; z-index: 1; }
+      .x-c-chat { left: 3%; bottom: 0; width: min(310px, 66%); padding: 14px; z-index: 3; animation-delay: -4.6s; }
+      @media (min-width: 900px) {
+        .x-collage { height: 520px; }
+        .x-c-chart { top: 90px; width: 310px; }
+        .x-c-phone { left: 50%; right: auto; margin-left: -112px; width: 224px; max-width: none; }
+        .x-c-chat { left: auto; right: 0; bottom: auto; top: 150px; width: 310px; }
+      }
+      .x-mini-h { display: flex; justify-content: space-between; align-items: center; color: var(--k-white); font-size: 14px; font-weight: 500; }
+      .x-sample { font-size: 12px; color: var(--k-body); border: 1px solid var(--k-line); border-radius: 999px; padding: 2px 8px; font-weight: 400; }
+      .x-spark { width: 100%; height: 92px; margin: 10px 0 8px; display: block; }
+      .x-spark path.l { stroke-dasharray: 600; stroke-dashoffset: 600; animation: x-draw 2.4s var(--k-ease) .4s forwards; }
+      @keyframes x-draw { to { stroke-dashoffset: 0; } }
+      .x-kpis { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+      .x-kpis div { background: var(--k-bg); border-radius: 12px; padding: 10px 12px; }
+      .x-kpis small { display: block; color: var(--k-muted); font-size: 12px; }
+      .x-kpis b { color: var(--k-white); font-size: 20px; font-weight: 500; font-variant-numeric: tabular-nums; letter-spacing: -.02em; }
+
+      /* phone + laptop frames */
+      .x-phone { position: relative; aspect-ratio: 9 / 19; border-radius: 34px; border: 7px solid #0d161d; background: #0d161d; box-shadow: 0 0 0 1px var(--k-line); overflow: hidden; }
+      .x-phone::before { content: ""; position: absolute; top: 8px; left: 50%; width: 34%; height: 16px; margin-left: -17%; border-radius: 99px; background: #0d161d; z-index: 4; }
+      .x-screen { position: absolute; inset: 0; overflow: hidden; border-radius: 27px; background: #fff; color: #17232d; }
+      .x-scroll { position: absolute; inset: 0 0 auto; height: 200%; display: flex; flex-direction: column; animation: x-pan 16s ease-in-out infinite alternate; }
+      @keyframes x-pan { 0%, 12% { transform: translateY(0); } 88%, 100% { transform: translateY(-50%); } }
+      .x-st-bar { display: flex; justify-content: space-between; align-items: center; padding: 30px 12px 8px; font-size: 12px; font-weight: 600; letter-spacing: .08em; }
+      .x-st-hero { height: 28%; flex: none; position: relative; }
+      .x-st-hero img { width: 100%; height: 100%; object-fit: cover; }
+      .x-st-copy { padding: 10px 12px; display: grid; gap: 6px; }
+      .x-st-copy strong { font-size: 14px; line-height: 1.2; }
+      .x-st-copy span { justify-self: start; background: #17232d; color: #fff; font-size: 12px; padding: 5px 10px; border-radius: 99px; }
+      .x-st-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding: 4px 12px; flex: 1; align-content: start; }
+      .x-st-grid div { font-size: 12px; line-height: 1.25; }
+      .x-st-grid i { display: block; aspect-ratio: 1; border-radius: 10px; margin-bottom: 4px; }
+      .x-st-pay { margin: 8px 12px 14px; padding: 8px; border-radius: 10px; background: #eef1f3; font-size: 12px; text-align: center; }
+      .x-laptop { width: 100%; }
+      .x-laptop .x-lscreen { position: relative; aspect-ratio: 16 / 10; border: 8px solid #0d161d; border-bottom-width: 12px; border-radius: 16px 16px 0 0; overflow: hidden; background: #0d161d; box-shadow: 0 0 0 1px var(--k-line); }
+      .x-laptop .x-lscreen img { width: 100%; height: 100%; object-fit: cover; }
+      .x-laptop .x-base { height: 12px; margin: 0 -5%; border-radius: 0 0 14px 14px; background: linear-gradient(#2a3b48, #1a2731); box-shadow: 0 0 0 1px var(--k-line); }
+
+      /* chat */
+      .x-chat-h { display: flex; align-items: center; gap: 10px; padding-bottom: 10px; border-bottom: 1px solid var(--k-line); }
+      .x-ava { width: 32px; height: 32px; border-radius: 50%; background: var(--k-card-2); display: grid; place-items: center; color: var(--k-white); font-weight: 600; font-size: 13px; }
+      .x-chat-h b { display: block; color: var(--k-white); font-size: 14px; font-weight: 500; line-height: 1.2; }
+      .x-chat-h small { color: #7fd4a5; font-size: 12px; }
+      .x-msgs { display: grid; gap: 8px; padding-top: 12px; min-height: 128px; align-content: start; }
+      .x-msg { max-width: 86%; padding: 8px 12px; border-radius: 14px; font-size: 13.5px; line-height: 1.35; color: #fff; opacity: 0; transform: translateY(6px); animation: 9s var(--k-ease) infinite; }
+      .x-msg--out { justify-self: end; background: #005c4b; border-bottom-right-radius: 4px; animation-name: x-m1; }
+      .x-msg--in { justify-self: start; background: var(--k-card-2); border-bottom-left-radius: 4px; animation-name: x-m2; }
+      .x-typing { justify-self: start; display: flex; gap: 4px; padding: 10px 12px; border-radius: 14px; background: var(--k-card-2); opacity: 0; animation: x-ty 9s infinite; margin-top: -2px; }
+      .x-typing i { width: 6px; height: 6px; border-radius: 50%; background: var(--k-body); animation: x-dot 1s infinite; }
+      .x-typing i:nth-child(2) { animation-delay: .15s; } .x-typing i:nth-child(3) { animation-delay: .3s; }
+      @keyframes x-m1 { 0%, 6% { opacity: 0; transform: translateY(6px); } 10%, 88% { opacity: 1; transform: none; } 95%, 100% { opacity: 0; } }
+      @keyframes x-m2 { 0%, 44% { opacity: 0; transform: translateY(6px); } 48%, 88% { opacity: 1; transform: none; } 95%, 100% { opacity: 0; } }
+      @keyframes x-ty { 0%, 18% { opacity: 0; } 22%, 42% { opacity: 1; } 44%, 100% { opacity: 0; height: 0; padding-block: 0; } }
+      @keyframes x-dot { 50% { transform: translateY(-3px); opacity: .5; } }
+
+      /* chip marquee */
+      .x-chips { padding-block: 28px; overflow: hidden; border-block: 1px solid var(--k-line); -webkit-mask: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent); mask: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent); }
+      .x-chips .x-track { animation-duration: 46s; }
+      .x-chips ul { display: flex; gap: 10px; margin: 0; padding: 0 10px 0 0; list-style: none; }
+      .x-chips li { white-space: nowrap; padding: 10px 18px; border-radius: 999px; background: var(--k-card); border: 1px solid var(--k-line); color: var(--k-white); font-size: 14px; }
+
+      /* statement */
+      .x-statement { padding-block: 96px; }
+      .x-statement p { font-size: clamp(28px, 4.6vw, 48px); line-height: 1.16; letter-spacing: -.025em; font-weight: 500; color: var(--k-white); max-width: 20em; }
+      .x-statement .x-w { color: var(--k-faded); transition: color .35s; }
+      .x-statement .x-w.is-lit { color: var(--k-white); }
+    </style>
+    <style>
+      /* offers */
+      .x-offers-head { display: grid; gap: 16px; margin-bottom: 28px; }
+      .x-tabs { position: sticky; top: calc(var(--k-head) + 10px); z-index: 20; display: flex; gap: 4px; padding: 5px; margin: 0 auto 28px; width: max-content; max-width: 100%; overflow-x: auto; border-radius: 999px; background: rgba(30,45,57,.9); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); border: 1px solid var(--k-line); scrollbar-width: none; }
+      .x-tab { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 16px; border-radius: 999px; border: 0; background: none; color: var(--k-body); font: 500 14px/1 var(--sans); white-space: nowrap; cursor: pointer; transition: background .3s, color .3s; }
+      .x-tab svg { width: 16px; height: 16px; color: var(--c); }
+      .x-tab[aria-selected="true"] { background: var(--k-white); color: var(--k-ink); }
+      .x-panels { display: grid; }
+      .x-panel { grid-area: 1 / 1; display: grid; gap: 20px; opacity: 0; visibility: hidden; transform: translateY(8px); transition: opacity .5s var(--k-ease), transform .5s var(--k-ease), visibility 0s .5s; }
+      .x-panel.is-on { opacity: 1; visibility: visible; transform: none; transition-delay: 0s; z-index: 1; }
+      @media (min-width: 900px) { .x-panel { grid-template-columns: 1.05fr 1fr; align-items: stretch; } }
+      .x-offer { background: var(--k-card); border: 1px solid var(--k-line); border-radius: 28px; padding: 28px 22px; display: grid; gap: 20px; align-content: start; }
+      @media (min-width: 640px) { .x-offer { padding: 36px; } }
+      .x-oname { display: inline-flex; align-items: center; gap: 8px; color: var(--c); font-size: 14px; font-weight: 500; }
+      .x-oname svg { width: 18px; height: 18px; }
+      .x-offer h3 { color: var(--k-white); font-size: clamp(28px, 4vw, 40px); line-height: 1.05; letter-spacing: -.03em; font-weight: 500; }
+      .x-prices { display: grid; gap: 10px; }
+      @media (min-width: 560px) { .x-prices--2 { grid-template-columns: 1fr 1fr; } }
+      .x-price { position: relative; background: var(--k-bg); border: 1px solid var(--k-line); border-radius: 18px; padding: 18px; display: grid; gap: 6px; align-content: start; }
+      .x-price.is-pop { border-color: var(--c); }
+      .x-price .x-pop { position: absolute; top: -11px; right: 14px; background: var(--c); color: var(--k-ink); font-size: 12px; font-weight: 600; padding: 2px 10px; border-radius: 99px; }
+      .x-price h4 { margin: 0; color: var(--k-white); font-size: 15px; font-weight: 500; }
+      .x-amt { color: var(--k-white); font-size: 34px; font-weight: 500; letter-spacing: -.03em; line-height: 1.1; font-variant-numeric: tabular-nums; }
+      .x-amt small { font-size: 14px; color: var(--k-muted); font-weight: 400; letter-spacing: 0; margin-right: 4px; }
+      .x-price p { font-size: 14px; }
+      .x-price .x-btn { justify-self: start; margin-top: 8px; }
+      .x-incl { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; }
+      @media (min-width: 560px) { .x-incl { grid-template-columns: 1fr 1fr; } }
+      .x-incl li { display: flex; gap: 10px; font-size: 14px; align-items: flex-start; }
+      .x-incl li::before { content: ""; flex: none; width: 16px; height: 16px; margin-top: 3px; border-radius: 50%; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 8.5l2.5 2.5L12 5.5' fill='none' stroke='%2317232d' stroke-width='2'/%3E%3C/svg%3E") center / 100% no-repeat, var(--c); }
+      .x-incl-h { color: var(--k-white); font-size: 14px; font-weight: 500; }
+      .x-note { font-size: 13px; color: var(--k-muted); border-top: 1px solid var(--k-line); padding-top: 14px; }
+      .x-visual { position: relative; border-radius: 28px; border: 1px solid var(--k-line); background: radial-gradient(120% 90% at 50% 100%, color-mix(in srgb, var(--c) 26%, transparent), transparent 70%), var(--k-card); display: grid; place-items: center; padding: 40px 24px; min-height: 380px; overflow: hidden; }
+      .x-visual .x-phone { width: min(230px, 62%); }
+      .x-visual .x-laptop { width: min(520px, 100%); }
+      .x-vtag { position: absolute; top: 16px; left: 16px; font-size: 12px; color: var(--k-white); background: rgba(23,35,45,.8); border: 1px solid var(--k-line); padding: 4px 10px; border-radius: 99px; }
+      .x-site-nav { position: absolute; inset: 0 0 auto; display: flex; justify-content: space-between; padding: 10px 14px; gap: 12px; font-size: 12px; color: #fff; background: linear-gradient(rgba(0,0,0,.45), transparent); }
+      .x-site-copy { position: absolute; left: 14px; bottom: 14px; color: #fff; font-size: clamp(14px, 2.4vw, 22px); line-height: 1.05; font-weight: 600; letter-spacing: -.02em; text-shadow: 0 2px 12px rgba(0,0,0,.4); }
+
+      /* how it works */
+      .x-how { display: grid; gap: 40px; }
+      @media (min-width: 900px) { .x-how { grid-template-columns: 1fr 1.2fr; } .x-how .x-head { position: sticky; top: calc(var(--k-head) + 40px); align-self: start; } }
+      .x-head { display: grid; gap: 16px; }
+      .x-line { position: relative; list-style: none; margin: 0; padding: 0 0 0 56px; display: grid; gap: 20px; --p: 0; }
+      .x-line::before, .x-line::after { content: ""; position: absolute; left: 21px; top: 22px; bottom: 22px; width: 2px; background: var(--k-line); }
+      .x-line::after { background: var(--k-white); transform-origin: top; transform: scaleY(var(--p)); }
+      .x-line li { position: relative; background: var(--k-card); border: 1px solid var(--k-line); border-radius: 22px; padding: 24px; }
+      .x-line .x-n { position: absolute; left: -56px; top: 0; width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; background: var(--k-bg); border: 1px solid var(--k-line); color: var(--k-muted); font: 500 15px var(--sans); z-index: 1; transition: background .4s, color .4s; }
+      .x-line li.is-lit .x-n { background: var(--k-white); color: var(--k-ink); }
+      .x-line h3 { color: var(--k-white); font-size: 24px; font-weight: 500; letter-spacing: -.02em; margin-bottom: 6px; }
+
+      /* final cta + footer */
+      .x-final { padding-block: 104px; }
+      .x-final .x-h2 { font-size: clamp(42px, 8vw, 88px); }
+      .x-foot { border-top: 1px solid var(--k-line); padding-block: 40px 48px; display: grid; gap: 20px; font-size: 13.5px; color: var(--k-muted); }
+      .x-foot img { height: 24px; width: auto; filter: brightness(0) invert(1); }
+      .x-foot address { font-style: normal; display: grid; gap: 4px; }
+      .x-foot strong { color: var(--k-white); font-weight: 500; }
+      .x-foot a { color: var(--k-body); display: inline-block; padding-block: 12px; margin-block: -12px; }
+      @media (max-width: 899px) { .x-foot { padding-bottom: 112px; } }
+
+      /* mobile bottom bar */
+      .x-mbar { position: fixed; left: 12px; right: 12px; bottom: 12px; z-index: 60; display: flex; gap: 8px; padding: 8px; border-radius: 999px; background: rgba(30,45,57,.92); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); border: 1px solid var(--k-line); box-shadow: 0 16px 40px -10px rgba(0,0,0,.6); transform: translateY(140%); transition: transform .45s var(--k-ease); }
+      .x-mbar.is-on { transform: none; }
+      .x-mbar .x-btn { flex: 1; justify-content: center; padding-inline: 12px; }
+      @media (min-width: 900px) { .x-mbar { display: none; } }
+
+      /* big faded marquee divider */
+      .x-big { overflow: hidden; padding-block: 24px; border-block: 1px solid var(--k-line); }
+      .x-big .x-track { animation-duration: 60s; }
+      .x-big span { padding-right: .6em; white-space: nowrap; font-size: clamp(64px, 13vw, 168px); line-height: 1; letter-spacing: -.045em; font-weight: 500; color: #66757f; }
+      .x-big span i { font-family: var(--k-serif); font-weight: 400; color: #6b7a86; }
+
+      /* work carousel */
+      .x-work-head { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 16px; margin-bottom: 32px; }
+      .x-work-head .x-head { justify-items: start; }
+      .x-rail { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: var(--gutter); padding: 8px var(--gutter) 20px; scrollbar-width: none; cursor: grab; -webkit-user-select: none; user-select: none; overscroll-behavior-x: contain; }
+      .x-rail::-webkit-scrollbar { display: none; }
+      .x-rail.is-drag { scroll-snap-type: none; cursor: grabbing; }
+      .x-rail:focus-visible { outline: 2px solid var(--k-white); outline-offset: -2px; border-radius: 28px; }
+      .x-rail img { -webkit-user-drag: none; pointer-events: none; }
+      .x-wcard { flex: 0 0 min(360px, 82vw); scroll-snap-align: start; border-radius: 28px; padding: 22px; display: grid; grid-template-rows: 260px auto; gap: 18px; background: var(--bg); color: var(--fg); overflow: hidden; }
+      .x-wcard--red { --bg: #c9432f; --fg: #fff; }
+      .x-wcard--blue { --bg: var(--k-blue); --fg: var(--k-ink); }
+      .x-wcard--gold { --bg: var(--k-gold); --fg: var(--k-ink); }
+      .x-wcard--deep { --bg: #24496b; --fg: #fff; }
+      .x-wvis { display: grid; place-items: center; }
+      .x-wvis .x-laptop { width: 92%; transform: rotate(-4deg); transition: transform .6s var(--k-ease); }
+      .x-wvis .x-phone { width: 128px; transform: rotate(5deg); transition: transform .6s var(--k-ease); box-shadow: 0 24px 40px -16px rgba(0,0,0,.5); }
+      .x-wvis .x-laptop .x-lscreen { box-shadow: 0 24px 40px -16px rgba(0,0,0,.5); }
+      .x-wvis .x-screen img { width: 100%; height: 100%; object-fit: cover; }
+      .x-wcard:hover .x-laptop, .x-wcard:hover .x-phone { transform: rotate(0); }
+      .x-wcard h3 { font-size: 22px; font-weight: 500; letter-spacing: -.02em; line-height: 1.2; color: var(--fg); }
+      .x-wcard p { font-size: 14px; color: var(--fg); opacity: .85; margin-top: 2px; }
+      .x-work-more { display: flex; justify-content: center; margin-top: 16px; }
+
+      /* client logos */
+      .x-brands { padding-block: 72px; display: grid; gap: 28px; }
+      .x-brands h2 { text-align: center; color: var(--k-white); font-size: clamp(22px, 3vw, 28px); font-weight: 500; letter-spacing: -.02em; }
+      .x-lrow { overflow: hidden; -webkit-mask: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); mask: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); }
+      .x-lrow + .x-lrow { margin-top: -16px; }
+      .x-lrow .x-track { animation-duration: 40s; }
+      .x-lrow--rev .x-track { animation-direction: reverse; }
+      .x-lrow ul { display: flex; gap: 12px; margin: 0; padding: 0 12px 0 0; list-style: none; }
+      .x-lrow li { width: 200px; height: 96px; display: grid; place-items: center; padding: 20px 28px; border-radius: 18px; background: var(--k-card); border: 1px solid var(--k-line); }
+      .x-lrow img { max-width: 100%; max-height: 52px; width: auto; height: auto; filter: grayscale(1) brightness(0) invert(1); opacity: .78; }
+
+      /* why kites */
+      .x-why { display: grid; gap: 16px; margin-top: 32px; }
+      @media (min-width: 760px) { .x-why { grid-template-columns: repeat(3, 1fr); } }
+      .x-why li { list-style: none; background: var(--k-card); border: 1px solid var(--k-line); border-radius: 22px; padding: 26px; display: grid; gap: 8px; align-content: start; }
+      .x-why ul { margin: 0; padding: 0; }
+      .x-why .x-ic { width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center; background: var(--k-bg); color: var(--c); margin-bottom: 8px; }
+      .x-why .x-ic svg { width: 20px; height: 20px; }
+      .x-why h3 { color: var(--k-white); font-size: 22px; font-weight: 500; letter-spacing: -.02em; }
+
+      /* faq */
+      .x-faq { display: grid; gap: 40px; }
+      @media (min-width: 900px) { .x-faq { grid-template-columns: 1fr 1.4fr; } }
+      .x-acc { display: grid; gap: 10px; }
+      .x-q { background: var(--k-card); border: 1px solid var(--k-line); border-radius: 20px; }
+      .x-q h3 { margin: 0; }
+      .x-q button { width: 100%; min-height: 64px; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 16px 22px; background: none; border: 0; color: var(--k-white); font: 500 17px/1.35 var(--sans); text-align: left; cursor: pointer; border-radius: 20px; }
+      .x-q button:focus-visible { outline: 2px solid var(--k-white); outline-offset: 2px; }
+      .x-q button svg { flex: none; width: 18px; height: 18px; color: var(--k-muted); transition: transform .45s var(--k-ease); }
+      .x-q button[aria-expanded="true"] svg { transform: rotate(180deg); color: var(--k-white); }
+      .x-a { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .45s var(--k-ease); }
+      .x-a > div { overflow: hidden; }
+      .x-a p { padding: 0 22px 20px; max-width: 38em; }
+      .x-q.is-open .x-a { grid-template-rows: 1fr; }
+
+      .x-penguin { width: 56px; height: auto; }
+
+      /* fade-up */
+      .js .x-fade { opacity: 0; transform: translateY(24px); transition: opacity .8s var(--k-ease), transform .8s var(--k-ease); }
+      .js .x-fade.is-in { opacity: 1; transform: none; }
+
+      @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after { animation: none !important; transition: none !important; }
+        .x-msg, .x-typing { opacity: 1 !important; transform: none !important; }
+        .x-typing { display: none !important; }
+        .x-spark path.l { stroke-dashoffset: 0; }
+        .js .x-fade { opacity: 1; transform: none; }
+        .x-statement .x-w { color: var(--k-white); }
+        .x-line::after { transform: scaleY(1); }
+        .x-lrow { -webkit-mask: none; mask: none; }
+        .x-lrow .x-track { width: auto; }
+        .x-lrow ul { flex-wrap: wrap; justify-content: center; padding: 0; }
+        .x-lrow ul[aria-hidden], .x-big span[aria-hidden] { display: none; }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="x-top">
+      <div class="x-ticker" aria-label="Kites at a glance">
+        <div class="x-track">
+          <span><b aria-hidden="true">●</b>Shopify stores from RM998</span><span><b aria-hidden="true">●</b>Personal sites from RM888</span><span><b aria-hidden="true">●</b>Tech partner from RM5,000</span><span><b aria-hidden="true">●</b>Built in Kuala Lumpur</span>
+          <span aria-hidden="true"><b>●</b>Shopify stores from RM998</span><span aria-hidden="true"><b>●</b>Personal sites from RM888</span><span aria-hidden="true"><b>●</b>Tech partner from RM5,000</span><span aria-hidden="true"><b>●</b>Built in Kuala Lumpur</span>
+          <span aria-hidden="true"><b>●</b>Shopify stores from RM998</span><span aria-hidden="true"><b>●</b>Personal sites from RM888</span><span aria-hidden="true"><b>●</b>Tech partner from RM5,000</span><span aria-hidden="true"><b>●</b>Built in Kuala Lumpur</span>
+          <span aria-hidden="true"><b>●</b>Shopify stores from RM998</span><span aria-hidden="true"><b>●</b>Personal sites from RM888</span><span aria-hidden="true"><b>●</b>Tech partner from RM5,000</span><span aria-hidden="true"><b>●</b>Built in Kuala Lumpur</span>
+        </div>
+      </div>
+      <div class="x-nav">
+        <a class="x-logo" href="#top" aria-label="Kites, back to top"><img src="kites-wordmark.svg" alt="Kites" width="154" height="61" /></a>
+        <nav aria-label="Sections">
+          <a href="#offers">Offers</a>
+          <a href="#how">How it works</a>
+          <a href="#work">Work</a>
+          <a href="#faq">FAQ</a>
+        </nav>
+        <a class="x-btn x-btn--pri x-btn--sm" href="https://wa.me/60102156826?text=Hi%20Kites%2C%20I%27d%20like%20to%20know%20more" target="_blank" rel="noopener"><span class="x-lbl">Chat with us</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+    </header>
+
+    <div class="page" id="top">
+      <main class="main">
+        <!-- SECTION: hero -->
+        <section class="x-hero x-center" id="hero">
+          <p class="x-eyebrow x-fade"><span style="color: var(--k-red-text)" aria-hidden="true">●</span> Kites · Malaysia</p>
+          <h1 class="x-fade">Get your business <span class="x-serif">online.</span></h1>
+          <p class="x-lede x-fade">Shopify stores, personal websites and a tech partner for growing brands. Clear prices, built in Kuala Lumpur, launched with you.</p>
+          <div class="x-btns x-fade">
+            <a class="x-btn x-btn--pri" href="#offers"><span class="x-lbl">See the offers</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            <a class="x-btn x-btn--sec" href="https://wa.me/60102156826?text=Hi%20Kites%2C%20I%27d%20like%20to%20know%20more" target="_blank" rel="noopener"><span class="x-lbl">Chat on WhatsApp</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </div>
+          <p class="x-built x-fade">Built on Shopify · FPX · DuitNow · WhatsApp</p>
+
+          <div class="x-collage x-fade" aria-label="Sample views: a store dashboard, a WhatsApp chat with Kites, and a store on a phone" role="img" style="width: 100%">
+            <div class="x-mock x-c-chart" style="text-align: left">
+              <span class="x-tag x-tag--red">You</span>
+              <p class="x-mini-h">Store sales <span class="x-sample">Sample data</span></p>
+              <svg class="x-spark" viewBox="0 0 280 92" preserveAspectRatio="none" aria-hidden="true">
+                <defs><linearGradient id="x-g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e2553f" stop-opacity=".35"/><stop offset="1" stop-color="#e2553f" stop-opacity="0"/></linearGradient></defs>
+                <path d="M0 78 C30 72 40 60 70 62 S110 40 140 46 S190 22 215 28 S255 8 280 6 L280 92 L0 92Z" fill="url(#x-g)"/>
+                <path class="l" d="M0 78 C30 72 40 60 70 62 S110 40 140 46 S190 22 215 28 S255 8 280 6" fill="none" stroke="#e2553f" stroke-width="2.4" stroke-linecap="round"/>
+              </svg>
+              <div class="x-kpis">
+                <div><small>Orders</small><b id="x-orders">128</b></div>
+                <div><small>Revenue (RM)</small><b id="x-rev">9,840</b></div>
+              </div>
+            </div>
+
+            <div class="x-mock x-c-phone" style="border-radius: 36px; text-align: left">
+              <span class="x-tag x-tag--blue">Your customer</span>
+              <div class="x-phone">
+                <div class="x-screen">
+                  <div class="x-scroll">
+                    <div class="x-st-bar"><span>GULA GULA</span><span>Cart (2)</span></div>
+                    <div class="x-st-hero"><img src="gg-hero.webp" alt="" style="object-position: 75% 50%" /></div>
+                    <div class="x-st-copy"><strong>Sour bears &amp; rainbow belts</strong><span>Shop now</span></div>
+                    <div class="x-st-grid">
+                      <div><i style="background: #f3a23a"></i>Orange bears<br /><b>RM12.90</b></div>
+                      <div><i style="background: #d63a3a"></i>Cherry bears<br /><b>RM12.90</b></div>
+                      <div><i style="background: #7cc243"></i>Apple bears<br /><b>RM12.90</b></div>
+                      <div><i style="background: linear-gradient(135deg, #e44, #fb3, #4c4, #39f)"></i>Rainbow belts<br /><b>RM15.90</b></div>
+                      <div><i style="background: #2b46c9"></i>Party box<br /><b>RM39.00</b></div>
+                      <div><i style="background: #f6c9d0"></i>Gift tin<br /><b>RM49.00</b></div>
+                    </div>
+                    <div class="x-st-pay">Pay with FPX · DuitNow · Card</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="x-mock x-c-chat" style="text-align: left">
+              <span class="x-tag x-tag--gold">Kites</span>
+              <div class="x-chat-h"><span class="x-ava">K</span><div><b>Kites Studio</b><small>online</small></div></div>
+              <div class="x-msgs">
+                <p class="x-msg x-msg--out">Hi Kites, I want to start my store</p>
+                <p class="x-typing"><i></i><i></i><i></i></p>
+                <p class="x-msg x-msg--in">Let's do it. Here's how it works 👇</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECTION: chip marquee -->
+        <section class="x-chips x-bleed" aria-label="What we set up">
+          <div class="x-track">
+            <ul>
+              <li>Shopify setup</li><li>Mobile design</li><li>FPX &amp; DuitNow payments</li><li>Shipping</li><li>Product pages</li><li>WhatsApp button</li><li>Personal website</li><li>Portfolio</li><li>Domain connect</li><li>Monthly care</li>
+            </ul>
+            <ul aria-hidden="true">
+              <li>Shopify setup</li><li>Mobile design</li><li>FPX &amp; DuitNow payments</li><li>Shipping</li><li>Product pages</li><li>WhatsApp button</li><li>Personal website</li><li>Portfolio</li><li>Domain connect</li><li>Monthly care</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- SECTION: statement -->
+        <section class="x-statement" id="statement">
+          <p id="x-say">Most small businesses lose sales because they look unfinished online. We build sites people trust, and you own everything.</p>
+        </section>
+
+        <!-- SECTION: offers -->
+        <section class="x-sec" id="offers">
+          <div class="x-offers-head x-center x-fade">
+            <p class="x-eyebrow">Three offers · clear prices</p>
+            <h2 class="x-h2">Pick your way <span class="x-serif">online.</span></h2>
+          </div>
+
+          <div class="x-tabs" role="tablist" aria-label="Offers">
+            <button class="x-tab" role="tab" id="tab-store" aria-controls="panel-store" aria-selected="true" style="--c: var(--k-red-text)"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5L14.5 8 8 14.5 1.5 8z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>Start Your Store</button>
+            <button class="x-tab" role="tab" id="tab-showup" aria-controls="panel-showup" aria-selected="false" tabindex="-1" style="--c: var(--k-blue)"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>Show Up Online</button>
+            <button class="x-tab" role="tab" id="tab-levelup" aria-controls="panel-levelup" aria-selected="false" tabindex="-1" style="--c: var(--k-gold)"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5l5.6 3.25v6.5L8 14.5l-5.6-3.25v-6.5z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>Level Up</button>
+          </div>
+
+          <div class="x-panels">
+            <!-- OFFER A: Start Your Store -->
+            <div class="x-panel is-on" role="tabpanel" id="panel-store" aria-labelledby="tab-store" style="--c: var(--k-red-text)">
+              <article class="x-offer">
+                <p class="x-oname"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5L14.5 8 8 14.5 1.5 8z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>Start Your Store</p>
+                <h3>Start selling online this month.</h3>
+                <p>A real Shopify store, designed for phones, with payments and shipping set up. E-commerce has never been easier.</p>
+                <div class="x-prices x-prices--2">
+                  <div class="x-price">
+                    <h4>Starter</h4>
+                    <p class="x-amt"><small>from</small>RM<span data-count="998">998</span></p>
+                    <p>We set up your store; you add products.</p>
+                    <!-- PAYMENT: swap href for payment link -->
+                    <a class="x-btn x-btn--sec x-btn--sm" href="https://wa.me/60102156826?text=Hi%20Kites%2C%20I%27m%20interested%20in%20Start%20Your%20Store%20%E2%80%94%20Starter%20(RM998)" target="_blank" rel="noopener"><span class="x-lbl">Get Starter</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                  </div>
+                  <div class="x-price is-pop">
+                    <span class="x-pop">Most popular</span>
+                    <h4>Full Store</h4>
+                    <p class="x-amt"><small>from</small>RM<span data-count="3500">3,500</span></p>
+                    <p>We set up and add up to 30 products.</p>
+                    <!-- PAYMENT: swap href for payment link -->
+                    <a class="x-btn x-btn--pri x-btn--sm" href="https://wa.me/60102156826?text=Hi%20Kites%2C%20I%27m%20interested%20in%20Start%20Your%20Store%20%E2%80%94%20Full%20Store%20(RM3%2C500)" target="_blank" rel="noopener"><span class="x-lbl">Get Full Store</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                  </div>
+                </div>
+                <p class="x-incl-h">Includes</p>
+                <ul class="x-incl">
+                  <li>Store design</li><li>Mobile-first pages</li><li>FPX/DuitNow-ready gateway setup</li><li>Shipping</li><li>WhatsApp button</li><li>Domain connected</li>
+                </ul>
+                <p class="x-note">Shopify plan, domain and payment fees are paid by you directly, so it's all yours.</p>
+              </article>
+              <div class="x-visual">
+                <div class="x-phone">
+                  <div class="x-screen">
+                    <div class="x-scroll" style="animation-duration: 20s">
+                      <div class="x-st-bar"><span>KINAKO &amp; CRUMB</span><span>Cart (1)</span></div>
+                      <div class="x-st-hero"><img src="kc-hero-storefront.webp" alt="Kinako &amp; Crumb shopfront with a navy noren and a shiba mascot" loading="lazy" /></div>
+                      <div class="x-st-copy"><strong>Kinako cookies, baked in KL</strong><span>Shop the tins</span></div>
+                      <div class="x-st-grid">
+                        <div><i style="background: #e6c27a"></i>Kinako cookie tin<br /><b>RM38.00</b></div>
+                        <div><i style="background: #c98f4a"></i>Brown butter crumb<br /><b>RM28.00</b></div>
+                        <div><i style="background: #9fb36b"></i>Matcha shortbread<br /><b>RM32.00</b></div>
+                        <div><i style="background: #233a5e"></i>Gift box<br /><b>RM68.00</b></div>
+                        <div><i style="background: #f0d9b5"></i>Mini bites<br /><b>RM18.00</b></div>
+                        <div><i style="background: #e2553f"></i>Festive set<br /><b>RM88.00</b></div>
+                      </div>
+                      <div class="x-st-pay">Pay with FPX · DuitNow · Card</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- OFFER B: Show Up Online -->
+            <div class="x-panel" role="tabpanel" id="panel-showup" aria-labelledby="tab-showup" style="--c: var(--k-blue)">
+              <article class="x-offer">
+                <p class="x-oname"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>Show Up Online</p>
+                <h3>Show the world who you are.</h3>
+                <p>A personal website for teachers, coaches, freelancers and job seekers.</p>
+                <div class="x-prices">
+                  <div class="x-price">
+                    <h4>Personal site</h4>
+                    <p class="x-amt"><small>from</small>RM<span data-count="888">888</span><small style="margin-left: 6px">one-time</small></p>
+                    <!-- PAYMENT: swap href for payment link -->
+                    <a class="x-btn x-btn--pri x-btn--sm" href="https://wa.me/60102156826?text=Hi%20Kites%2C%20I%27m%20interested%20in%20Show%20Up%20Online%20(RM888)" target="_blank" rel="noopener"><span class="x-lbl">Get my site</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                  </div>
+                </div>
+                <p class="x-incl-h">Includes</p>
+                <ul class="x-incl">
+                  <li>Personal page or portfolio</li><li>Your story</li><li>Services or work</li><li>Contact + WhatsApp</li><li>Mobile-first</li><li>Domain connected</li>
+                </ul>
+              </article>
+              <div class="x-visual">
+                <div class="x-laptop">
+                  <div class="x-lscreen">
+                    <img src="pp-hero.webp" alt="Paddle Partner site: players mid-rally on an outdoor pickleball court" loading="lazy" />
+                    <div class="x-site-nav" aria-hidden="true"><b>Paddle Partner</b><span>About · Coaching · Contact</span></div>
+                    <p class="x-site-copy" aria-hidden="true">Pickleball coaching<br />in Petaling Jaya</p>
+                  </div>
+                  <div class="x-base"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- OFFER C: Level Up -->
+            <div class="x-panel" role="tabpanel" id="panel-levelup" aria-labelledby="tab-levelup" style="--c: var(--k-gold)">
+              <article class="x-offer">
+                <p class="x-oname"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5l5.6 3.25v6.5L8 14.5l-5.6-3.25v-6.5z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>Level Up</p>
+                <h3>A tech team, without hiring one.</h3>
+                <p>For growing brands and organisations: website, store, events and updates handled every month.</p>
+                <div class="x-prices">
+                  <div class="x-price">
+                    <h4>Tech partner</h4>
+                    <p class="x-amt"><small>from</small>RM<span data-count="5000">5,000</span><small style="margin-left: 6px">setup + monthly partnership</small></p>
+                    <p>Priced by what's included, never by hours.</p>
+                    <!-- PAYMENT: swap href for payment link -->
+                    <a class="x-btn x-btn--pri x-btn--sm" href="https://wa.me/60102156826?text=Hi%20Kites%2C%20I%27d%20like%20to%20book%20a%20call%20about%20Level%20Up" target="_blank" rel="noopener"><span class="x-lbl">Book a call</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                  </div>
+                </div>
+                <p class="x-incl-h">Includes</p>
+                <ul class="x-incl">
+                  <li>Custom website or store</li><li>Event pages and live updates</li><li>Monthly improvements</li><li>Analytics</li><li>Priority support</li>
+                </ul>
+              </article>
+              <div class="x-visual">
+                <span class="x-vtag">Prototype · sample data</span>
+                <div class="x-laptop">
+                  <div class="x-lscreen">
+                    <img src="cos-studio.webp" alt="Commerce OS prototype: a shop owner packing orders beside a laptop showing a sales dashboard" loading="lazy" />
+                  </div>
+                  <div class="x-base"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECTION: how it works -->
+        <section class="x-sec" id="how">
+          <div class="x-how">
+            <div class="x-head x-fade">
+              <p class="x-eyebrow" style="justify-self: start">How it works</p>
+              <h2 class="x-h2">Three steps to <span class="x-serif">launch.</span></h2>
+              <p class="x-lede">No forms, no long briefs. It starts with a message.</p>
+            </div>
+            <ol class="x-line" id="x-line">
+              <li class="x-fade"><span class="x-n">1</span><h3>Chat</h3><p>Message us on WhatsApp. We confirm your price.</p></li>
+              <li class="x-fade"><span class="x-n">2</span><h3>Build</h3><p>We design and build. You see it before it goes live.</p></li>
+              <li class="x-fade"><span class="x-n">3</span><h3>Launch</h3><p>We launch together and show you how to run it.</p></li>
+            </ol>
+          </div>
+        </section>
+
+        <!-- SECTION: big marquee divider -->
+        <div class="x-big x-bleed" aria-hidden="true">
+          <div class="x-track">
+            <span>from idea to <i>launched online</i> ·</span><span aria-hidden="true">from idea to <i>launched online</i> ·</span><span aria-hidden="true">from idea to <i>launched online</i> ·</span><span aria-hidden="true">from idea to <i>launched online</i> ·</span>
+          </div>
+        </div>
+
+        <!-- SECTION: work -->
+        <section class="x-sec" id="work" aria-labelledby="work-h">
+          <div class="x-work-head x-fade">
+            <div class="x-head">
+              <p class="x-eyebrow" style="justify-self: start">Our work</p>
+              <h2 class="x-h2" id="work-h">See what we <span class="x-serif">build.</span></h2>
+            </div>
+            <p class="x-built">Swipe or drag →</p>
+          </div>
+          <div class="x-bleed">
+            <div class="x-rail" id="x-rail" tabindex="0" role="region" aria-label="Work, scrolls sideways">
+              <article class="x-wcard x-wcard--red">
+                <div class="x-wvis"><div class="x-laptop"><div class="x-lscreen"><img src="gg-hero.webp" alt="Gula Gula store home page with sour gummy bears" loading="lazy" /></div><div class="x-base"></div></div></div>
+                <div><h3>Gula Gula</h3><p>Ecommerce concept</p></div>
+              </article>
+              <article class="x-wcard x-wcard--blue">
+                <div class="x-wvis"><div class="x-phone"><div class="x-screen"><img src="kc-hero-storefront.webp" alt="Kinako &amp; Crumb shop demo on a phone" loading="lazy" /></div></div></div>
+                <div><h3>Kinako &amp; Crumb</h3><p>Interactive shop demo</p></div>
+              </article>
+              <article class="x-wcard x-wcard--gold">
+                <div class="x-wvis"><div class="x-laptop"><div class="x-lscreen"><img src="rona-hero.webp" alt="RONA ecommerce concept home page" loading="lazy" /></div><div class="x-base"></div></div></div>
+                <div><h3>RONA</h3><p>Ecommerce concept</p></div>
+              </article>
+              <article class="x-wcard x-wcard--deep">
+                <div class="x-wvis"><div class="x-phone"><div class="x-screen"><img src="bb-workshop.webp" alt="BimmerBoi website showing the workshop" loading="lazy" /></div></div></div>
+                <div><h3>BimmerBoi</h3><p>Live website</p></div>
+              </article>
+              <article class="x-wcard x-wcard--red">
+                <div class="x-wvis"><div class="x-laptop"><div class="x-lscreen"><img src="pp-hero.webp" alt="Paddle Partner website with players on a pickleball court" loading="lazy" /></div><div class="x-base"></div></div></div>
+                <div><h3>Paddle Partner</h3><p>Brand · App · Website</p></div>
+              </article>
+              <article class="x-wcard x-wcard--blue">
+                <div class="x-wvis"><div class="x-laptop"><div class="x-lscreen"><img src="ok-kitchen-sage.webp" alt="Oakline website concept with a sage green kitchen" loading="lazy" /></div><div class="x-base"></div></div></div>
+                <div><h3>Oakline</h3><p>Website concept</p></div>
+              </article>
+              <article class="x-wcard x-wcard--gold">
+                <div class="x-wvis"><div class="x-laptop"><div class="x-lscreen"><img src="en-gate.webp" alt="Enstek Heights property website showing the entrance gate" loading="lazy" /></div><div class="x-base"></div></div></div>
+                <div><h3>Enstek Heights</h3><p>Property website</p></div>
+              </article>
+            </div>
+          </div>
+          <div class="x-work-more">
+            <a class="x-btn x-btn--pri" href="https://kitescomingsoon.pages.dev/online-stores" target="_blank" rel="noopener" aria-label="See all our work (opens in a new tab)"><span class="x-lbl">See all our work</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </div>
+        </section>
+
+        <!-- SECTION: brands -->
+        <section class="x-brands x-bleed" aria-labelledby="brands-h">
+          <h2 id="brands-h" class="x-fade">Brands we've worked with</h2>
+          <div class="x-lrow">
+            <div class="x-track">
+              <ul><li><img src="client-mondelez.webp" alt="Mondelez" loading="lazy" /></li><li><img src="client-pdg.webp" alt="PDG" loading="lazy" /></li><li><img src="client-visit-malaysia-2026.webp" alt="Visit Malaysia 2026" loading="lazy" /></li><li><img src="client-ayf.webp" alt="AYF" loading="lazy" /></li><li><img src="client-ab-life.webp" alt="AB Life" loading="lazy" /></li></ul>
+              <ul aria-hidden="true"><li><img src="client-mondelez.webp" alt="" loading="lazy" /></li><li><img src="client-pdg.webp" alt="" loading="lazy" /></li><li><img src="client-visit-malaysia-2026.webp" alt="" loading="lazy" /></li><li><img src="client-ayf.webp" alt="" loading="lazy" /></li><li><img src="client-ab-life.webp" alt="" loading="lazy" /></li></ul>
+              <ul aria-hidden="true"><li><img src="client-mondelez.webp" alt="" loading="lazy" /></li><li><img src="client-pdg.webp" alt="" loading="lazy" /></li><li><img src="client-visit-malaysia-2026.webp" alt="" loading="lazy" /></li><li><img src="client-ayf.webp" alt="" loading="lazy" /></li><li><img src="client-ab-life.webp" alt="" loading="lazy" /></li></ul>
+              <ul aria-hidden="true"><li><img src="client-mondelez.webp" alt="" loading="lazy" /></li><li><img src="client-pdg.webp" alt="" loading="lazy" /></li><li><img src="client-visit-malaysia-2026.webp" alt="" loading="lazy" /></li><li><img src="client-ayf.webp" alt="" loading="lazy" /></li><li><img src="client-ab-life.webp" alt="" loading="lazy" /></li></ul>
+            </div>
+          </div>
+          <div class="x-lrow x-lrow--rev">
+            <div class="x-track">
+              <ul><li><img src="client-the-artiste.webp" alt="The Artiste" loading="lazy" /></li><li><img src="client-young-journalist-camp.webp" alt="Young Journalist Camp" loading="lazy" /></li><li><img src="client-yorukai.webp" alt="Yorukai" loading="lazy" /></li><li><img src="client-keeks.webp" alt="Keeks" loading="lazy" /></li></ul>
+              <ul aria-hidden="true"><li><img src="client-the-artiste.webp" alt="" loading="lazy" /></li><li><img src="client-young-journalist-camp.webp" alt="" loading="lazy" /></li><li><img src="client-yorukai.webp" alt="" loading="lazy" /></li><li><img src="client-keeks.webp" alt="" loading="lazy" /></li></ul>
+              <ul aria-hidden="true"><li><img src="client-the-artiste.webp" alt="" loading="lazy" /></li><li><img src="client-young-journalist-camp.webp" alt="" loading="lazy" /></li><li><img src="client-yorukai.webp" alt="" loading="lazy" /></li><li><img src="client-keeks.webp" alt="" loading="lazy" /></li></ul>
+              <ul aria-hidden="true"><li><img src="client-the-artiste.webp" alt="" loading="lazy" /></li><li><img src="client-young-journalist-camp.webp" alt="" loading="lazy" /></li><li><img src="client-yorukai.webp" alt="" loading="lazy" /></li><li><img src="client-keeks.webp" alt="" loading="lazy" /></li></ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECTION: why kites -->
+        <section class="x-sec" id="why" aria-labelledby="why-h">
+          <div class="x-center x-fade">
+            <p class="x-eyebrow">Why Kites</p>
+            <h2 class="x-h2" id="why-h">Built to be <span class="x-serif">yours.</span></h2>
+          </div>
+          <ul class="x-why">
+            <li class="x-fade" style="--c: var(--k-red-text)"><span class="x-ic"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10.5V3h7.5L17 9.5 10.5 16z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><circle cx="7" cy="7" r="1.3" fill="currentColor"/></svg></span><h3>Clear prices</h3><p>You see the price before we talk.</p></li>
+            <li class="x-fade" style="--c: var(--k-blue)"><span class="x-ic"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="7" cy="10" r="3.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10.5 10H17v3M14.5 10v2.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span><h3>You own it</h3><p>Your domain, your Shopify account, your content.</p></li>
+            <li class="x-fade" style="--c: var(--k-gold)"><span class="x-ic"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3.5 15.5l1-3.2A6.5 6.5 0 1 1 7.6 15z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></span><h3>Real people</h3><p>Talk to the team building it, on WhatsApp.</p></li>
+          </ul>
+        </section>
+
+        <!-- SECTION: faq -->
+        <section class="x-sec" id="faq" aria-labelledby="faq-h">
+          <div class="x-faq">
+            <div class="x-head x-fade">
+              <p class="x-eyebrow" style="justify-self: start">FAQ</p>
+              <h2 class="x-h2" id="faq-h">Good <span class="x-serif">questions.</span></h2>
+            </div>
+            <div class="x-acc" id="x-acc">
+              <div class="x-q x-fade"><h3><button aria-expanded="false" aria-controls="qa1" id="q1">How do I pay?<svg viewBox="0 0 18 18" aria-hidden="true"><path d="M4 7l5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button></h3><div class="x-a" id="qa1" role="region" aria-labelledby="q1" inert><div><p>Deposit to start, balance before launch. Bank transfer or DuitNow QR.</p></div></div></div>
+              <div class="x-q x-fade"><h3><button aria-expanded="false" aria-controls="qa2" id="q2">What do I pay Shopify?<svg viewBox="0 0 18 18" aria-hidden="true"><path d="M4 7l5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button></h3><div class="x-a" id="qa2" role="region" aria-labelledby="q2" inert><div><p>Shopify's Basic plan is about RM89 a month on yearly billing (RM99 monthly), paid directly to Shopify. Payment gateways charge their own fees.</p></div></div></div>
+              <div class="x-q x-fade"><h3><button aria-expanded="false" aria-controls="qa3" id="q3">Do I need products ready?<svg viewBox="0 0 18 18" aria-hidden="true"><path d="M4 7l5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button></h3><div class="x-a" id="qa3" role="region" aria-labelledby="q3" inert><div><p>For Starter, you add products after we set up. With Full Store, we add up to 30 for you.</p></div></div></div>
+              <div class="x-q x-fade"><h3><button aria-expanded="false" aria-controls="qa4" id="q4">Who owns the website?<svg viewBox="0 0 18 18" aria-hidden="true"><path d="M4 7l5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button></h3><div class="x-a" id="qa4" role="region" aria-labelledby="q4" inert><div><p>You do. Domain and accounts are in your name.</p></div></div></div>
+              <div class="x-q x-fade"><h3><button aria-expanded="false" aria-controls="qa5" id="q5">What's the difference between the three?<svg viewBox="0 0 18 18" aria-hidden="true"><path d="M4 7l5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button></h3><div class="x-a" id="qa5" role="region" aria-labelledby="q5" inert><div><p>Store is for selling products, Show Up Online is a personal site, and Level Up is an ongoing tech partner.</p></div></div></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECTION: final cta -->
+        <section class="x-final x-center x-fade" id="cta">
+          <img class="x-penguin" src="kites-penguin.svg" alt="" width="144" height="204" />
+          <h2 class="x-h2">Ready to get <span class="x-serif">online?</span></h2>
+          <p class="x-lede" style="text-align: center">Tell us what you're building. We reply on WhatsApp.</p>
+          <div class="x-btns">
+            <a class="x-btn x-btn--pri" href="https://wa.me/60102156826?text=Hi%20Kites%2C%20I%27d%20like%20to%20know%20more" target="_blank" rel="noopener"><span class="x-lbl">Chat on WhatsApp</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            <a class="x-btn x-btn--sec" href="#offers"><span class="x-lbl">See the offers</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </div>
+        </section>
+      </main>
+
+      <!-- SECTION: footer -->
+      <footer class="x-foot">
+        <img src="kites-wordmark.svg" alt="Kites" width="154" height="61" loading="lazy" />
+        <address>
+          <span><strong>KITES STUDIO</strong> (202303290741 / 003549061-A)</span>
+          <span>22 Jalan PJU 7/10, Mutiara Damansara, 47810 Petaling Jaya, Selangor</span>
+          <span>WhatsApp <a href="https://wa.me/60102156826" target="_blank" rel="noopener">+60 10-215 6826</a> · <a href="mailto:kites.stdio@gmail.com">kites.stdio@gmail.com</a></span>
+        </address>
+        <p>© 2026 Kites.</p>
+      </footer>
+    </div>
+
+    <div class="x-mbar" id="x-mbar" aria-hidden="true">
+      <a class="x-btn x-btn--pri x-btn--sm" href="https://wa.me/60102156826?text=Hi%20Kites%2C%20I%27d%20like%20to%20know%20more" target="_blank" rel="noopener" tabindex="-1"><span class="x-lbl">Chat on WhatsApp</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a class="x-btn x-btn--sec x-btn--sm" href="#offers" tabindex="-1"><span class="x-lbl">See prices</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </div>
+
+    <script src="hark.js"></script>
+    <script>
+      (function () {
+        var d = document, root = d.documentElement;
+        var still = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        root.classList.add("js");
+        var fmt = function (n) { return Math.round(n).toLocaleString("en-US"); };
+
+        /* rolling button labels */
+        d.querySelectorAll(".x-lbl").forEach(function (lbl) {
+          var text = lbl.textContent, a = lbl.closest("a,button");
+          if (a && !a.hasAttribute("aria-label")) a.setAttribute("aria-label", text + (a.target === "_blank" ? " (opens WhatsApp)" : ""));
+          lbl.setAttribute("aria-hidden", "true");
+          lbl.innerHTML = text.split("").map(function (c, i) {
+            return '<span class="x-ch" style="--i:' + i + '"><span>' + (c === " " ? "&nbsp;" : c.replace("&", "&amp;")) + "</span></span>";
+          }).join("");
+        });
+
+        /* count-up */
+        function count(el, to, ms, from) {
+          from = from || 0;
+          if (still) { el.textContent = fmt(to); return; }
+          var t0 = performance.now();
+          (function step(t) {
+            var p = Math.min(1, (t - t0) / ms), e = 1 - Math.pow(1 - p, 3);
+            el.textContent = fmt(from + (to - from) * e);
+            if (p < 1) requestAnimationFrame(step);
+          })(t0);
+        }
+        function countIn(scope) {
+          scope.querySelectorAll("[data-count]").forEach(function (el) { count(el, +el.dataset.count, 1200); });
+        }
+
+        /* fade-up + one-time counts */
+        var io = new IntersectionObserver(function (es) {
+          es.forEach(function (e) {
+            if (!e.isIntersecting) return;
+            e.target.classList.add("is-in");
+            if (e.target.classList.contains("x-panel")) countIn(e.target);
+            io.unobserve(e.target);
+          });
+        }, { threshold: 0.12 });
+        d.querySelectorAll(".x-fade").forEach(function (el) { io.observe(el); });
+        var firstPanel = d.querySelector(".x-panel.is-on");
+        io.observe(firstPanel);
+
+        /* hero sample numbers: count up, then tick slowly */
+        var orders = d.getElementById("x-orders"), rev = d.getElementById("x-rev"), o = 128, r = 9840;
+        count(orders, o, 1800); count(rev, r, 1800);
+        if (!still) setInterval(function () {
+          var add = 38 + Math.round(Math.random() * 80);
+          count(orders, o + 1, 600, o); count(rev, r + add, 900, r); o += 1; r += add;
+        }, 3200);
+
+        /* offer tabs */
+        var tabs = [].slice.call(d.querySelectorAll(".x-tab"));
+        function pick(tab) {
+          tabs.forEach(function (t) {
+            var on = t === tab, p = d.getElementById(t.getAttribute("aria-controls"));
+            t.setAttribute("aria-selected", on); t.tabIndex = on ? 0 : -1;
+            p.classList.toggle("is-on", on);
+            if (on) countIn(p);
+          });
+          var panels = d.querySelector(".x-panels"), top = panels.getBoundingClientRect().top;
+          if (top < 0) window.scrollTo({ top: window.scrollY + top - 170, behavior: still ? "auto" : "smooth" });
+        }
+        tabs.forEach(function (t, i) {
+          t.addEventListener("click", function () { pick(t); });
+          t.addEventListener("keydown", function (e) {
+            var k = e.key === "ArrowRight" ? 1 : e.key === "ArrowLeft" ? -1 : 0;
+            if (!k) return;
+            var n = tabs[(i + k + tabs.length) % tabs.length]; n.focus(); pick(n);
+          });
+        });
+
+        /* statement words */
+        var say = d.getElementById("x-say");
+        say.setAttribute("aria-label", say.textContent);
+        say.innerHTML = say.textContent.split(" ").map(function (w) { return '<span class="x-w" aria-hidden="true">' + w + "</span>"; }).join(" ");
+        var words = say.querySelectorAll(".x-w");
+        var line = d.getElementById("x-line"), steps = line.querySelectorAll("li");
+
+        /* work rail: mouse drag on top of native swipe + scroll-snap */
+        var rail = d.getElementById("x-rail"), drag = null, moved = false;
+        rail.addEventListener("pointerdown", function (e) {
+          if (e.pointerType !== "mouse" || e.button !== 0) return;
+          drag = { x: e.clientX, s: rail.scrollLeft }; moved = false;
+        });
+        window.addEventListener("pointermove", function (e) {
+          if (!drag) return;
+          var dx = e.clientX - drag.x;
+          if (!moved && Math.abs(dx) > 5) { moved = true; rail.classList.add("is-drag"); }
+          if (moved) rail.scrollLeft = drag.s - dx;
+        });
+        window.addEventListener("pointerup", function () {
+          if (!drag) return;
+          drag = null;
+          if (!moved) return;
+          var pad = parseFloat(getComputedStyle(rail).paddingLeft) || 0, best = 0, min = Infinity;
+          [].forEach.call(rail.children, function (c) {
+            var dist = Math.abs(c.offsetLeft - pad - rail.scrollLeft);
+            if (dist < min) { min = dist; best = c.offsetLeft - pad; }
+          });
+          rail.scrollTo({ left: best, behavior: still ? "auto" : "smooth" });
+          setTimeout(function () { rail.classList.remove("is-drag"); }, still ? 0 : 450);
+        });
+        rail.addEventListener("click", function (e) { if (moved) { e.preventDefault(); e.stopPropagation(); moved = false; } }, true);
+        rail.addEventListener("keydown", function (e) {
+          var k = e.key === "ArrowRight" ? 1 : e.key === "ArrowLeft" ? -1 : 0;
+          if (!k) return;
+          e.preventDefault();
+          rail.scrollBy({ left: k * (rail.children[0].offsetWidth + 16), behavior: still ? "auto" : "smooth" });
+        });
+
+        /* faq: one open at a time */
+        var qs = [].slice.call(d.querySelectorAll("#x-acc .x-q"));
+        qs.forEach(function (q) {
+          var b = q.querySelector("button");
+          b.addEventListener("click", function () {
+            var open = b.getAttribute("aria-expanded") !== "true";
+            qs.forEach(function (o) {
+              var on = o === q && open, ob = o.querySelector("button"), a = o.querySelector(".x-a");
+              ob.setAttribute("aria-expanded", on);
+              o.classList.toggle("is-open", on);
+              if (on) a.removeAttribute("inert"); else a.setAttribute("inert", "");
+            });
+          });
+        });
+
+        var hero = d.getElementById("hero"), bar = d.getElementById("x-mbar");
+        function onScroll() {
+          var vh = window.innerHeight, r1 = say.getBoundingClientRect();
+          var p = Math.max(0, Math.min(1, (vh * 0.85 - r1.top) / (r1.height + vh * 0.4)));
+          var lit = still ? words.length : Math.round(p * words.length);
+          words.forEach(function (w, i) { w.classList.toggle("is-lit", i < lit); });
+          var r2 = line.getBoundingClientRect();
+          var q = still ? 1 : Math.max(0, Math.min(1, (vh * 0.6 - r2.top) / r2.height));
+          line.style.setProperty("--p", q);
+          steps.forEach(function (s) { s.classList.toggle("is-lit", s.getBoundingClientRect().top < vh * 0.6); });
+          var past = hero.getBoundingClientRect().bottom < 80;
+          bar.classList.toggle("is-on", past);
+          bar.setAttribute("aria-hidden", !past);
+          bar.querySelectorAll("a").forEach(function (a) { a.tabIndex = past ? 0 : -1; });
+        }
+        var ticking = false;
+        window.addEventListener("scroll", function () {
+          if (ticking) return; ticking = true;
+          requestAnimationFrame(function () { ticking = false; onScroll(); });
+        }, { passive: true });
+        window.addEventListener("resize", onScroll);
+        onScroll();
+      })();
+    </script>
+  </body>
+</html>

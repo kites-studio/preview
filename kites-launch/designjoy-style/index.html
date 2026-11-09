@@ -1,0 +1,833 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+<meta name="robots" content="noindex, nofollow">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Start Your Store · Shopify stores for Malaysian businesses · Kites</title>
+    <meta name="description" content="Kites builds Shopify stores for Malaysian small businesses. Starter from RM998, Full Store from RM3,500. Chat with us on WhatsApp." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400&family=Instrument+Serif:ital@1&display=swap"
+    />
+    <link rel="stylesheet" href="hark.css" />
+    <link rel="stylesheet" href="hark-hero.css" />
+    <style>
+      :root {
+        --x-cream: #f2f1ec;
+        --x-ink: #17232d;
+        --x-mid: #5f656a;
+        --x-line: rgba(23, 35, 45, 0.1);
+        --x-yellow: #f0b43c;
+        --x-red: #cf4128;
+        --x-blue: #315f82;
+        --x-serif: "Instrument Serif", Georgia, serif;
+        --x-grad-a: radial-gradient(120% 80% at 100% 0%, rgba(111, 163, 209, 0.55), transparent 55%),
+          radial-gradient(90% 70% at 0% 100%, rgba(23, 35, 45, 0.35), transparent 60%), linear-gradient(155deg, #2b5577, #3d6f9b);
+        --x-grad-b: radial-gradient(90% 70% at 100% 0%, rgba(240, 138, 75, 0.7), transparent 60%),
+          radial-gradient(80% 70% at 0% 100%, rgba(120, 30, 15, 0.35), transparent 60%), linear-gradient(150deg, #b23620, #c44a26);
+        --x-grad-c: radial-gradient(90% 70% at 100% 100%, rgba(226, 85, 63, 0.55), transparent 60%),
+          radial-gradient(70% 60% at 0% 0%, rgba(255, 230, 160, 0.6), transparent 60%), linear-gradient(160deg, #f3c056, #f0a03c);
+        --x-grad-d: radial-gradient(100% 80% at 100% 0%, rgba(49, 95, 130, 0.9), transparent 60%), linear-gradient(160deg, #17232d, #22394c);
+        --x-grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      }
+      html { background: var(--x-cream); }
+      body { background: var(--x-cream); color: var(--x-ink); font-family: var(--sans); }
+      .x-guides {
+        position: fixed; inset: 0 auto 0 50%; z-index: 0; pointer-events: none;
+        width: min(var(--page-max), 100%); transform: translateX(-50%);
+        border-inline: 1px solid var(--x-line);
+      }
+      .x-sec { position: relative; z-index: 1; padding-block: clamp(56px, 9vw, 112px) 0; scroll-margin-top: 84px; }
+      .x-serif { font-family: var(--x-serif); font-style: italic; font-weight: 400; letter-spacing: -0.01em; }
+      .x-h2 { font-size: clamp(36px, 5.6vw, 60px); line-height: 1; font-weight: 600; letter-spacing: -0.04em; max-width: 16ch; }
+      .x-h2 .x-serif { font-size: 1.08em; }
+      .x-label { font: 600 12px/1 var(--sans); letter-spacing: 0.14em; text-transform: uppercase; color: var(--x-mid); margin-bottom: 16px; }
+      .x-sub { color: var(--x-mid); font-size: 17px; line-height: 1.5; max-width: 46ch; margin-top: 16px; }
+      .x-center { text-align: center; }
+      .x-center .x-h2, .x-center .x-sub { margin-inline: auto; }
+
+      /* buttons */
+      .x-btn, .x-pill {
+        display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: var(--tap);
+        text-decoration: none; font: 600 15px/1 var(--sans); cursor: pointer; border: 0;
+        transition: transform var(--dur-quick) var(--ease-out), box-shadow var(--dur-quick) var(--ease-out), background-color var(--dur-quick);
+      }
+      .x-btn { padding: 16px 26px; border-radius: 10px; background: var(--x-ink); color: #fff; }
+      .x-btn--white { background: #fff; color: var(--x-ink); }
+      .x-btn--block { width: 100%; }
+      .x-pill { padding: 0 18px; border-radius: var(--r-pill); border: 1.5px solid var(--x-ink); color: var(--x-ink); background: transparent; font-size: 14px; }
+      .x-pill--ink { background: var(--x-ink); color: #fff; }
+      .x-btn:hover, .x-pill:hover, .x-round:hover { transform: translateY(-2px); box-shadow: 0 10px 24px -10px rgba(23, 35, 45, 0.45); }
+      .x-btn:active, .x-pill:active { transform: translateY(0); }
+      .x-btn svg, .x-pill svg { width: 16px; height: 16px; flex: none; }
+      .x-round {
+        display: inline-grid; place-items: center; width: 48px; height: 48px; flex: none; border-radius: 50%;
+        background: #fff; color: var(--x-ink); border: 0; cursor: pointer;
+        transition: transform var(--dur-quick) var(--ease-out), box-shadow var(--dur-quick) var(--ease-out);
+      }
+      .x-round--line { background: transparent; border: 1.5px solid var(--x-ink); }
+      .x-round svg { width: 18px; height: 18px; }
+
+      /* nav */
+      .x-nav {
+        position: sticky; top: 0; z-index: 30; display: flex; align-items: center; justify-content: space-between; gap: 12px;
+        margin-inline: calc(var(--gutter) * -1); padding: 12px var(--gutter);
+        transition: background-color .3s, box-shadow .3s;
+      }
+      .x-nav.is-scrolled {
+        background: rgba(242, 241, 236, 0.78); -webkit-backdrop-filter: blur(14px) saturate(1.4); backdrop-filter: blur(14px) saturate(1.4);
+        box-shadow: 0 1px 0 var(--x-line);
+      }
+      .x-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; min-height: var(--tap); }
+      .x-logo .x-av { width: 40px; height: 40px; }
+      .x-logo .x-wordmark { height: 26px; width: auto; }
+      .x-nav__links { display: flex; gap: 8px; }
+      @media (max-width: 520px) {
+        .x-nav__links .x-pill { padding: 0 14px; }
+        .x-hide-sm { display: none; }
+        .x-logo .x-wordmark { height: 22px; }
+      }
+
+      /* penguin avatars */
+      .x-av { display: inline-grid; place-items: center; flex: none; width: 44px; height: 44px; border-radius: 50%; background: var(--x-yellow); overflow: hidden; }
+      .x-av img { width: 58%; height: auto; transform: translateY(8%); }
+      .x-av--red { background: #f6b3a4; }
+      .x-av--blue { background: #cfe0ee; }
+      .x-av--white { background: #fff; }
+      .x-av--lg { width: 72px; height: 72px; }
+
+      /* gradient cards */
+      .x-card { position: relative; isolation: isolate; overflow: hidden; border-radius: 20px; color: #fff; }
+      .x-card::before {
+        content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+        background: repeating-radial-gradient(circle at 110% -10%, transparent 0 46px, rgba(255, 255, 255, 0.07) 46px 48px);
+      }
+      .x-card::after { content: ""; position: absolute; inset: 0; z-index: 5; pointer-events: none; background-image: var(--x-grain); opacity: 0.14; mix-blend-mode: overlay; }
+      .x-card.x-card--a { background: var(--x-grad-a); background-color: #2b5577; }
+      .x-card.x-card--b { background: var(--x-grad-b); background-color: #b23620; }
+      .x-card.x-card--c { background: var(--x-grad-c); background-color: #f0a03c; color: var(--x-ink); }
+      .x-card--c::before { background: repeating-radial-gradient(circle at -10% 110%, transparent 0 46px, rgba(255, 255, 255, 0.16) 46px 48px); }
+      .x-card.x-card--d { background: var(--x-grad-d); background-color: #17232d; }
+      .x-tag {
+        display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: var(--r-pill);
+        background: #1f4566; border: 1px solid rgba(255, 255, 255, 0.3); font: 500 13px/1 var(--sans); color: #fff; white-space: nowrap;
+      }
+      .x-tag i { width: 8px; height: 8px; border-radius: 50%; background: var(--x-yellow); }
+
+      /* motion helpers */
+      .js .x-rise { opacity: 0; transform: translateY(28px); transition: opacity .8s var(--ease-out), transform .8s var(--ease-out); }
+      .js .x-rise.is-in { opacity: 1; transform: none; }
+      .x-rise--d1 { transition-delay: .1s !important; }
+      .x-rise--d2 { transition-delay: .2s !important; }
+      .x-doodle { position: absolute; pointer-events: none; color: var(--x-ink); overflow: visible; }
+      .x-doodle path { fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+      .js .x-doodle path { stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke-dashoffset 1.3s var(--ease-out) .3s; }
+      .js .x-doodle.is-in path { stroke-dashoffset: 0; }
+      .js .x-doodle.is-in path + path { transition-delay: 1.2s; transition-duration: .5s; }
+      @keyframes x-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+      @keyframes x-wobble { 0%, 100% { transform: rotate(-7deg); } 30% { transform: rotate(-3deg) translateY(-4px); } 65% { transform: rotate(-10deg); } }
+
+      /* hero */
+      .x-hero { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); gap: clamp(32px, 5vw, 64px); align-items: center; padding-block: clamp(32px, 7vw, 88px) 0; position: relative; z-index: 1; }
+      .x-hero h1 { font-size: clamp(46px, 7.6vw, 84px); line-height: 0.95; font-weight: 600; letter-spacing: -0.045em; }
+      .x-hero h1 .x-serif { font-size: 1.1em; position: relative; white-space: nowrap; }
+      .x-hero .x-sub { font-size: clamp(17px, 1.6vw, 20px); margin-top: 24px; }
+      .x-squiggle { left: 0; right: 0; bottom: -0.08em; width: 100%; height: 0.24em; color: var(--x-red); }
+      .x-hero__doodle { right: -8px; top: 62%; width: 120px; height: 90px; }
+      .x-float { animation: x-float 6s ease-in-out infinite; }
+      .x-tilt { transition: transform .5s var(--ease-out); transform-style: preserve-3d; will-change: transform; }
+      .x-start { display: flex; flex-direction: column; gap: 16px; padding: 22px; min-height: 560px; box-shadow: 0 30px 60px -30px rgba(23, 35, 45, 0.55); }
+      .x-start__top { display: flex; justify-content: space-between; align-items: flex-start; }
+      .x-phone {
+        align-self: center; width: 170px; margin: 4px 0 0; padding: 7px; border-radius: 28px; background: var(--x-ink);
+        box-shadow: 0 24px 40px -16px rgba(0, 0, 0, 0.55); transform: rotate(-7deg);
+      }
+      .x-phone img { width: 100%; aspect-ratio: 9 / 17; object-fit: cover; object-position: top; border-radius: 22px; }
+      .x-start:hover .x-phone, .x-step:hover .x-mini, .x-step:hover .x-fan img { animation: x-wobble 1.1s ease-in-out; }
+      .x-start h2 { font-size: clamp(36px, 4.4vw, 48px); line-height: 1; letter-spacing: -0.04em; font-weight: 600; margin-top: auto; }
+      .x-start p { font-size: 16px; opacity: 0.95; }
+      .x-start__foot { display: flex; align-items: center; gap: 12px; padding-top: 16px; border-top: 1px solid rgba(255, 255, 255, 0.25); }
+      .x-start__foot div { flex: 1; font-size: 14px; line-height: 1.35; }
+      .x-start__foot a.x-text { color: #fff; font-weight: 600; text-underline-offset: 3px; display: inline-flex; align-items: center; min-height: var(--tap); }
+      @media (max-width: 820px) {
+        .x-hero { grid-template-columns: minmax(0, 1fr); }
+        .x-hero__doodle { display: none; }
+        .x-start { min-height: 0; }
+      }
+
+      /* how it works */
+      .x-how { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 48px; }
+      .x-step { display: flex; flex-direction: column; padding: 22px; min-height: 440px; }
+      .x-step__art { position: relative; flex: 1; min-height: 240px; display: grid; place-items: center; }
+      .x-step h3 { font-size: 40px; line-height: 1; letter-spacing: -0.04em; font-weight: 600; margin-top: 16px; }
+      .x-step p { font-size: 15px; line-height: 1.45; margin-top: 8px; max-width: 30ch; }
+      .x-mini {
+        background: #fff; color: var(--x-ink); border-radius: 16px; padding: 18px; width: 200px; transform: rotate(-7deg);
+        box-shadow: 0 24px 40px -18px rgba(90, 40, 10, 0.55);
+      }
+      .x-mini small { display: block; font: 600 12px/1 var(--sans); letter-spacing: .1em; text-transform: uppercase; color: var(--x-mid); }
+      .x-mini b { display: block; font-size: 30px; letter-spacing: -0.04em; margin: 8px 0 14px; }
+      .x-mini span { display: block; text-align: center; padding: 12px; border-radius: 10px; background: var(--x-ink); color: #fff; font: 600 13px/1 var(--sans); }
+      .x-tags { position: absolute; inset: -22px -22px 0; overflow: hidden; }
+      .x-tags .x-av { position: absolute; left: 50%; top: 50%; width: 88px; height: 88px; margin: -44px 0 0 -44px; z-index: 2; box-shadow: 0 0 0 10px rgba(255, 255, 255, 0.12); }
+      .x-tags .x-tag { position: absolute; animation: x-drift var(--t, 14s) ease-in-out infinite alternate; animation-delay: var(--d, 0s); }
+      @keyframes x-drift {
+        0% { transform: translate(0, 0); }
+        33% { transform: translate(var(--x, 30px), -12px); }
+        66% { transform: translate(calc(var(--x, 30px) * -0.6), 14px); }
+        100% { transform: translate(calc(var(--x, 30px) * 0.8), -6px); }
+      }
+      .x-fan { position: relative; width: 100%; height: 240px; }
+      .x-fan img {
+        position: absolute; left: 50%; top: 50%; width: 58%; aspect-ratio: 4 / 3; object-fit: cover; object-position: top;
+        border-radius: 12px; border: 3px solid #fff; box-shadow: 0 18px 30px -14px rgba(60, 10, 0, 0.6);
+      }
+      .x-fan img:nth-child(1) { transform: translate(-90%, -62%) rotate(-12deg); }
+      .x-fan img:nth-child(2) { transform: translate(-12%, -60%) rotate(10deg); }
+      .x-fan img:nth-child(3) { transform: translate(-50%, -40%) rotate(-2deg); z-index: 2; }
+      .x-step:hover .x-fan img { animation: none; }
+      @media (max-width: 860px) {
+        .x-how {
+          grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 84%; overflow-x: auto; scroll-snap-type: x mandatory;
+          margin-inline: calc(var(--gutter) * -1); padding: 4px var(--gutter) 12px; scroll-padding-inline: var(--gutter); scrollbar-width: none;
+        }
+        .x-how::-webkit-scrollbar { display: none; }
+        .x-step { scroll-snap-align: start; min-height: 420px; }
+      }
+
+      /* logos */
+      .x-logos { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 28px 44px; margin-top: 28px; }
+      .x-logos img { height: 40px; width: auto; max-width: 120px; object-fit: contain; filter: grayscale(1); opacity: 0.72; mix-blend-mode: multiply; transition: opacity .3s, filter .3s; }
+      .x-logos img:hover { opacity: 1; filter: none; }
+      .x-founder { display: flex; gap: 16px; align-items: flex-start; max-width: 620px; margin: 48px auto 0; padding: 22px; border-radius: 20px; background: #fff; }
+      .x-founder p { font-size: 16px; line-height: 1.55; }
+      @media (max-width: 560px) { .x-logos { gap: 22px 28px; } .x-logos img { height: 32px; max-width: 96px; } }
+
+      /* benefits slider */
+      .x-bhead { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; }
+      .x-ctrl { display: flex; gap: 10px; }
+      .x-viewport { overflow: hidden; margin-top: 40px; touch-action: pan-y; cursor: grab; margin-inline: calc(var(--gutter) * -1); padding-inline: var(--gutter); }
+      .x-viewport.is-drag { cursor: grabbing; }
+      .x-slides { display: flex; gap: 16px; list-style: none; margin: 0; padding: 0; user-select: none; }
+      .x-slides li { flex: none; width: clamp(260px, 30%, 340px); padding: 26px; border-radius: 20px; background: #fff; border: 1px solid var(--x-line); min-height: 250px; display: flex; flex-direction: column; }
+      .x-ico { width: 64px; height: 64px; border-radius: 16px; display: grid; place-items: center; margin-bottom: auto; }
+      .x-ico svg { width: 28px; height: 28px; fill: none; stroke: #fff; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+      .x-ico--c svg { stroke: var(--x-ink); }
+      .x-slides h3 { font-size: 24px; letter-spacing: -0.03em; font-weight: 600; margin-top: 40px; }
+      .x-slides p { color: var(--x-mid); font-size: 15px; line-height: 1.45; margin-top: 8px; }
+
+      /* recent work */
+      .x-work {
+        display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: 32px; align-items: center;
+        padding: clamp(24px, 4vw, 48px); border-radius: 24px; background: #fff; border: 1px solid var(--x-line); overflow: hidden;
+      }
+      .x-work .x-btn { margin-top: 28px; }
+      .x-collage { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; padding: 12px; }
+      .x-collage figure { margin: 0; position: relative; transition: transform .5s var(--ease-out); }
+      .x-collage figure:nth-child(1) { transform: rotate(-4deg); }
+      .x-collage figure:nth-child(2) { transform: rotate(3deg) translateY(18px); }
+      .x-collage figure:nth-child(3) { transform: rotate(2deg); }
+      .x-collage figure:nth-child(4) { transform: rotate(-3deg) translateY(18px); }
+      .x-collage figure:hover { transform: rotate(0) scale(1.03); z-index: 2; }
+      .x-collage img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; object-position: top; border-radius: 14px; box-shadow: 0 18px 34px -18px rgba(23, 35, 45, 0.5); }
+      .x-collage figcaption {
+        position: absolute; left: 10px; bottom: 10px; padding: 6px 10px; border-radius: var(--r-pill); background: var(--x-ink); color: #fff;
+        font: 500 12px/1.2 var(--sans);
+      }
+      .x-collage figcaption b { font-weight: 600; }
+      @media (max-width: 820px) { .x-work { grid-template-columns: minmax(0, 1fr); } .x-collage { gap: 12px; padding: 4px 4px 22px; } }
+
+      /* marquee */
+      .x-marquee { display: grid; gap: 14px; margin-top: 40px; margin-inline: calc(var(--gutter) * -1); overflow: hidden;
+        -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+      .x-row { display: flex; width: max-content; animation: x-marq 38s linear infinite; }
+      .x-row--rev { animation-direction: reverse; animation-duration: 44s; }
+      .x-marquee:hover .x-row { animation-play-state: paused; }
+      .x-row ul { display: flex; gap: 12px; padding: 0 12px 0 0; margin: 0; list-style: none; }
+      .x-chip { display: inline-flex; align-items: center; gap: 10px; padding: 14px 20px; border-radius: var(--r-pill); background: #fff; border: 1px solid var(--x-line); font: 500 15px/1 var(--sans); white-space: nowrap; }
+      .x-chip i { width: 9px; height: 9px; border-radius: 50%; background: var(--c, var(--x-yellow)); }
+      @keyframes x-marq { to { transform: translateX(-50%); } }
+
+      /* pricing */
+      .x-plans { position: relative; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; margin-top: 40px; max-width: 900px; margin-inline: auto; text-align: left; }
+      .x-plan-wrap { position: relative; padding-top: 64px; display: flex; }
+      .x-plan { position: relative; z-index: 1; flex: 1; display: flex; flex-direction: column; padding: clamp(24px, 3.4vw, 36px); border-radius: 20px; background: #fff; border: 1px solid var(--x-line); }
+      .x-plan.x-card { border: 0; box-shadow: 0 30px 60px -30px rgba(23, 35, 45, 0.6); }
+      .x-plan__name { display: flex; justify-content: space-between; align-items: center; gap: 12px; font-size: 22px; font-weight: 600; letter-spacing: -0.02em; }
+      .x-badge { padding: 7px 12px; border-radius: var(--r-pill); background: var(--x-yellow); color: var(--x-ink); font: 600 12px/1 var(--sans); letter-spacing: .1em; }
+      .x-price { margin-top: 22px; font-size: 15px; }
+      .x-price b { display: block; font-size: clamp(48px, 6vw, 64px); line-height: 1; letter-spacing: -0.05em; font-weight: 600; font-variant-numeric: tabular-nums; margin-top: 4px; }
+      .x-plan__lead { margin-top: 14px; font-size: 16px; line-height: 1.45; }
+      .x-plan:not(.x-card) .x-plan__lead { color: var(--x-mid); }
+      .x-list { list-style: none; padding: 22px 0 0; margin: 22px 0 28px; border-top: 1px solid var(--x-line); display: grid; gap: 12px; font-size: 15px; }
+      .x-card .x-list { border-color: rgba(255, 255, 255, 0.2); }
+      .x-list li { display: flex; gap: 10px; align-items: flex-start; }
+      .x-list li::before {
+        content: ""; flex: none; width: 20px; height: 20px; margin-top: -1px; border-radius: 50%; background: var(--x-ink)
+          url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M6 10.5l2.6 2.5L14 7.5' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 100% no-repeat;
+      }
+      .x-card .x-list li::before { background-color: var(--x-yellow); background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M6 10.5l2.6 2.5L14 7.5' fill='none' stroke='%2317232d' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); }
+      .x-plan .x-btn { margin-top: auto; width: 100%; }
+      .x-peek { position: absolute; z-index: 0; top: 0; right: 36px; width: 72px; height: auto; animation: x-peek 5s ease-in-out infinite; transform-origin: bottom center; }
+      @keyframes x-peek { 0%, 100% { transform: translateY(6px) rotate(0); } 50% { transform: translateY(0) rotate(-4deg); } }
+      .x-plans__doodle { left: calc(50% - 150px); top: -22px; width: 150px; height: 90px; }
+      .x-note { position: absolute; left: calc(50% - 250px); top: -40px; font: italic 22px/1 var(--x-serif); color: var(--x-ink); transform: rotate(-6deg); }
+      .x-shopify { max-width: 900px; margin: 40px auto 0; text-align: left; }
+      .x-shopify h3 { font-size: 20px; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 8px; }
+      .x-shopify .table-wrap { background: #fff; border-radius: 16px; padding: 4px 20px; border: 1px solid var(--x-line); }
+      .x-shopify .fineprint { margin-top: 12px; color: var(--x-mid); }
+      @media (max-width: 760px) {
+        .x-plans { grid-template-columns: minmax(0, 1fr); gap: 0; }
+        .x-plans__doodle, .x-note { display: none; }
+      }
+
+      /* faq */
+      .x-faq { max-width: 780px; margin: 40px auto 0; text-align: left; display: grid; gap: 10px; }
+      .x-faq__item { border-radius: 16px; background: #fff; border: 1px solid var(--x-line); }
+      .x-faq__item h3 { margin: 0; font-size: inherit; }
+      .x-faq__q {
+        width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 16px; min-height: 64px; padding: 16px 20px;
+        border: 0; background: none; color: var(--x-ink); font: 600 17px/1.3 var(--sans); text-align: left; cursor: pointer; border-radius: 16px;
+      }
+      .x-faq__q svg { flex: none; width: 20px; height: 20px; transition: transform .35s var(--ease-out); }
+      .x-faq__item.is-open .x-faq__q svg { transform: rotate(180deg); }
+      .x-faq__a { display: grid; grid-template-rows: 0fr; visibility: hidden; transition: grid-template-rows .4s var(--ease-out), visibility .4s; }
+      .x-faq__item.is-open .x-faq__a { grid-template-rows: 1fr; visibility: visible; }
+      .x-faq__a > div { overflow: hidden; }
+      .x-faq__a p { padding: 0 20px 20px; color: var(--x-mid); font-size: 16px; line-height: 1.5; }
+
+      /* final cta */
+      .x-cta { padding: clamp(36px, 7vw, 88px) clamp(24px, 5vw, 64px); text-align: center; display: grid; justify-items: center; gap: 18px; }
+      .x-cta .x-h2 { max-width: 14ch; color: #fff; }
+      .x-cta small { font-size: 15px; opacity: 0.95; }
+      .x-cta .x-acts { display: flex; flex-wrap: wrap; gap: 14px 22px; justify-content: center; align-items: center; margin-top: 10px; }
+      .x-cta .x-text { color: #fff; font-weight: 500; text-underline-offset: 3px; display: inline-flex; align-items: center; min-height: var(--tap); }
+      .x-cta__doodle { color: #fff; left: 10%; bottom: 18%; width: 110px; height: 80px; }
+      @media (max-width: 760px) { .x-cta__doodle { display: none; } }
+
+      /* footer */
+      .x-foot { position: relative; z-index: 1; margin-top: 64px; padding: 32px 0 8px; border-top: 1px solid var(--x-line); display: grid; gap: 18px; font-size: 14px; line-height: 1.6; color: var(--x-mid); }
+      .x-foot .x-logo { color: var(--x-ink); }
+      .x-foot p { display: flex; flex-wrap: wrap; gap: 4px 18px; }
+      .x-foot a { color: var(--x-ink); text-underline-offset: 3px; display: inline-flex; align-items: center; min-height: var(--tap); }
+      .x-foot p { align-items: center; }
+      .x-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+      .x-foot strong { color: var(--x-ink); }
+
+      /* sticky bar */
+      .x-bar:not(.is-on) { visibility: hidden; }
+
+      .x-bar {
+        position: fixed; left: 12px; right: 12px; bottom: calc(12px + env(safe-area-inset-bottom, 0px)); z-index: 40; display: none;
+        transform: translateY(140%); transition: transform .45s var(--ease-out), visibility .45s;
+      }
+      .x-bar.is-on { transform: none; }
+      .x-bar .x-btn { width: 100%; box-shadow: 0 16px 30px -12px rgba(23, 35, 45, 0.6); padding-block: 18px; }
+      @media (max-width: 720px) { .x-bar { display: block; } body { padding-bottom: 84px; } }
+
+      @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after { animation: none !important; transition-duration: 0.01ms !important; transition-delay: 0s !important; }
+        .js .x-rise { opacity: 1; transform: none; }
+        .js .x-doodle path { stroke-dashoffset: 0; }
+        .x-row { width: auto; padding-inline: var(--gutter); }
+        .x-row ul { flex-wrap: wrap; justify-content: center; padding: 0; }
+        .x-row ul[aria-hidden] { display: none; }
+        .x-marquee { -webkit-mask-image: none; mask-image: none; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="x-guides" aria-hidden="true"></div>
+    <div class="page" id="top">
+      <header class="x-nav">
+        <a class="x-logo" href="#top" aria-label="Kites, back to top">
+          <span class="x-av"><img src="kites-penguin.svg" alt="" /></span>
+          <img class="x-wordmark" src="kites-wordmark.svg" alt="Kites" />
+        </a>
+        <nav class="x-nav__links" aria-label="Main">
+          <a class="x-pill" href="https://wa.me/60102156826?text=Hi%20Kites%2C%20I%27d%20like%20to%20start%20my%20store" target="_blank" rel="noopener"
+            ><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg
+            ><span>Chat<span class="x-hide-sm"> on WhatsApp</span></span></a
+          >
+          <a class="x-pill x-pill--ink" href="#pricing">See pricing</a>
+        </nav>
+      </header>
+
+      <main class="main">
+        <section class="x-hero" id="hero">
+          <div class="x-rise">
+            <h1>
+              Online stores for
+              <span class="x-serif">everyone.<svg class="x-doodle x-squiggle" viewBox="0 0 200 20" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M3 12c18-9 30 7 48 0s30-9 48-1 30 6 48-1 30-6 50 1"/></svg></span>
+            </h1>
+            <p class="x-sub">Start your business today. What are you waiting for? E-commerce has never been easier.</p>
+            <svg class="x-doodle x-hero__doodle" viewBox="0 0 120 90" aria-hidden="true"><path pathLength="1" d="M6 20c30-14 70-10 84 18 6 12 6 26 2 40"/><path pathLength="1" d="M80 66l12 14 12-16"/></svg>
+          </div>
+
+          <div class="x-float x-rise x-rise--d1">
+            <div class="x-card x-card--a x-start x-tilt">
+              <div class="x-start__top">
+                <span class="x-tag"><i></i>Start today</span>
+              </div>
+              <figure class="x-phone">
+                <img src="kc-hero-storefront.webp" alt="Kinako &amp; Crumb demo store shown on a phone" />
+              </figure>
+              <h2>Start Your Store</h2>
+              <p>A real Shopify store, built for phones.</p>
+              <a class="x-btn x-btn--white x-btn--block" href="#pricing">See pricing</a>
+              <div class="x-start__foot">
+                <span class="x-av"><img src="kites-penguin.svg" alt="" /></span>
+                <div>
+                  Prefer to chat first?<br />
+                  <a class="x-text" href="https://wa.me/60102156826?text=Hi%20Kites%2C%20I%27d%20like%20to%20start%20my%20store" target="_blank" rel="noopener">WhatsApp us</a>
+                </div>
+                <a class="x-round" href="https://wa.me/60102156826?text=Hi%20Kites%2C%20I%27d%20like%20to%20start%20my%20store" target="_blank" rel="noopener" aria-label="Chat with Kites on WhatsApp"
+                  ><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg
+                ></a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="x-sec" id="how">
+          <h2 class="x-h2 x-rise">Selling online, the way it should've <span class="x-serif">been.</span></h2>
+          <div class="x-how">
+            <article class="x-card x-card--c x-step x-rise">
+              <div class="x-step__art">
+                <div class="x-mini" aria-hidden="true"><small>Starter</small><b>from RM998</b><span>Start with Starter</span></div>
+              </div>
+              <h3>Pick</h3>
+              <p>Choose Starter or Full Store. The price is on the page.</p>
+            </article>
+            <article class="x-card x-card--a x-step x-rise x-rise--d1">
+              <div class="x-step__art">
+                <div class="x-tags" aria-hidden="true">
+                  <span class="x-av x-av--lg"><img src="kites-penguin.svg" alt="" /></span>
+                  <span class="x-tag" style="left: -14px; top: 18%; --t: 13s; --x: 34px">Clothing</span>
+                  <span class="x-tag" style="left: 38%; top: 4%; --t: 16s; --x: -28px; --d: -3s">Food</span>
+                  <span class="x-tag" style="right: -18px; top: 14%; --t: 12s; --x: -30px; --d: -5s">Bakery</span>
+                  <span class="x-tag" style="left: 6%; top: 40%; --t: 15s; --x: 22px; --d: -7s">Crafts</span>
+                  <span class="x-tag" style="right: 2%; top: 42%; --t: 14s; --x: -24px; --d: -2s">Skincare</span>
+                  <span class="x-tag" style="left: -20px; top: 66%; --t: 17s; --x: 30px; --d: -9s">Events</span>
+                  <span class="x-tag" style="left: 34%; top: 72%; --t: 13s; --x: 26px; --d: -4s">Merch</span>
+                  <span class="x-tag" style="right: -12px; top: 68%; --t: 15s; --x: -26px; --d: -6s">Prints</span>
+                  <span class="x-tag" style="left: 18%; top: 88%; --t: 12s; --x: 20px; --d: -8s">Coffee</span>
+                  <span class="x-tag" style="right: 14%; top: 90%; --t: 16s; --x: -22px; --d: -1s">Flowers</span>
+                </div>
+              </div>
+              <h3>Tell us</h3>
+              <p>Tell us about your business on WhatsApp.</p>
+            </article>
+            <article class="x-card x-card--b x-step x-rise x-rise--d2">
+              <div class="x-step__art">
+                <div class="x-fan">
+                  <img src="gg-hero.webp" alt="Gula Gula store concept" loading="lazy" />
+                  <img src="rona-hero.webp" alt="RONA store concept" loading="lazy" />
+                  <img src="kc-hero-storefront.webp" alt="Kinako &amp; Crumb store home page" loading="lazy" />
+                </div>
+              </div>
+              <h3>Launch</h3>
+              <p>We build it, you approve it, and you start selling.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="x-sec x-center" id="clients">
+          <p class="x-label x-rise">Brands we've worked with</p>
+          <div class="x-logos x-rise">
+            <img src="client-mondelez.webp" alt="Mondelez" loading="lazy" />
+            <img src="client-pdg.webp" alt="PDG" loading="lazy" />
+            <img src="client-visit-malaysia-2026.webp" alt="Visit Malaysia 2026" loading="lazy" />
+            <img src="client-ayf.webp" alt="AYF" loading="lazy" />
+            <img src="client-ab-life.webp" alt="AB Life" loading="lazy" />
+            <img src="client-the-artiste.webp" alt="The Artiste" loading="lazy" />
+            <img src="client-young-journalist-camp.webp" alt="Young Journalist Camp" loading="lazy" />
+            <img src="client-yorukai.webp" alt="Yorukai" loading="lazy" />
+            <img src="client-keeks.webp" alt="Keeks" loading="lazy" />
+          </div>
+          <div class="x-founder x-rise" style="text-align: left">
+            <span class="x-av x-av--red"><img src="kites-penguin.svg" alt="" /></span>
+            <p>Kites was started in 2023 in Kuala Lumpur by Chris. We design and build websites and online stores for Malaysian brands, and you talk to the people building yours, directly on WhatsApp.</p>
+          </div>
+        </section>
+        <section class="x-sec" id="benefits" aria-roledescription="carousel" aria-label="Why Kites">
+          <div class="x-bhead x-rise">
+            <div>
+              <p class="x-label">Why Kites</p>
+              <h2 class="x-h2">It's 'why didn't I do this <span class="x-serif">sooner</span>' easy.</h2>
+              <p class="x-sub">No tech headaches, no surprise invoices, and a store that looks as good as your product.</p>
+            </div>
+            <div class="x-ctrl">
+              <button class="x-round x-round--line" id="b-prev" type="button" aria-label="Previous benefit"
+                ><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5m6-6-6 6 6 6"/></svg
+              ></button>
+              <button class="x-round x-round--line" id="b-next" type="button" aria-label="Next benefit"
+                ><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg
+              ></button>
+            </div>
+          </div>
+          <p class="x-sr" id="b-status" aria-live="polite"></p>
+          <div class="x-viewport x-rise">
+            <ul class="x-slides">
+              <li>
+                <span class="x-ico x-card x-card--c x-ico--c"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.6 13.4l-7.2 7.2a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8z"/><circle cx="7.5" cy="7.5" r="1.5"/></svg></span>
+                <h3>Clear price</h3>
+                <p>You see the price before we talk.</p>
+              </li>
+              <li>
+                <span class="x-ico x-card x-card--a"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M11 18h2"/></svg></span>
+                <h3>Built for phones</h3>
+                <p>Most of your customers shop on their phone, so we design there first.</p>
+              </li>
+              <li>
+                <span class="x-ico x-card x-card--b"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2.5"/><path d="M2 10h20M6 15h4"/></svg></span>
+                <h3>Malaysian payments</h3>
+                <p>We set up a payment gateway that supports FPX and DuitNow.</p>
+              </li>
+              <li>
+                <span class="x-ico x-card x-card--d"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="7.5" cy="15.5" r="4.5"/><path d="M10.7 12.3 21 2m-4 4 3 3m-6 0 2 2"/></svg></span>
+                <h3>You own it</h3>
+                <p>Your domain, your Shopify account, your content.</p>
+              </li>
+              <li>
+                <span class="x-ico x-card x-card--c x-ico--c"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></span>
+                <h3>See it first</h3>
+                <p>You see the design before you pay the balance.</p>
+              </li>
+              <li>
+                <span class="x-ico x-card x-card--a"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L3 21l1.9-6.4A8 8 0 1 1 21 12z"/></svg></span>
+                <h3>Real people</h3>
+                <p>Talk to the team building your store, on WhatsApp.</p>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="x-sec" id="work">
+          <div class="x-work x-rise">
+            <div>
+              <h2 class="x-h2">Recent work</h2>
+              <p class="x-sub">Real stores and concepts we've designed.</p>
+              <a class="x-btn" href="https://kitescomingsoon.pages.dev/online-stores" target="_blank" rel="noopener">See our stores</a>
+            </div>
+            <div class="x-collage">
+              <figure><img src="bb-workshop.webp" alt="BimmerBoi website, workshop page" loading="lazy" /><figcaption><b>BimmerBoi</b> · Live website</figcaption></figure>
+              <figure><img src="gg-hero.webp" alt="Gula Gula ecommerce concept, home page" loading="lazy" /><figcaption><b>Gula Gula</b> · Ecommerce concept</figcaption></figure>
+              <figure><img src="rona-hero.webp" alt="RONA ecommerce concept, home page" loading="lazy" /><figcaption><b>RONA</b> · Ecommerce concept</figcaption></figure>
+              <figure><img src="ok-kitchen-sage.webp" alt="Oakline website concept, sage kitchen" loading="lazy" /><figcaption><b>Oakline</b> · Website concept</figcaption></figure>
+            </div>
+          </div>
+        </section>
+
+        <section class="x-sec x-center" id="included">
+          <h2 class="x-h2 x-rise">Everything your store <span class="x-serif">needs.</span></h2>
+          <div class="x-marquee x-rise">
+            <div class="x-row">
+              <ul>
+                <li class="x-chip"><i></i>Shopify setup</li>
+                <li class="x-chip" style="--c: var(--x-red)"><i></i>Store design</li>
+                <li class="x-chip" style="--c: var(--x-blue)"><i></i>Mobile-first pages</li>
+                <li class="x-chip" style="--c: #3f9b6b"><i></i>Product pages</li>
+                <li class="x-chip"><i></i>Collections</li>
+                <li class="x-chip" style="--c: var(--x-red)"><i></i>Payment gateway (FPX &amp; DuitNow)</li>
+              </ul>
+              <ul aria-hidden="true">
+                <li class="x-chip"><i></i>Shopify setup</li>
+                <li class="x-chip" style="--c: var(--x-red)"><i></i>Store design</li>
+                <li class="x-chip" style="--c: var(--x-blue)"><i></i>Mobile-first pages</li>
+                <li class="x-chip" style="--c: #3f9b6b"><i></i>Product pages</li>
+                <li class="x-chip"><i></i>Collections</li>
+                <li class="x-chip" style="--c: var(--x-red)"><i></i>Payment gateway (FPX &amp; DuitNow)</li>
+              </ul>
+            </div>
+            <div class="x-row x-row--rev">
+              <ul>
+                <li class="x-chip" style="--c: var(--x-blue)"><i></i>Shipping rates</li>
+                <li class="x-chip" style="--c: #3f9b6b"><i></i>WhatsApp button</li>
+                <li class="x-chip"><i></i>Domain connected</li>
+                <li class="x-chip" style="--c: var(--x-red)"><i></i>Policies pages</li>
+                <li class="x-chip" style="--c: var(--x-blue)"><i></i>Basic SEO</li>
+                <li class="x-chip" style="--c: #3f9b6b"><i></i>Launch walkthrough</li>
+              </ul>
+              <ul aria-hidden="true">
+                <li class="x-chip" style="--c: var(--x-blue)"><i></i>Shipping rates</li>
+                <li class="x-chip" style="--c: #3f9b6b"><i></i>WhatsApp button</li>
+                <li class="x-chip"><i></i>Domain connected</li>
+                <li class="x-chip" style="--c: var(--x-red)"><i></i>Policies pages</li>
+                <li class="x-chip" style="--c: var(--x-blue)"><i></i>Basic SEO</li>
+                <li class="x-chip" style="--c: #3f9b6b"><i></i>Launch walkthrough</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="x-sec x-center" id="pricing">
+          <p class="x-label x-rise">Pricing</p>
+          <h2 class="x-h2 x-rise">One store, endless <span class="x-serif">possibilities.</span></h2>
+          <div class="x-plans">
+            <p class="x-note" aria-hidden="true">we do it all</p>
+            <svg class="x-doodle x-plans__doodle" viewBox="0 0 150 90" aria-hidden="true"><path pathLength="1" d="M8 18c40-12 92-8 118 26 6 8 9 18 10 30"/><path pathLength="1" d="M124 64l12 14 10-16"/></svg>
+            <div class="x-plan-wrap x-rise">
+              <article class="x-plan">
+                <p class="x-plan__name">Starter</p>
+                <p class="x-price">from <b>RM<span data-count="998">998</span></b></p>
+                <p class="x-plan__lead">We design and set up your store. You add your products.</p>
+                <ul class="x-list">
+                  <li>Shopify store design</li>
+                  <li>Mobile-first pages</li>
+                  <li>Payment gateway setup</li>
+                  <li>Shipping setup</li>
+                  <li>WhatsApp button</li>
+                  <li>Domain connected</li>
+                  <li>Launch walkthrough</li>
+                </ul>
+                <!-- PAYMENT: swap href for payment link -->
+                <a class="x-btn" href="https://wa.me/60102156826?text=Hi%20Kites%2C%20I%27m%20interested%20in%20Start%20Your%20Store%20%E2%80%94%20Starter%20(RM998)" target="_blank" rel="noopener">Start with Starter</a>
+              </article>
+            </div>
+            <div class="x-plan-wrap x-rise x-rise--d1">
+              <img class="x-peek" src="kites-penguin.svg" alt="" />
+              <article class="x-plan x-card x-card--d">
+                <p class="x-plan__name">Full Store <span class="x-badge">MOST POPULAR</span></p>
+                <p class="x-price">from <b>RM<span data-count="3500">3,500</span></b></p>
+                <p class="x-plan__lead">We do everything, including adding up to 30 products.</p>
+                <ul class="x-list">
+                  <li>Everything in Starter</li>
+                  <li>Up to 30 products added</li>
+                  <li>Collections and menus set up</li>
+                  <li>Product photos placed</li>
+                  <li>Policies pages</li>
+                </ul>
+                <!-- PAYMENT: swap href for payment link -->
+                <a class="x-btn x-btn--white" href="https://wa.me/60102156826?text=Hi%20Kites%2C%20I%27m%20interested%20in%20Start%20Your%20Store%20%E2%80%94%20Full%20Store%20(RM3%2C500)" target="_blank" rel="noopener">Get Full Store</a>
+              </article>
+            </div>
+          </div>
+
+          <div class="x-shopify x-rise">
+            <h3>What you pay Shopify directly</h3>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr><th scope="col">Item</th><th scope="col">Cost</th></tr>
+                </thead>
+                <tbody>
+                  <tr><th scope="row">Shopify Basic</th><td>About RM89/month (yearly billing) or RM99 monthly</td></tr>
+                  <tr><th scope="row">Payment gateway</th><td>Its own fee per transaction</td></tr>
+                  <tr><th scope="row">Domain</th><td>Paid yearly</td></tr>
+                  <tr><th scope="row">Paid apps</th><td>Optional</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="fineprint">Paying these yourself means the store is 100% yours.</p>
+          </div>
+        </section>
+
+        <section class="x-sec x-center" id="faq">
+          <p class="x-label x-rise">FAQ</p>
+          <h2 class="x-h2 x-rise">Good <span class="x-serif">questions.</span></h2>
+          <div class="x-faq x-rise">
+            <div class="x-faq__item">
+              <h3><button class="x-faq__q" type="button" aria-expanded="false" aria-controls="f1">How fast can my store be live?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button></h3>
+              <div class="x-faq__a" id="f1"><div><p>It depends on your products and content. We'll give you a date on WhatsApp before you pay.</p></div></div>
+            </div>
+            <div class="x-faq__item">
+              <h3><button class="x-faq__q" type="button" aria-expanded="false" aria-controls="f2">How do I pay?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button></h3>
+              <div class="x-faq__a" id="f2"><div><p>Deposit to start, balance before launch. Bank transfer or DuitNow QR.</p></div></div>
+            </div>
+            <div class="x-faq__item">
+              <h3><button class="x-faq__q" type="button" aria-expanded="false" aria-controls="f3">What if I don't like the design?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button></h3>
+              <div class="x-faq__a" id="f3"><div><p>You see the design before you pay the balance, and we adjust it with you.</p></div></div>
+            </div>
+            <div class="x-faq__item">
+              <h3><button class="x-faq__q" type="button" aria-expanded="false" aria-controls="f4">Do I need products ready?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button></h3>
+              <div class="x-faq__a" id="f4"><div><p>For Starter, you add products after setup. With Full Store, we add up to 30.</p></div></div>
+            </div>
+            <div class="x-faq__item">
+              <h3><button class="x-faq__q" type="button" aria-expanded="false" aria-controls="f5">Why Shopify?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button></h3>
+              <div class="x-faq__a" id="f5"><div><p>It's reliable, easy to run yourself, and grows with you.</p></div></div>
+            </div>
+            <div class="x-faq__item">
+              <h3><button class="x-faq__q" type="button" aria-expanded="false" aria-controls="f6">Can customers pay with FPX or DuitNow?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button></h3>
+              <div class="x-faq__a" id="f6"><div><p>Yes, through a Malaysian payment gateway we connect for you.</p></div></div>
+            </div>
+            <div class="x-faq__item">
+              <h3><button class="x-faq__q" type="button" aria-expanded="false" aria-controls="f7">Who owns the store?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button></h3>
+              <div class="x-faq__a" id="f7"><div><p>You do. Accounts and domain are in your name.</p></div></div>
+            </div>
+            <div class="x-faq__item">
+              <h3><button class="x-faq__q" type="button" aria-expanded="false" aria-controls="f8">What happens after launch?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button></h3>
+              <div class="x-faq__a" id="f8"><div><p>We show you how to run it. Monthly care is available if you want us to keep improving it.</p></div></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="x-sec" id="cta">
+          <div class="x-card x-card--b x-cta x-rise">
+            <span class="x-av x-av--lg x-av--white"><img src="kites-penguin.svg" alt="" /></span>
+            <h2 class="x-h2">See if Kites is right for your <span class="x-serif">store.</span></h2>
+            <small>(It probably is.)</small>
+            <div class="x-acts">
+              <a class="x-btn" href="https://wa.me/60102156826?text=Hi%20Kites%2C%20I%27d%20like%20to%20start%20my%20store" target="_blank" rel="noopener">Chat on WhatsApp</a>
+              <a class="x-text" href="mailto:kites.stdio@gmail.com">Prefer email? kites.stdio@gmail.com</a>
+            </div>
+            <svg class="x-doodle x-cta__doodle" viewBox="0 0 110 80" aria-hidden="true"><path pathLength="1" d="M6 8c4 30 30 52 78 56"/><path pathLength="1" d="M72 52l14 12-14 10"/></svg>
+          </div>
+        </section>
+      </main>
+
+      <footer class="x-foot">
+        <a class="x-logo" href="#top" aria-label="Kites, back to top">
+          <span class="x-av"><img src="kites-penguin.svg" alt="" /></span>
+          <img class="x-wordmark" src="kites-wordmark.svg" alt="Kites" />
+        </a>
+        <p><strong>KITES STUDIO</strong> <span>(202303290741 / 003549061-A)</span></p>
+        <p>22 Jalan PJU 7/10, Mutiara Damansara, 47810 Petaling Jaya, Selangor</p>
+        <p>
+          <span>WhatsApp <a href="https://wa.me/60102156826?text=Hi%20Kites%2C%20I%27d%20like%20to%20start%20my%20store" target="_blank" rel="noopener">+60 10-215 6826</a></span>
+          <a href="mailto:kites.stdio@gmail.com">kites.stdio@gmail.com</a>
+          <span>© 2026 Kites</span>
+        </p>
+      </footer>
+    </div>
+
+    <div class="x-bar" id="bar">
+      <!-- PAYMENT: swap href for payment link -->
+      <a class="x-btn" href="https://wa.me/60102156826?text=Hi%20Kites%2C%20I%27m%20interested%20in%20Start%20Your%20Store%20%E2%80%94%20Starter%20(RM998)" target="_blank" rel="noopener">Start my store · from RM998</a>
+    </div>
+
+    <script src="hark.js"></script>
+    <script>
+      (function () {
+        var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        var $ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+
+        /* sticky nav */
+        var nav = document.querySelector(".x-nav");
+        function onScroll() { nav.classList.toggle("is-scrolled", window.scrollY > 8); }
+        window.addEventListener("scroll", onScroll, { passive: true });
+        onScroll();
+
+        /* count-up */
+        function countUp(el) {
+          var end = +el.getAttribute("data-count");
+          if (reduce) { el.textContent = end.toLocaleString("en-US"); return; }
+          var t0 = null, dur = 1200;
+          function tick(t) {
+            if (!t0) t0 = t;
+            var p = Math.min((t - t0) / dur, 1), e = 1 - Math.pow(1 - p, 3);
+            el.textContent = Math.round(end * e).toLocaleString("en-US");
+            if (p < 1) requestAnimationFrame(tick);
+          }
+          requestAnimationFrame(tick);
+        }
+        if (!reduce) $("[data-count]").forEach(function (el) { el.textContent = "0"; });
+
+        /* reveal, doodles, counters */
+        if ("IntersectionObserver" in window) {
+          var io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) {
+              if (!e.isIntersecting) return;
+              e.target.classList.add("is-in");
+              $("[data-count]", e.target).forEach(countUp);
+              io.unobserve(e.target);
+            });
+          }, { threshold: 0.15, rootMargin: "0px 0px -40px 0px" });
+          $(".x-rise, .x-doodle").forEach(function (el) { io.observe(el); });
+        } else {
+          $(".x-rise, .x-doodle").forEach(function (el) { el.classList.add("is-in"); });
+          $("[data-count]").forEach(countUp);
+        }
+
+        /* 3D tilt */
+        if (!reduce && window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+          $(".x-tilt").forEach(function (el) {
+            el.addEventListener("pointermove", function (e) {
+              var r = el.getBoundingClientRect();
+              var x = (e.clientX - r.left) / r.width - 0.5, y = (e.clientY - r.top) / r.height - 0.5;
+              el.style.transform = "perspective(1000px) rotateX(" + (-y * 8).toFixed(2) + "deg) rotateY(" + (x * 8).toFixed(2) + "deg)";
+            });
+            el.addEventListener("pointerleave", function () { el.style.transform = ""; });
+          });
+        }
+
+        /* benefits slider */
+        var track = document.querySelector(".x-slides");
+        if (track) {
+          var vp = track.parentNode, busy = false, paused = false;
+          var ease = "transform .6s cubic-bezier(0.23, 1, 0.32, 1)";
+          var stepW = function () { return track.children[1].offsetLeft - track.children[0].offsetLeft; };
+          var set = function (x, anim) { track.style.transition = anim && !reduce ? ease : "none"; track.style.transform = "translateX(" + x + "px)"; };
+          var status = document.getElementById("b-status"), pending = null;
+          var announce = function () { var h = track.firstElementChild.querySelector("h3"); if (status && h) status.textContent = "Showing: " + h.textContent; };
+          var flush = function () { if (pending) { var p = pending; pending = null; p(); } };
+          var after = function (fn) {
+            pending = function () { track.removeEventListener("transitionend", f); fn(); };
+            var f = function (e) { if (e && e.target !== track) return; flush(); };
+            if (reduce) { flush(); return; }
+            track.addEventListener("transitionend", f);
+            setTimeout(f, 750);
+          };
+          var next = function () {
+            flush();
+            set(-stepW(), true);
+            after(function () { set(0, false); track.appendChild(track.firstElementChild); announce(); });
+          };
+          var prev = function (from) {
+            flush();
+            var w = stepW();
+            track.insertBefore(track.lastElementChild, track.firstElementChild);
+            set(-w + (from || 0), false);
+            track.offsetWidth;
+            set(0, true);
+            announce();
+            after(function () {});
+          };
+          document.getElementById("b-next").addEventListener("click", next);
+          document.getElementById("b-prev").addEventListener("click", function () { prev(0); });
+
+          var sx = null, dx = 0;
+          vp.addEventListener("pointerdown", function (e) { if (busy) return; sx = e.clientX; dx = 0; paused = true; vp.classList.add("is-drag"); });
+          window.addEventListener("pointermove", function (e) { if (sx === null) return; dx = e.clientX - sx; set(dx, false); });
+          var end = function () {
+            if (sx === null) return;
+            sx = null; vp.classList.remove("is-drag"); paused = vp.matches(":hover");
+            if (dx < -50) next();
+            else if (dx > 50) prev(dx);
+            else set(0, true);
+          };
+          window.addEventListener("pointerup", end);
+          window.addEventListener("pointercancel", end);
+          var zone = document.getElementById("benefits");
+          zone.addEventListener("mouseenter", function () { paused = true; });
+          zone.addEventListener("mouseleave", function () { paused = false; });
+          zone.addEventListener("focusin", function () { paused = true; });
+          zone.addEventListener("focusout", function () { paused = false; });
+          if (!reduce) setInterval(function () { if (!paused && !document.hidden) next(); }, 4000);
+        }
+
+        /* FAQ */
+        var qs = $(".x-faq__q");
+        qs.forEach(function (b) {
+          b.addEventListener("click", function () {
+            var open = b.getAttribute("aria-expanded") === "true";
+            qs.forEach(function (o) { o.setAttribute("aria-expanded", "false"); o.parentNode.parentNode.classList.remove("is-open"); });
+            if (!open) { b.setAttribute("aria-expanded", "true"); b.parentNode.parentNode.classList.add("is-open"); }
+          });
+        });
+
+        /* mobile sticky bar */
+        var bar = document.getElementById("bar"), hero = document.getElementById("hero"), cta = document.getElementById("cta");
+        if ("IntersectionObserver" in window) {
+          var heroGone = false, ctaIn = false;
+          var upd = function () { bar.classList.toggle("is-on", heroGone && !ctaIn); };
+          new IntersectionObserver(function (e) { heroGone = !e[0].isIntersecting && e[0].boundingClientRect.top < 0; upd(); }).observe(hero);
+          if (cta) new IntersectionObserver(function (e) { ctaIn = e[0].isIntersecting; upd(); }).observe(cta);
+        }
+      })();
+    </script>
+  </body>
+</html>

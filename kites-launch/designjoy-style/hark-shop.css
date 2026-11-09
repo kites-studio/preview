@@ -1,0 +1,272 @@
+/* Hark's shop components: a plain page title, a shelf of the library's photo cards on a studio sweep, and the same sweep behind the photos in the library's compare. They use hark.css's tokens, so link this file after it. style-gates: data */
+
+/* @component shop foundations */
+:root {
+  --stage: light-dark(#ececee, #262629); /* the card: a studio sweep behind each product */
+  --stage-glow: light-dark(
+    #fafafb,
+    #3c3c41
+  ); /* the sweep's lit centre, so a black product still reads in dark */
+  --stage-fill: radial-gradient(ellipse 70% 60% at 50% 46%, var(--stage-glow), var(--stage));
+  --type-product: var(--weight-medium) 22px / 1.2 var(--sans);
+}
+/* Section heads stay left-aligned at every width on a shop page. */
+.head {
+  grid-template-columns: minmax(0, 1fr);
+}
+.head__sub {
+  justify-self: start;
+  text-align: left;
+}
+.dot--no::before {
+  background: var(--fill-system-red);
+}
+
+/* @component shop title */
+.shop-title {
+  display: grid;
+  justify-items: start;
+  gap: 14px;
+  max-width: 680px;
+  padding-block: clamp(24px, 5vw, 56px) 8px;
+}
+.shop-title h1 {
+  font: var(--weight-regular) clamp(28px, 3.75vw, 42px) / 1.1 var(--sans);
+  letter-spacing: -0.01em;
+}
+.shop-title__eyebrow {
+  font: var(--type-small);
+  color: var(--text-secondary);
+  font-variant-numeric: tabular-nums;
+}
+.shop-title__intro {
+  max-width: 46ch;
+  font-size: clamp(16px, 1.5vw, 18px);
+  color: var(--text-secondary);
+}
+
+/* @component shelf */
+/* The products as the library's photo cards, under a one-line label saying how they are ranked. */
+.shelf {
+  padding-block: clamp(32px, 4vw, 48px) 16px;
+}
+.shelf__head {
+  margin-bottom: 14px;
+}
+.shelf__label {
+  font: var(--type-label);
+  color: var(--text-secondary);
+}
+
+/* @component photo cards, on the stage */
+/* In the shelf, each photo is a square that fits a cutout product whole, with its dots under it
+   instead of over it. The product's name and its price sit on two lines, whatever the name's length. */
+.shelf .photo-card {
+  background: var(--stage);
+}
+.shelf .photo-card__stage {
+  background: var(--stage-fill);
+}
+.shelf .photo-card__photos {
+  aspect-ratio: 1;
+}
+.shelf .photo-card__photos img {
+  padding: 9% 9% 2%;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+}
+:root[data-theme='dark'] .shelf .photo-card__photos img {
+  mix-blend-mode: normal;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) .shelf .photo-card__photos img {
+    mix-blend-mode: normal;
+  }
+}
+.shelf .photo-card__dots {
+  position: static;
+  padding-bottom: 6px;
+}
+.shelf .photo-card__dots i {
+  background: var(--text-primary);
+  opacity: 0.2;
+  box-shadow: none;
+}
+.shelf .photo-card__dots i.is-on {
+  opacity: 0.9;
+}
+.shelf .photo-card__head {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+}
+.shelf .photo-card__head h3 {
+  font: var(--type-product);
+}
+.photo-card__colors {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  font: var(--type-small);
+  color: var(--text-secondary);
+}
+.minis {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+}
+.minis i {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--swatch);
+  box-shadow: inset 0 0 0 1px var(--stroke-primary);
+}
+.compare .minis {
+  margin-top: 6px;
+}
+.compare .minis i {
+  width: 10px;
+  height: 10px;
+}
+
+/* @component compare, on the stage */
+/* The library's compare, with each photo on the same sweep as the cards, and a bar on one scale per
+   row for numbers worth reading at a glance. */
+.compare .compare__media {
+  background: var(--stage-fill);
+  padding: 8px;
+}
+.compare .compare__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.meter {
+  display: block;
+  max-width: 140px;
+  height: 4px;
+  margin-top: 8px;
+  border-radius: 2px;
+  background: linear-gradient(
+    to right,
+    var(--fill-primary) calc(var(--v) * 100%),
+    var(--fill-tertiary) 0
+  );
+}
+
+/* @component shelf on a phone */
+/* The shelf never shows one card per row: two cards share a row once --photo-card-min no longer fits twice.
+   On a page held upright, while the shelf is no wider than 767px (below the kit's switch to three
+   cards), the cards become tiles, two per row: one photo, the rank, the name, the price and the Hark
+   button. --photo-card-tile tells hark-cards.js to open a tapped tile's whole card in a sheet. */
+.shelf {
+  container: shelf / inline-size;
+}
+.shelf .photo-cards {
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(min(var(--photo-card-min), calc(50% - 8px)), 1fr)
+  );
+}
+.shelf .photo-card-sheet__panel {
+  background: var(--stage);
+}
+@container shelf (max-width: 767px) {
+  @media (orientation: portrait) {
+    .shelf .photo-cards {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+    .shelf .photo-cards > .photo-card {
+      --photo-card-tile: 1;
+      border-radius: 18px;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .shelf .photo-cards > .photo-card .photo-card__stage {
+      border-radius: 18px 18px 0 0;
+    }
+    .shelf .photo-cards > .photo-card .photo-card__photos {
+      overflow: hidden;
+    }
+    .shelf .photo-cards > .photo-card .photo-card__photos img {
+      padding: 10% 10% 3%;
+    }
+    .shelf .photo-cards > .photo-card .photo-card__photos img:not(:first-child),
+    .shelf .photo-cards > .photo-card .photo-card__dots {
+      display: none;
+    }
+    .shelf .photo-cards > .photo-card .photo-card__rank {
+      top: 8px;
+      left: 8px;
+      max-width: calc(100% - 16px);
+      padding: 3px 8px;
+      overflow: hidden;
+      font-size: 11px;
+      line-height: 16px;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+    .shelf .photo-cards > .photo-card .photo-card__body {
+      gap: 6px;
+      padding: 8px 12px 14px;
+    }
+    .shelf .photo-cards > .photo-card .photo-card__body > :not(.photo-card__head, .btn) {
+      display: none;
+    }
+    .shelf .photo-cards > .photo-card .photo-card__body > .photo-card__open {
+      display: block;
+    }
+    .shelf .photo-cards > .photo-card .photo-card__head h3,
+    .shelf .photo-cards > .photo-card .photo-card__price {
+      font-size: 15px;
+      line-height: 1.25;
+    }
+    .shelf .photo-cards > .photo-card .photo-card__head h3 {
+      display: -webkit-box;
+      overflow: hidden;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
+    .shelf .photo-cards > .photo-card .photo-card__price s {
+      margin-right: 4px;
+      font-size: 12px;
+    }
+    .shelf .photo-cards > .photo-card .photo-card__body > .btn {
+      min-height: 36px;
+      padding: 6px 10px;
+      font-size: 13px;
+    }
+  }
+}
+
+@media (min-width: 761px) {
+  .section {
+    padding-block: 48px 16px;
+  }
+  .head {
+    row-gap: 6px;
+    margin-bottom: 28px;
+  }
+  .head h2 {
+    font-size: 28px;
+    line-height: 1.25;
+  }
+}
+@media (max-width: 760px) {
+  .shelf {
+    padding-top: 28px;
+  }
+  .section {
+    padding-block: 32px 12px;
+  }
+  .head {
+    gap: 4px;
+    margin-bottom: 18px;
+  }
+  .head h2 {
+    font-size: 24px;
+  }
+}
